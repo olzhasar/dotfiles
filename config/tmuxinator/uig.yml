@@ -1,7 +1,7 @@
-# /home/olzhas/.config/tmuxinator/investengine.yml
+# /home/olzhas/.config/tmuxinator/uig-backend.yml
 
-name: investengine
-root: ~/Development/investengine.com/
+name: uig
+root: /home/olzhas/Development/uig/
 
 # Optional tmux socket
 # socket_name: foo
@@ -12,22 +12,22 @@ root: ~/Development/investengine.com/
 # Project hooks
 
 # Runs on project start, always
-on_project_start: vagrant up
+# on_project_start: vagrant up
 
 # Run on project start, the first time
 # on_project_first_start: command
 
 # Run on project start, after the first time
-on_project_restart: vagrant up
+# on_project_restart: vagrant up
 
 # Run on project exit ( detaching from tmux session )
-on_project_exit: vagrant halt
+# on_project_exit: command
 
 # Run on project stop
-on_project_stop: vagrant halt
+# on_project_stop: command
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-# pre_window: source investengine.com-aXkthJk3/bin/activate
+# pre_window: source ~/.virtualenvs/uig/bin/activate
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -45,17 +45,24 @@ on_project_stop: vagrant halt
 # attach: false
 
 windows:
-  - editor:
+  - backend:
+      root: /home/olzhas/Development/uig/uig-backend/src
       layout: d3a4,190x44,0,0[190x32,0,0,0,190x11,0,33{95x11,0,33,3,94x11,96,33,4}]
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - pipenv shell && nvim .
-        - vagrant ssh
-        - pipenv shell
+        - source ../venv/bin/activate && vim .
+        - source ../venv/bin/activate && python manage.py runserver
+        - source ../venv/bin/activate 
+  - frontend:
+      root: /home/olzhas/Development/uig/uig-frontend
+      layout: d3a4,190x44,0,0[190x32,0,0,0,190x11,0,33{95x11,0,33,3,94x11,96,33,4}]
+      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
+      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
+      # synchronize: after
+      panes:
+        - vim .
+        - npm run start
+        -
   - shell:
-    layout: even-vertical
-    panes:
-        - vagrant ssh
-        - vagrant ssh
