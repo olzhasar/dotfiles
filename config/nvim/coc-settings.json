@@ -1,0 +1,12 @@
+{
+  "python.linting.flake8Enabled": false,
+  "python.linting.enabled": false,
+  "python.analysis.diagnosticMode": "off",
+  "python.analysis.typeCheckingMode": "off",
+  "python.analysis.enabled": false,
+  "python.diagnostic.enabled": false,
+  "pyright.diagnostic.enabled": false,
+  "pyright.analysis.enabled": false,
+  "pyright.linting.enabled": false,
+  "diagnostic.enable": false
+}
