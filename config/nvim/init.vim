@@ -128,6 +128,7 @@ nmap <silent> gp <Plug>(ale_previous)
 
 nmap <silent> <leader>t :TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>L :TestLast<CR>
 
 set wildchar=<Tab> wildmenu wildmode=full
 set wildcharm=<C-Z>
