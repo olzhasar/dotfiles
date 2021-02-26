@@ -97,25 +97,28 @@ let g:airline_theme='gruvbox'
 """"""""""""""""""""""""""""""
 cabbrev vb vert sb
 
-nmap <silent> <F7> :ALEFix<CR>
-
-nnoremap ; :Files<CR>
 nnoremap <C-j> :bp<CR>
 nnoremap <C-k> :bn<CR>
 vnoremap <Leader>y "+y
+nnoremap <Leader>ls :Buffers<CR>
+nnoremap <Leader>bd :bd<CR>
+
 nnoremap <F8> :TagbarToggle<CR>
+
 nnoremap <Leader>f :Explore<CR>
 nnoremap <Leader>v :Vexplore<CR>
+
+nnoremap <Leader><Leader> :GFiles<CR>
+nnoremap <Leader>fi :Files<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gw :Gwrite<CR>
 nnoremap <Leader>gf :GF?<CR>
 nnoremap <Leader>gb :GBrowse<CR>
 nnoremap <Leader>ag :Ag<CR>
-nnoremap <Leader>h :History<CR>
+nnoremap <Leader>H :History<CR>
 nnoremap <Leader>s :BLines<CR>
+
 nnoremap <Leader>af :ALEFix<CR>
-nnoremap <Leader>be :Buffers<CR>
-nnoremap <Leader>bd :bd<CR>
 
 nmap <silent> gn <Plug>(ale_next)
 nmap <silent> gp <Plug>(ale_previous)
@@ -125,16 +128,8 @@ nmap <silent> <leader>T :TestFile<CR>
 
 set wildchar=<Tab> wildmenu wildmode=full
 set wildcharm=<C-Z>
-nnoremap <F10> :b <C-Z>
 
-if !has("gui_running")
-    inoremap <C-@> <C-x><C-o>
-endif
-
-autocmd FileType python nnoremap <leader>y :ALEFix black<CR>
-
-command! -nargs=* ST :belowright 8sp|:term ++curwin <args>
-command! -nargs=* VT :belowright vs|:term ++curwin <args>
+autocmd FileType python nnoremap <leader>B :ALEFix black<CR>
 
 """"""""""""""""""""""""""""""
 " => Plugin options
