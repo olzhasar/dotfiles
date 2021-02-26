@@ -97,6 +97,8 @@ let g:airline_theme='gruvbox'
 """"""""""""""""""""""""""""""
 cabbrev vb vert sb
 
+nnoremap <Leader>vim :edit ~/.config/nvim/ <CR>
+
 nnoremap <C-j> :bp<CR>
 nnoremap <C-k> :bn<CR>
 vnoremap <Leader>y "+y
@@ -112,6 +114,7 @@ nnoremap <Leader><Leader> :GFiles<CR>
 nnoremap <Leader>fi :Files<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gw :Gwrite<CR>
+nnoremap <Leader>gp :Git push
 nnoremap <Leader>gf :GF?<CR>
 nnoremap <Leader>gb :GBrowse<CR>
 nnoremap <Leader>ag :Ag<CR>
