@@ -107,19 +107,20 @@ nnoremap <Leader>bd :bd<CR>
 
 nnoremap <F8> :TagbarToggle<CR>
 
-nnoremap <Leader>f :Explore<CR>
-nnoremap <Leader>v :Vexplore<CR>
+nnoremap <Leader>e :Explore<CR>
+nnoremap <Leader>ve :Vexplore<CR>
 
 nnoremap <Leader><Leader> :GFiles<CR>
 nnoremap <Leader>fi :Files<CR>
-nnoremap <Leader>gs :Gstatus<CR>
-nnoremap <Leader>gw :Gwrite<CR>
-nnoremap <Leader>gp :Git push
-nnoremap <Leader>gf :GF?<CR>
-nnoremap <Leader>gb :GBrowse<CR>
-nnoremap <Leader>ag :Ag<CR>
 nnoremap <Leader>H :History<CR>
 nnoremap <Leader>s :BLines<CR>
+nnoremap <Leader>ag :Ag<CR>
+nnoremap <Leader>gf :GF?<CR>
+
+nnoremap <Leader>gs :Git<CR>
+nnoremap <Leader>gw :Gwrite<CR>
+nnoremap <Leader>gp :Git push<CR>
+nnoremap <Leader>gb :GBrowse<CR>
 
 nnoremap <Leader>af :ALEFix<CR>
 
