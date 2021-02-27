@@ -62,6 +62,9 @@ set splitbelow
 set shiftwidth=2
 set softtabstop=2
 
+set smartcase
+set ignorecase
+
 set exrc  "look for local .vimrc files in project dir
 set secure  "do not allow dangerous commands in local .vimrc
 
@@ -97,7 +100,7 @@ let g:airline_theme='gruvbox'
 """"""""""""""""""""""""""""""
 cabbrev vb vert sb
 
-nnoremap <Leader>vim :edit ~/.config/nvim/ <CR>
+command! Vimrc :vs $MYVIMRC
 
 nnoremap <C-j> :bp<CR>
 nnoremap <C-k> :bn<CR>
