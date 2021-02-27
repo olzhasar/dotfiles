@@ -1,45 +1,48 @@
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'morhetz/gruvbox'
-
+" => Fuzzy search
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+" => Appearance
+Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" => Autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
 
+" => Git tools
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/gv.vim'
+Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-rhubarb'
+Plug 'junegunn/gv.vim'
 
+" => Tag generation
 Plug 'ludovicchabant/vim-gutentags'
 
+" => Typing utils
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-
-Plug 'othree/html5.vim'
 Plug 'mattn/emmet-vim'
-Plug 'ap/vim-css-color'
 
+" => Syntax
+Plug 'othree/html5.vim'
+Plug 'ap/vim-css-color'
 Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'posva/vim-vue'
-
 Plug 'Vimjas/vim-python-pep8-indent'
-
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'cespare/vim-toml'
+Plug 'lervag/vimtex'
 
+" => Testing
 Plug 'vim-test/vim-test'
 Plug 'preservim/vimux'
-
-Plug 'lervag/vimtex'
-Plug 'cespare/vim-toml'
 
 Plug 'embear/vim-localvimrc'
 
