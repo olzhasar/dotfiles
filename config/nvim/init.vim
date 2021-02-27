@@ -16,6 +16,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/gv.vim'
 Plug 'tpope/vim-rhubarb'
 
+Plug 'ludovicchabant/vim-gutentags'
+
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
@@ -71,6 +73,7 @@ set secure  "do not allow dangerous commands in local .vimrc
 set hidden
 set nobackup
 set nowritebackup
+set noswapfile
 
 set pastetoggle=<F3>
 
