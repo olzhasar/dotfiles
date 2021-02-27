@@ -105,8 +105,6 @@ vnoremap <Leader>y "+y
 nnoremap <Leader>ls :Buffers<CR>
 nnoremap <Leader>bd :bd<CR>
 
-nnoremap <F8> :TagbarToggle<CR>
-
 nnoremap <Leader>e :Explore<CR>
 nnoremap <Leader>ve :Vexplore<CR>
 
@@ -156,10 +154,6 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
-
-let g:tagbar_autofocus = 1
-let g:tagbar_autoclose = 1
-let g:tagbar_foldlevel = 0
 
 let g:vim_markdown_math = 1
 let g:vim_markdown_frontmatter = 1
