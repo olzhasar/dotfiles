@@ -13,6 +13,7 @@ Plug 'dense-analysis/ale'
 
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/gv.vim'
 Plug 'tpope/vim-rhubarb'
 
 Plug 'jiangmiao/auto-pairs'
