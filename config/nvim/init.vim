@@ -100,8 +100,6 @@ let g:airline_theme='gruvbox'
 """"""""""""""""""""""""""""""
 cabbrev vb vert sb
 
-command! Vimrc :vs $MYVIMRC
-
 nnoremap <C-j> :bp<CR>
 nnoremap <C-k> :bn<CR>
 vnoremap <Leader>y "+y
@@ -138,6 +136,13 @@ set wildchar=<Tab> wildmenu wildmode=full
 set wildcharm=<C-Z>
 
 autocmd FileType python nnoremap <leader>B :ALEFix black<CR>
+
+""""""""""""""""""""""""""""""
+" => Commands
+""""""""""""""""""""""""""""""
+
+command! Vimrc :vs $MYVIMRC
+command! FormatXML :%!python3 -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"
 
 """"""""""""""""""""""""""""""
 " => Plugin options
@@ -203,16 +208,10 @@ let g:ale_lint_on_enter = 0
 
 let g:ale_lint_delay = 100
 
-""""""""""""""""""""""""""""""
-" => MISC
-""""""""""""""""""""""""""""""
-
-com! FormatXML :%!python3 -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"
 
 """"""""""""""""""""""""""""""
 " => COC autocomplete settings
 """"""""""""""""""""""""""""""
-
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
