@@ -141,6 +141,7 @@ autocmd FileType python nnoremap <leader>B :ALEFix black<CR>
 """"""""""""""""""""""""""""""
 
 command! Vimrc :e $MYVIMRC
+command! SVimrc :source $MYVIMRC
 command! FormatXML :%!python3 -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"
 
 """"""""""""""""""""""""""""""
