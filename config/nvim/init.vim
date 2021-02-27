@@ -5,7 +5,6 @@ Plug 'morhetz/gruvbox'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -141,7 +140,7 @@ autocmd FileType python nnoremap <leader>B :ALEFix black<CR>
 " => Commands
 """"""""""""""""""""""""""""""
 
-command! Vimrc :vs $MYVIMRC
+command! Vimrc :e $MYVIMRC
 command! FormatXML :%!python3 -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"
 
 """"""""""""""""""""""""""""""
