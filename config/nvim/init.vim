@@ -35,6 +35,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'posva/vim-vue'
 Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'cespare/vim-toml'
