@@ -123,5 +123,3 @@ export PATH="$PATH:~/.ruby/bin"
 export EDITOR=nvim
 
 set -o vi
-
-source ~/.bwkey
