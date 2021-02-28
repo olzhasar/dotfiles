@@ -121,3 +121,7 @@ export GEM_HOME=~/.ruby/
 export PATH="$PATH:~/.ruby/bin"
 
 export EDITOR=nvim
+
+set -o vi
+
+source ~/.bwkey
