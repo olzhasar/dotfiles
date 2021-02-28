@@ -12,6 +12,9 @@ Plug 'ap/vim-buftabline'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
 
+" => Session management
+Plug 'tpope/vim-obsession'
+
 " => Git tools
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
