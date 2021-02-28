@@ -99,7 +99,6 @@ set signcolumn=yes
 """"""""""""""""""""""""""""""
 set background=dark
 colorscheme gruvbox
-let g:airline_theme='gruvbox'
 
 """"""""""""""""""""""""""""""
 " => Mappings
@@ -166,24 +165,6 @@ let g:netrw_liststyle = 3
 let g:vim_markdown_math = 1
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_folding_disabled = 1
-
-let g:airline_powerline_fonts = 1
-
-let g:airline_section_a = ''
-let g:airline_section_x = ''
-let g:airline_section_y = ''
-
-let g:airline#extensions#tabline#enabled = 1  "diplay buffer names on top"
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-
-let g:airline#extensions#tagbar#enabled = 0
-
-let g:airline#extensions#branch#displayed_head_limit = 10
-
-let g:airline#extensions#virtualenv#enabled = 1
-let g:airline#extensions#coc#enabled = 0
-let g:airline#extensions#fzf#enabled = 0
-let g:airline#extensions#ale#enabled = 0
 
 let g:tex_flavor = 'latex'
 
