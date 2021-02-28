@@ -6,8 +6,7 @@ Plug 'junegunn/fzf.vim'
 
 " => Appearance
 Plug 'morhetz/gruvbox'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'ap/vim-buftabline'
 
 " => Autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -106,6 +105,7 @@ let g:airline_theme='gruvbox'
 " => Mappings
 """"""""""""""""""""""""""""""
 cabbrev vb vert sb
+cabbrev vsf vert sf
 
 nnoremap <C-j> :bp<CR>
 nnoremap <C-k> :bn<CR>
@@ -123,7 +123,7 @@ nnoremap <Leader>s :BLines<CR>
 nnoremap <Leader>ag :Ag<CR>
 nnoremap <Leader>gf :GF?<CR>
 
-nnoremap <Leader>gs :Git<CR>
+nnoremap <Leader>gs :vertical Git<CR>
 nnoremap <Leader>gw :Gwrite<CR>
 nnoremap <Leader>gp :Git push<CR>
 nnoremap <Leader>gb :GBrowse<CR>
