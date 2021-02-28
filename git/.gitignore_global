@@ -1,5 +1,7 @@
 .vimrc
 .lvimrc
 tags
+tags.lock
+tags.temp
 session.vim
 .vim/
