@@ -225,6 +225,7 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gde <Plug>(coc-definition)
 nmap <silent> gds :call CocAction('jumpDefinition', 'split') <CR>
 nmap <silent> gdv :call CocAction('jumpDefinition', 'vsplit') <CR>
 nmap <silent> gy <Plug>(coc-type-definition)
