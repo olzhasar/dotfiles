@@ -49,6 +49,9 @@ Plug 'preservim/vimux'
 
 Plug 'embear/vim-localvimrc'
 
+" => Misc
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+
 call plug#end()
 
 """"""""""""""""""""""""""""""
@@ -222,6 +225,8 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gds :call CocAction('jumpDefinition', 'split') <CR>
+nmap <silent> gdv :call CocAction('jumpDefinition', 'vsplit') <CR>
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gr <Plug>(coc-references)
 
