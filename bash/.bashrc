@@ -116,7 +116,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-alias python=python3
 export GEM_HOME=~/.ruby/
 export PATH="$PATH:~/.ruby/bin"
 
