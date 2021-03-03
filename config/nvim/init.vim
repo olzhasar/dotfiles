@@ -12,8 +12,11 @@ Plug 'ap/vim-buftabline'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
 
-" => Session management
+" => Utils
 Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-eunuch'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'embear/vim-localvimrc'
 
 " => Git tools
 Plug 'tpope/vim-fugitive'
@@ -21,10 +24,7 @@ Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
 
-" => Tag generation
-Plug 'ludovicchabant/vim-gutentags'
-
-" => Typing utils
+" => Typing
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
@@ -42,12 +42,11 @@ Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'cespare/vim-toml'
 Plug 'lervag/vimtex'
+Plug 'elixir-editors/vim-elixir'
 
 " => Testing
 Plug 'vim-test/vim-test'
-Plug 'preservim/vimux'
-
-Plug 'embear/vim-localvimrc'
+Plug 'tpope/vim-dispatch'
 
 " => Misc
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
@@ -112,11 +111,15 @@ colorscheme gruvbox
 cabbrev vb vert sb
 cabbrev vsf vert sf
 
+command! Bd bp|bd # 
+
 nnoremap <C-j> :bp<CR>
 nnoremap <C-k> :bn<CR>
 vnoremap <Leader>y "+y
 nnoremap <Leader>ls :Buffers<CR>
-nnoremap <Leader>bd :bd<CR>
+nnoremap <Leader>bd :Bd<CR>
+
+nnoremap <Leader>co :Copen<CR>
 
 nnoremap <Leader>e :Explore<CR>
 nnoremap <Leader>ve :Vexplore<CR>
@@ -175,11 +178,9 @@ let g:vim_markdown_folding_disabled = 1
 let g:tex_flavor = 'latex'
 
 let test#python#runner = 'pytest'
-let test#strategy = 'vimux'
+let test#strategy = 'dispatch'
 
 let g:localvimrc_ask=0
-
-let g:VimuxRunnerIndex = 3
 
 """"""""""""""""""""""""""""""
 " => ALE
