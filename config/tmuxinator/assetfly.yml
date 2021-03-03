@@ -45,14 +45,8 @@ root: ~/Development/assetfly/
 # attach: false
 
 windows:
-  - backend:
-      layout: d3a4,190x44,0,0[190x32,0,0,0,190x11,0,33{95x11,0,33,3,94x11,96,33,4}]
-      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
-      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
-      # synchronize: after
-      panes:
-        - pipenv shell vim .
-        - pipenv shell python manage.py runserver
-        - pipenv shell
-  - shell:
+  - vim:
+      - pipenv shell vim -S Session.vim
+  - server:
+    - pipenv shell python manage.py runserver
   - postgres:
