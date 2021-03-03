@@ -115,6 +115,10 @@ command! Bd bp|bd #
 
 nnoremap <C-j> :bp<CR>
 nnoremap <C-k> :bn<CR>
+
+nnoremap <M-j> :tabprevious<CR>
+nnoremap <M-k> :tabnext<CR>
+
 vnoremap <Leader>y "+y
 nnoremap <Leader>ls :Buffers<CR>
 nnoremap <Leader>bd :Bd<CR>
@@ -124,10 +128,7 @@ nnoremap <Leader>co :Copen<CR>
 nnoremap <Leader>e :Explore<CR>
 nnoremap <Leader>ve :Vexplore<CR>
 
-nnoremap <Leader><Leader> :GFiles<CR>
-nnoremap <Leader>fi :Files<CR>
-nnoremap <Leader>H :History<CR>
-nnoremap <Leader>s :BLines<CR>
+nnoremap <Leader><Leader> :Files<CR>
 nnoremap <Leader>ag :Ag<CR>
 nnoremap <Leader>gf :GF?<CR>
 
@@ -183,6 +184,10 @@ let test#python#runner = 'pytest'
 let test#strategy = 'dispatch'
 
 let g:localvimrc_ask=0
+
+let g:gutentags_ctags_exclude = ["*.min.js", "*.min.css", "build", "dist", "vendor", ".git", "node_modules", "*.vim", "*.pyc", "migrations"]
+let g:gutentags_project_root = ['package.json', '.git']
+let g:gutentags_add_default_project_roots = 0
 
 """"""""""""""""""""""""""""""
 " => ALE
