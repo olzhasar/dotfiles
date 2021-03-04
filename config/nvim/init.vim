@@ -88,7 +88,13 @@ set noswapfile
 
 set pastetoggle=<F3>
 
-set statusline^=%{coc#status()}
+set laststatus=2
+set statusline=
+set statusline+=\ %f
+set statusline+=\ %=
+set statusline+=\ %y
+set statusline+=\ %p%%
+set statusline+=\ %l:%c
 
 " Better display for messages
 set cmdheight=2
@@ -297,7 +303,7 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " Show all diagnostics
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+nnoremap <silent> <space>e :CocCommand explorer<CR>
 " Show commands
 nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document
