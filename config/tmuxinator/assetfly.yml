@@ -45,8 +45,11 @@ root: ~/Development/assetfly/
 # attach: false
 
 windows:
-  - vim:
+  - backend:
       - pipenv shell vim -S Session.vim
   - server:
     - pipenv shell python manage.py runserver
-  - postgres:
+  - frontend:
+    - cd frontend && vim -S Session.vim
+  - yarn:
+    - cd frontend && yarn serve
