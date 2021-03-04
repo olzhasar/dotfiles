@@ -75,6 +75,8 @@ set softtabstop=2
 set smartcase
 set ignorecase
 
+set clipboard=unnamedplus
+
 set exrc  "look for local .vimrc files in project dir
 set secure  "do not allow dangerous commands in local .vimrc
 
