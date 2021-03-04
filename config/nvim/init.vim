@@ -17,6 +17,7 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-eunuch'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'embear/vim-localvimrc'
+Plug 'easymotion/vim-easymotion'
 
 " => Git tools
 Plug 'tpope/vim-fugitive'
@@ -129,9 +130,9 @@ nnoremap <Leader>co :Copen<CR>
 nnoremap <Leader>e :Explore<CR>
 nnoremap <Leader>ve :Vexplore<CR>
 
-nnoremap <Leader><Leader> :Files<CR>
+nnoremap <C-F> :GFiles<CR>
+nnoremap <C-S> :Files<CR>
 nnoremap <Leader>ag :Ag<CR>
-nnoremap <Leader>gf :GF?<CR>
 
 nnoremap <Leader>gs :vertical Git<CR>
 nnoremap <Leader>gw :Gwrite<CR>
