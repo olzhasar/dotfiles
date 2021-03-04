@@ -121,7 +121,6 @@ nnoremap <C-k> :bn<CR>
 nnoremap <M-j> :tabprevious<CR>
 nnoremap <M-k> :tabnext<CR>
 
-vnoremap <Leader>y "+y
 nnoremap <Leader>ls :Buffers<CR>
 nnoremap <Leader>bd :Bd<CR>
 
