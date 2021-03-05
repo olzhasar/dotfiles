@@ -16,6 +16,7 @@ Plug 'dense-analysis/ale'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-eunuch'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'mhinz/vim-startify'
 
 " => Git tools
 Plug 'tpope/vim-fugitive'
@@ -202,6 +203,13 @@ let g:fzf_action = {
       \ 'ctrl-t': 'tab split',
       \ 'ctrl-s': 'split',
       \ 'ctrl-v': 'vsplit' }
+
+let g:startify_bookmarks = [
+      \ '$MYVIMRC',
+      \ '~/.dotfiles/bash/.bashrc',
+      \ '~/.dotfiles/tmux/.tmux.conf',
+      \ '~/.dotfiles/git/.gitignore_global',
+      \]
 
 """"""""""""""""""""""""""""""
 " => ALE
