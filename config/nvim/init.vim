@@ -137,9 +137,9 @@ nnoremap <Leader>D :Dispatch<CR>
 nnoremap <Leader>e :Explore<CR>
 nnoremap <Leader>le :Lexplore<CR>
 
-nnoremap <C-F> :GFiles<CR>
-nnoremap <C-S> :Files<CR>
-nnoremap <C-A> :Ag<CR>
+nnoremap <C-f> :GFiles<CR>
+nnoremap <Leader>f :Files<CR>
+nnoremap <C-s> :Ag<CR>
 
 nnoremap <Leader>gs :vertical Git<CR>
 nnoremap <Leader>gw :Gwrite<CR>
