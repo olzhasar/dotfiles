@@ -147,8 +147,8 @@ nnoremap <Leader>gw :Gwrite<CR>
 nnoremap <Leader>gp :Git push<CR>
 nnoremap <Leader>gb :GBrowse<CR>
 
+nnoremap <Leader>df :Gdiff<CR>
 nnoremap <Leader>dt :Git difftool<CR>
-nnoremap <Leader>di :Gdiff<CR>
 
 nnoremap <Leader>af :ALEFix<CR>
 
