@@ -47,6 +47,7 @@ Plug 'elixir-editors/vim-elixir'
 " => Testing
 Plug 'vim-test/vim-test'
 Plug 'tpope/vim-dispatch'
+Plug 'alfredodeza/pytest.vim'
 
 call plug#end()
 
@@ -217,6 +218,8 @@ let g:startify_bookmarks = [
       \ '~/.dotfiles/tmux/.tmux.conf',
       \ '~/.dotfiles/git/.gitignore_global',
       \]
+
+let g:dispatch_no_tmux_make = 1
 
 """"""""""""""""""""""""""""""
 " => ALE
