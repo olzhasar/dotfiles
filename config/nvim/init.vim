@@ -133,8 +133,7 @@ nnoremap <Leader>ls :Buffers<CR>
 nnoremap <Leader>bd :Bd<CR>
 
 nnoremap <Leader>co :Copen<CR>
-
-nnoremap <Leader>D :Dispatch<CR>
+nnoremap <Leader>cc :cclose<CR>
 
 nnoremap <Leader>e :Explore<CR>
 nnoremap <Leader>le :Lexplore<CR>
@@ -147,6 +146,9 @@ nnoremap <Leader>gs :vertical Git<CR>
 nnoremap <Leader>gw :Gwrite<CR>
 nnoremap <Leader>gp :Git push<CR>
 nnoremap <Leader>gb :GBrowse<CR>
+
+nnoremap <Leader>dt :Git difftool<CR>
+nnoremap <Leader>di :Gdiff<CR>
 
 nnoremap <Leader>af :ALEFix<CR>
 
