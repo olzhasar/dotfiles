@@ -139,7 +139,7 @@ nnoremap <Leader>le :Lexplore<CR>
 
 nnoremap <C-F> :GFiles<CR>
 nnoremap <C-S> :Files<CR>
-nnoremap <Leader>ag :Ag<CR>
+nnoremap <C-A> :Ag<CR>
 
 nnoremap <Leader>gs :vertical Git<CR>
 nnoremap <Leader>gw :Gwrite<CR>
