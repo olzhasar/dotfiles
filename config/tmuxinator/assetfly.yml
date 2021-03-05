@@ -46,10 +46,15 @@ root: ~/Development/assetfly/
 
 windows:
   - backend:
-      - pipenv shell vim -S Session.vim
-  - server:
-    - pipenv shell python manage.py runserver
+      layout: e3ca,213x62,0,0[213x46,0,0,0,213x15,0,47{106x15,0,47,1,106x15,107,47,3}]
+      panes:
+        - pipenv shell vim -S Session.vim
+        - pipenv shell python manage.py runserver
+        - pipenv shell
+  - db:
   - frontend:
-    - cd frontend && vim -S Session.vim
-  - yarn:
-    - cd frontend && yarn serve
+      layout: main-vertical
+      root: ~/Development/assetfly/frontend/
+      panes:
+        - vim -S Session.vim
+        - yarn serve

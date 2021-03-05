@@ -50,15 +50,17 @@ windows:
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
+      layout: main-horizontal
       panes:
         - source ../venv/bin/activate && vim -S Session.vim 
+        - source ../venv/bin/activate
   - server:
       root: /home/olzhas/Development/uig/uig-backend/src
       panes:
         - source ../venv/bin/activate && python manage.py runserver
   - frontend:
       root: /home/olzhas/Development/uig/uig-frontend
-      layout: d3a4,190x44,0,0[190x32,0,0,0,190x11,0,33{95x11,0,33,3,94x11,96,33,4}]
+      layout: main-vertical
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
