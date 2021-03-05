@@ -17,7 +17,6 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-eunuch'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'mhinz/vim-startify'
-Plug 'christoomey/vim-tmux-navigator'
 
 " => Git tools
 Plug 'tpope/vim-fugitive'
@@ -123,6 +122,11 @@ cabbrev vb vert sb
 cabbrev vsf vert sf
 
 command! Bd bp|bd # 
+
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 nnoremap <M-j> :bp<CR>
 nnoremap <M-k> :bn<CR>
