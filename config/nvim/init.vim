@@ -16,14 +16,12 @@ Plug 'dense-analysis/ale'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-eunuch'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'embear/vim-localvimrc'
-Plug 'easymotion/vim-easymotion'
 
 " => Git tools
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
-Plug 'tpope/vim-rhubarb'
-Plug 'junegunn/gv.vim'
+Plug 'tpope/vim-rhubarb' "enable GBrowse from fugitive
+Plug 'junegunn/gv.vim'  "commit broswer
 
 " => Typing
 Plug 'jiangmiao/auto-pairs'
@@ -49,9 +47,6 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'vim-test/vim-test'
 Plug 'tpope/vim-dispatch'
 
-" => Misc
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
-
 call plug#end()
 
 """"""""""""""""""""""""""""""
@@ -75,6 +70,10 @@ set softtabstop=2
 
 set smartcase
 set ignorecase
+
+set autoread
+set history=1000
+set scrolloff=10
 
 set clipboard=unnamedplus
 
@@ -133,8 +132,10 @@ nnoremap <Leader>bd :Bd<CR>
 
 nnoremap <Leader>co :Copen<CR>
 
+nnoremap <Leader>D :Dispatch<CR>
+
 nnoremap <Leader>e :Explore<CR>
-nnoremap <Leader>ve :Vexplore<CR>
+nnoremap <Leader>le :Lexplore<CR>
 
 nnoremap <C-F> :GFiles<CR>
 nnoremap <C-S> :Files<CR>
@@ -190,8 +191,6 @@ let g:tex_flavor = 'latex'
 
 let test#python#runner = 'pytest'
 let test#strategy = 'dispatch'
-
-let g:localvimrc_ask=0
 
 let g:gutentags_ctags_exclude = ["*.min.js", "*.min.css", "migrations"]
 let g:gutentags_project_root = ['package.json', '.git']
