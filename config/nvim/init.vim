@@ -91,6 +91,7 @@ set laststatus=2
 set statusline=
 set statusline+=\ %f
 set statusline+=\ %=
+set statusline+=%{FugitiveHead()}
 set statusline+=\ %y
 set statusline+=\ %p%%
 set statusline+=\ %l:%c
