@@ -64,6 +64,7 @@ set encoding=utf-8
 set path+=**
 
 set number
+set relativenumber
 set splitright
 set splitbelow
 
@@ -72,6 +73,9 @@ set softtabstop=2
 
 set smartcase
 set ignorecase
+
+set showbreak
+let &showbreak = '> '
 
 set autoread
 set history=1000
@@ -178,7 +182,6 @@ command! Vimrc :e $MYVIMRC
 command! SVimrc :source $MYVIMRC
 command! Bashrc :e ~/.dotfiles/bash/.bashrc
 command! Tmuxinator :e ~/.dotfiles/config/tmuxinator/
-command! FormatXML :%!python3 -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"
 
 """"""""""""""""""""""""""""""
 " => Plugin options
@@ -219,25 +222,14 @@ let g:startify_bookmarks = [
       \ '~/.dotfiles/git/.gitignore_global',
       \]
 
+let g:signify_sign_show_count = 0
+
 let g:dispatch_no_tmux_make = 1
 
-""""""""""""""""""""""""""""""
-" => ALE
-""""""""""""""""""""""""""""""
-
-let g:ale_fixers = {
-\   'javascript': ['prettier'],
-\   'typescript': ['prettier'],
-\   'css': ['prettier'],
-\   'vue': ['prettier'],
-\}
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 0
 let g:ale_lint_on_enter = 0
-
 let g:ale_lint_delay = 100
-
-let g:signify_sign_show_count = 0
 
 """"""""""""""""""""""""""""""
 " => COC autocomplete settings
