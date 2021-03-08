@@ -18,6 +18,9 @@ Plug 'tpope/vim-eunuch'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'mhinz/vim-startify'
 
+" => Snippets
+Plug 'SirVer/ultisnips'
+
 " => Git tools
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
@@ -230,6 +233,12 @@ let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 0
 let g:ale_lint_on_enter = 0
 let g:ale_lint_delay = 100
+
+let g:UltiSnipsExpandTrigger="<c-e>"
+let g:UltiSnipsJumpForwardTrigger="<c-f>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']
 
 """"""""""""""""""""""""""""""
 " => COC autocomplete settings
