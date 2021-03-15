@@ -200,6 +200,8 @@ let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+
 let g:vim_markdown_math = 1
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_folding_disabled = 1
