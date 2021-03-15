@@ -176,8 +176,6 @@ nmap <silent> <leader>L :TestLast<CR>
 set wildchar=<Tab> wildmenu wildmode=full
 set wildcharm=<C-Z>
 
-autocmd FileType python nnoremap <leader>B :ALEFix black<CR>
-
 """"""""""""""""""""""""""""""
 " => Commands
 """"""""""""""""""""""""""""""

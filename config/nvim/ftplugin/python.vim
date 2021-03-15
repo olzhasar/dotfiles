@@ -21,3 +21,5 @@ let b:ale_python_mypy_options = '--ignore-missing-imports'
 if executable("python3")
   nnoremap <silent> <F5> :!python3 %<CR>
 endif
+
+nnoremap <leader>B :ALEFix black<CR>
