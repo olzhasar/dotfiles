@@ -118,6 +118,7 @@ fi
 
 export GEM_HOME=~/.ruby/
 export PATH="$PATH:~/.ruby/bin"
+export PATH="$PATH:~/go/bin"
 
 export EDITOR=nvim
 
