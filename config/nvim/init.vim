@@ -153,7 +153,9 @@ nnoremap <Leader>le :Lexplore<CR>
 
 nnoremap <C-f> :GFiles<CR>
 nnoremap <Leader>f :Files<CR>
-nnoremap <C-s> :Ag<CR>
+nnoremap <silent> <Leader>ag :Ag<CR>
+nnoremap <silent> <Leader>rg :Rg<CR>
+nnoremap <silent> <C-s> :Rg <C-R><C-W><CR>
 nnoremap <Leader>l :Lines<CR>
 
 nnoremap <Leader>gs :vertical Git<CR>
