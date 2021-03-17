@@ -51,7 +51,11 @@ windows:
         - pipenv shell vim -S Session.vim
         - pipenv shell python manage.py runserver
         - pipenv shell
-  - db:
+  - database:
+      layout: main-vertical
+      panes:
+        - psql assetfly
+        -
   - frontend:
       layout: main-vertical
       root: ~/Development/assetfly/frontend/

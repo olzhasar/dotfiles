@@ -68,4 +68,8 @@ windows:
         - vim .
         - npm run start
         -
-  - shell:
+  - db:
+      layout: main-vertical
+      panes:
+        - psql uig
+        -
