@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 path+=~/.ruby/bin
 pat+=~/go/bin
 
@@ -76,6 +76,8 @@ plugins=(django tmuxinator docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -105,5 +107,10 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias python=python3
 alias xo=xdg-open
+alias cat=batcat
+alias bat=batcat
+alias ls='exa -l'
 
 setxkbmap -option caps:escape
+
+eval "$(starship init zsh)"
