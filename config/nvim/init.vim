@@ -46,6 +46,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'cespare/vim-toml'
 Plug 'lervag/vimtex'
 Plug 'elixir-editors/vim-elixir'
+Plug 'rust-lang/rust.vim'
 
 " => Testing
 Plug 'vim-test/vim-test'
