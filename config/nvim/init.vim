@@ -232,7 +232,7 @@ let g:startify_bookmarks = [
 
 let g:signify_sign_show_count = 0
 
-let g:dispatch_no_tmux_make = 1
+let g:dispatch_no_tmux_make = 0
 
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 0
