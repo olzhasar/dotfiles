@@ -47,6 +47,7 @@ Plug 'cespare/vim-toml'
 Plug 'lervag/vimtex'
 Plug 'elixir-editors/vim-elixir'
 Plug 'rust-lang/rust.vim'
+Plug 'Glench/Vim-Jinja2-Syntax'
 
 " => Testing
 Plug 'vim-test/vim-test'
