@@ -27,7 +27,7 @@ root: /home/olzhas/Development/healthqa/
 # on_project_stop: command
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-pre_window: source /home/olzhas/Development/healthqa/backend/.venv/bin/activate
+pre_window: export PIPENV_PIPFILE=/home/olzhas/Development/healthqa/backend/Pipfile && source /home/olzhas/Development/healthqa/backend/.venv/bin/activate
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -48,7 +48,7 @@ windows:
   - backend:
       layout: 0a1f,213x59,0,0[213x46,0,0,0,213x12,0,47{106x12,0,47,2,106x12,107,47,3}]
       panes:
-        - cd backend && vim -S Session.vim
+        - cd backend/src && vim -S Session.vim
         - cd backend && flask run
         - cd backend
   - backend:
