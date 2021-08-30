@@ -1,7 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 path+=~/.ruby/bin
-pat+=~/go/bin
+path+=~/go/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/olzhas/.oh-my-zsh"
@@ -50,6 +50,8 @@ ZSH_THEME="robbyrussell"
 # Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
 # See https://github.com/ohmyzsh/ohmyzsh/issues/5765
 # COMPLETION_WAITING_DOTS="true"
+autoload -Uz bashcompinit && bashcompinit
+eval "$(register-python-argcomplete pytest)"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -84,6 +86,8 @@ source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export GEM_HOME=~/.ruby/
 
+export PIPENV_VENV_IN_PROJECT=1
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -107,7 +111,6 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias python=python3
 alias xo=xdg-open
-alias cat=batcat
 alias bat=batcat
 alias ls='exa -l'
 
