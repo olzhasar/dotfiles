@@ -86,8 +86,6 @@ set autoread
 set history=1000
 set scrolloff=10
 
-set clipboard=unnamedplus
-
 set exrc  "look for local .vimrc files in project dir
 set secure  "do not allow dangerous commands in local .vimrc
 
@@ -140,6 +138,9 @@ nnoremap <C-H> <C-W><C-H>
 
 nnoremap <M-j> :bp<CR>
 nnoremap <M-k> :bn<CR>
+
+vnoremap <Leader>y "+y
+nnoremap <Leader>y "+y
 
 nnoremap <Leader>tn :tabnext<CR>
 nnoremap <Leader>tp :tabprevious<CR>
