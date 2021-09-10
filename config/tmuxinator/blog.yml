@@ -1,7 +1,7 @@
-# /home/olzhas/.config/tmuxinator/vocabulary.yml
+# /home/olzhas/.config/tmuxinator/blog.yml
 
-name: vocabulary
-root: ~/Development/vocabulary/
+name: blog
+root: ~/Development/olzhasar.github.io-src/
 
 # Optional tmux socket
 # socket_name: foo
@@ -27,7 +27,7 @@ root: ~/Development/vocabulary/
 # on_project_stop: command
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-pre_window: export PIPENV_PIPFILE=/home/olzhas/Development/vocabulary/Pipfile && source /home/olzhas/Development/vocabulary/.venv/bin/activate
+pre_window: export PIPENV_PIPFILE=/home/olzhas/Development/olzhasar.github.io-src/Pipfile && source /home/olzhas/Development/olzhasar.github.io-src/.venv/bin/activate
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -51,7 +51,6 @@ windows:
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - cd src && vim -S Session.vim
-        - cd src && uvicorn api.main:app --reload
-        - cd src
-  - shell:
+        - vim -S Session.vim
+        - make devserver
+        -
