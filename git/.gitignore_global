@@ -4,6 +4,7 @@
 tags
 tags.lock
 tags.temp
+tags.files
 session.vim
 Session.vim
 .vim/
