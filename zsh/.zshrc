@@ -114,6 +114,13 @@ alias xo=xdg-open
 alias bat=batcat
 alias ls='exa -l'
 
+function pypackage() {
+  mkdir $1
+  touch $1/__init__.py
+}
+
 setxkbmap -option caps:escape
 
 eval "$(starship init zsh)"
+
+export PATH="$HOME/.poetry/bin:$PATH"
