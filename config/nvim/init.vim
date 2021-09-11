@@ -151,6 +151,8 @@ nnoremap <Leader>tp :tabprevious<CR>
 nnoremap <Leader>ls :Buffers<CR>
 nnoremap <Leader>bd :Bd<CR>
 
+nnoremap <Leader>G :Goyo<CR>
+
 nnoremap <Leader>co :Copen<CR>
 nnoremap <Leader>cc :cclose<CR>
 
@@ -371,6 +373,7 @@ function! s:goyo_enter()
   endif
   colorscheme one
   set background=light
+  set showtabline=0
 endfunction
 
 function! s:goyo_leave()
@@ -380,6 +383,7 @@ function! s:goyo_leave()
   endif
   colorscheme gruvbox
   set background=dark
+  set showtabline=2
 endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
