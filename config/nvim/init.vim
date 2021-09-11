@@ -32,6 +32,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'mattn/emmet-vim'
+Plug 'junegunn/goyo.vim'
 
 " => Syntax
 Plug 'othree/html5.vim'
@@ -79,6 +80,7 @@ set softtabstop=2
 set smartcase
 set ignorecase
 
+set linebreak
 set showbreak
 let &showbreak = '> '
 
