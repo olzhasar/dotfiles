@@ -169,6 +169,8 @@ nnoremap <Leader>gb :GBrowse<CR>
 nnoremap <Leader>df :Gdiff<CR>
 nnoremap <Leader>dt :Git difftool<CR>
 
+nnoremap <silent><Leader>st :CocCommand tailwindCSS.headwind.sortTailwindClasses<CR>
+
 nnoremap <Leader>af :ALEFix<CR>
 
 nmap <silent> gn <Plug>(ale_next)
@@ -235,6 +237,18 @@ let g:startify_bookmarks = [
 let g:signify_sign_show_count = 0
 
 let g:dispatch_no_tmux_make = 0
+
+let g:coc_global_extensions = [
+      \	'coc-tsserver',
+      \ 'coc-pyright',
+      \ 'coc-tailwindcss',
+      \ 'coc-html',
+      \ 'coc-css',
+      \ 'coc-json',
+      \ 'coc-vetur',
+      \ 'coc-rust-analyzer',
+      \ 'coc-clangd'
+      \]
 
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 0
