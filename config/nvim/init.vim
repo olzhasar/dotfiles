@@ -6,6 +6,7 @@ Plug 'junegunn/fzf.vim'
 
 " => Appearance
 Plug 'morhetz/gruvbox'
+Plug 'rakr/vim-one'
 Plug 'ap/vim-buftabline'
 
 " => Autocomplete
@@ -358,3 +359,28 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+""""""""""""""""""""""""""""""
+" => Goyo callbacks
+""""""""""""""""""""""""""""""
+
+function! s:goyo_enter()
+  if exists('$TMUX')
+    silent !tmux set status off
+    silent !tmux resize-pane -Z
+  endif
+  colorscheme one
+  set background=light
+endfunction
+
+function! s:goyo_leave()
+  if exists('$TMUX')
+    silent !tmux set status on
+    silent !tmux resize-pane -Z
+  endif
+  colorscheme gruvbox
+  set background=dark
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
