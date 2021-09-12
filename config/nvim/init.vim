@@ -177,6 +177,7 @@ nnoremap <Leader>dt :Git difftool<CR>
 nnoremap <silent><Leader>st :CocCommand tailwindCSS.headwind.sortTailwindClasses<CR>
 
 nnoremap <Leader>af :ALEFix<CR>
+nnoremap <Leader>al :ALELint<CR>
 
 nmap <silent> gn <Plug>(ale_next)
 nmap <silent> gp <Plug>(ale_previous)
