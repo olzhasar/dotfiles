@@ -1,2 +1,3 @@
 :set expandtab
-let ale_fixers = ['prettier']
+
+let b:ale_fixers = ['prettier']
