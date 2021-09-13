@@ -224,10 +224,10 @@ let g:tex_flavor = 'latex'
 let test#python#runner = 'pytest'
 let test#strategy = 'dispatch'
 
-let g:gutentags_ctags_exclude = ["*.min.js", "*.min.css", "migrations", "node_modules"]
-let g:gutentags_project_root = ['package.json', '.git']
+let g:gutentags_project_root = ['package.json', 'pyproject.toml', '.git']
 let g:gutentags_add_default_project_roots = 0
-let g:gutentags_file_list_command = 'ag -l --ignore migrations'
+let g:gutentags_file_list_command = 'rg --files'
+let g:gutentags_ctags_tagfile = '.tags'
 
 let g:fzf_action = {
       \ 'ctrl-t': 'tab split',

@@ -1,10 +1,7 @@
 .vimrc
 .nvimrc
 .lvimrc
-tags
-tags.lock
-tags.temp
-tags.files
+.tags*
 session.vim
 Session.vim
 .vim/
