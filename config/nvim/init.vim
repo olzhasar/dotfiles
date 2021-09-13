@@ -124,6 +124,7 @@ set signcolumn=yes
 " => Theme & colors
 """"""""""""""""""""""""""""""
 set background=dark
+set termguicolors
 colorscheme gruvbox
 
 """"""""""""""""""""""""""""""
