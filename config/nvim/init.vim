@@ -6,7 +6,7 @@ Plug 'junegunn/fzf.vim'
 
 " => Appearance
 Plug 'morhetz/gruvbox'
-Plug 'rakr/vim-one'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'ap/vim-buftabline'
 
 " => Autocomplete
@@ -123,8 +123,8 @@ set signcolumn=yes
 """"""""""""""""""""""""""""""
 " => Theme & colors
 """"""""""""""""""""""""""""""
-set background=dark
 set termguicolors
+set background=dark
 colorscheme gruvbox
 
 """"""""""""""""""""""""""""""
@@ -373,7 +373,7 @@ function! s:goyo_enter()
     silent !tmux set status off
     silent !tmux resize-pane -Z
   endif
-  colorscheme one
+  colorscheme PaperColor
   set background=light
   set showtabline=0
 endfunction
