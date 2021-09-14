@@ -162,6 +162,7 @@ nnoremap <Leader>le :Lexplore<CR>
 
 nnoremap <C-f> :Files<CR>
 nnoremap <Leader>f :GFiles<CR>
+nnoremap <Leader>gf :GFiles?<CR>
 nnoremap <silent> <Leader>ag :Ag<CR>
 nnoremap <silent> <Leader>rg :Rg<CR>
 nnoremap <silent> <C-s> :Rg <C-R><C-W><CR>
