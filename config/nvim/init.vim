@@ -160,8 +160,8 @@ nnoremap <Leader>cc :cclose<CR>
 nnoremap <Leader>e :Explore<CR>
 nnoremap <Leader>le :Lexplore<CR>
 
-nnoremap <C-f> :Files<CR>
-nnoremap <Leader>f :GFiles<CR>
+nnoremap <C-f> :GFiles --cached --others --exclude-standard<CR>
+nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>gf :GFiles?<CR>
 nnoremap <silent> <Leader>ag :Ag<CR>
 nnoremap <silent> <Leader>rg :Rg<CR>
