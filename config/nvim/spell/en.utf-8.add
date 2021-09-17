@@ -7,3 +7,8 @@ Django's
 codebase
 queryset
 backend
+sqlite3
+sqlite
+pytest
+app
+cron
