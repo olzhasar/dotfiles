@@ -109,16 +109,21 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias python=python3
-alias xo=xdg-open
-alias bat=batcat
 alias ls='exa -l'
 
 function pypackage() {
   mkdir $1
   touch $1/__init__.py
 }
+
+function postgres_create() {
+  psql -c "create role $1 with password '$1';"
+  psql -c "alter role $1 with login superuser;"
+  psql -c "create database $1;"
+}
+
 alias pypack=pypackage
+alias gitwatch='fswatch -l 0.5 -ro -0 --monitor=poll_monitor $(git ls-files --cached --others --exclude-standard) | xargs --null -n1 -I{}'
 
 setxkbmap -option caps:escape
 
