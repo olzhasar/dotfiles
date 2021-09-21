@@ -1,7 +1,7 @@
-# /home/olzhas/.config/tmuxinator/scrum_bound.yml
+# /home/olzhas/.config/tmuxinator/pytest_watcher.yml
 
-name: scrum_bound
-root: ~/Development/scrum_bound/
+name: pytest_watcher
+root: ~/Development/pytest-watcher/
 
 # Optional tmux socket
 # socket_name: foo
@@ -27,7 +27,7 @@ root: ~/Development/scrum_bound/
 # on_project_stop: command
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-pre_window: source /home/olzhas/Development/scrum_bound/.venv/bin/activate
+# pre_window: poetry shell
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -51,11 +51,6 @@ windows:
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - vim -S Session.vim
-        - ./manage.py runserver
-        - ptw . --lf --nf
-  - database:
-      layout: main-vertical
-      panes:
-        - psql scrum_bound
-        -
+        - poetry run vim -S Session.vim
+        - poetry shell
+        - poetry shell
