@@ -6,4 +6,4 @@ email = o.arystanov@gmail.com
 [pull]
 	rebase = false
 [core]
-	excludesFile = /home/olzhas/.gitignore_global
+	excludesfile = /Users/olzhas/.gitignore_global
