@@ -7,7 +7,8 @@ Plug 'junegunn/fzf.vim'
 " => Appearance
 Plug 'morhetz/gruvbox'
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'ap/vim-buftabline'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'akinsho/bufferline.nvim'
 
 " => Autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -59,6 +60,7 @@ Plug 'tpope/vim-dispatch'
 call plug#end()
 
 lua require('gitsigns').setup()
+lua require('bufferline').setup()
 
 """"""""""""""""""""""""""""""
 " => Basic editor options
@@ -217,8 +219,6 @@ let g:netrw_liststyle = 3
 let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 
 let g:fzf_history_dir = '~/.local/share/fzf-history'
-
-let g:AutoPairsShortcutToggle = '<leader> P'
 
 let g:vim_markdown_math = 1
 let g:vim_markdown_frontmatter = 1
