@@ -24,7 +24,8 @@ Plug 'SirVer/ultisnips'
 
 " => Git tools
 Plug 'tpope/vim-fugitive'
-Plug 'mhinz/vim-signify'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'lewis6991/gitsigns.nvim'
 Plug 'tpope/vim-rhubarb' "enable GBrowse from fugitive
 Plug 'junegunn/gv.vim'  "commit broswer
 
@@ -54,9 +55,10 @@ Plug 'Glench/Vim-Jinja2-Syntax'
 " => Testing
 Plug 'vim-test/vim-test'
 Plug 'tpope/vim-dispatch'
-Plug 'alfredodeza/pytest.vim'
 
 call plug#end()
+
+lua require('gitsigns').setup()
 
 """"""""""""""""""""""""""""""
 " => Basic editor options
@@ -140,8 +142,8 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-nnoremap <M-j> :bp<CR>
-nnoremap <M-k> :bn<CR>
+nnoremap ∆ :bp<CR>
+nnoremap ˚ :bn<CR>
 
 vnoremap <Leader>y "+y
 nnoremap <Leader>y "+y
@@ -215,6 +217,8 @@ let g:netrw_liststyle = 3
 let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 
 let g:fzf_history_dir = '~/.local/share/fzf-history'
+
+let g:AutoPairsShortcutToggle = '<leader> P'
 
 let g:vim_markdown_math = 1
 let g:vim_markdown_frontmatter = 1
