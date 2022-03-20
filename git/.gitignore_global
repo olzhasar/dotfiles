@@ -6,3 +6,5 @@ session.vim
 Session.vim
 .vim/
 .testmondata
+.DS_Store
+*.~lock*
