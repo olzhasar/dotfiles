@@ -11,5 +11,6 @@ Then use `stow` command inside dotfiles dir:
 stow tmux
 stow bash
 stow git
+stow zsh
 stow -t ~/.config config
 ```
