@@ -7,6 +7,7 @@ Plug 'junegunn/fzf.vim'
 " => Appearance
 Plug 'morhetz/gruvbox'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'frankier/neovim-colors-solarized-truecolor-only'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'akinsho/bufferline.nvim'
 
@@ -19,6 +20,7 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-eunuch'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'mhinz/vim-startify'
+Plug 'rizzatti/dash.vim'
 
 " => Snippets
 Plug 'SirVer/ultisnips'
@@ -128,8 +130,8 @@ set signcolumn=yes
 " => Theme & colors
 """"""""""""""""""""""""""""""
 set termguicolors
-set background=dark
-colorscheme gruvbox
+set background=light
+colorscheme papercolor
 
 """"""""""""""""""""""""""""""
 " => Mappings
@@ -153,8 +155,8 @@ nnoremap <Leader>y "+y
 nnoremap <Leader>tn :tabnext<CR>
 nnoremap <Leader>tp :tabprevious<CR>
 
-nnoremap <Leader>ls :Buffers<CR>
 nnoremap <Leader>bd :Bd<CR>
+nnoremap <Leader>b :Buffers<CR>
 
 nnoremap <Leader>G :Goyo<CR>
 
@@ -176,6 +178,8 @@ nnoremap <Leader>gs :vertical Git<CR>
 nnoremap <Leader>gw :Gwrite<CR>
 nnoremap <Leader>gp :Git push<CR>
 nnoremap <Leader>gb :GBrowse<CR>
+
+nnoremap <leader>da :Dash<cr>
 
 nnoremap <Leader>df :Gdiff<CR>
 nnoremap <Leader>dt :Git difftool<CR>
@@ -378,8 +382,6 @@ function! s:goyo_enter()
     silent !tmux set status off
     silent !tmux resize-pane -Z
   endif
-  colorscheme PaperColor
-  set background=light
   set showtabline=0
 endfunction
 
@@ -388,8 +390,6 @@ function! s:goyo_leave()
     silent !tmux set status on
     silent !tmux resize-pane -Z
   endif
-  colorscheme gruvbox
-  set background=dark
   set showtabline=2
 endfunction
 
