@@ -35,3 +35,6 @@ keymap.set("n", "<Leader>gp", ":Git push<CR>")
 keymap.set("n", "<Leader>gb", ":GBrowse<CR>")
 keymap.set("n", "<Leader>df", ":Gdiff<CR>")
 keymap.set("n", "<Leader>dt", ":Git difftool<CR>")
+
+--Dash
+keymap.set("n", "<Leader>da", ":Dash<CR>")
