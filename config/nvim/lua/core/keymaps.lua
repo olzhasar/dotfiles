@@ -17,4 +17,13 @@ keymap.set("n", "˚", ":bn<CR>")
 keymap.set("n", "<Leader>tn", ":tabnext<CR>")
 keymap.set("n", "<Leader>tp", ":tabprevious<CR>")
 
---copying
+--FZF
+keymap.set("n", "<C-f>", ":GFiles --cached --others --exclude-standard<CR>")
+keymap.set("n", "<C-g>", ":GFiles?<CR>")
+keymap.set("n", "<Leader>f", ":Files<CR>")
+keymap.set("n", "<Leader>bu", ":Buffers<CR>")
+keymap.set("n", "<Leader>gf", ":GFiles?<CR>")
+keymap.set("n", "<Leader>ag", ":Ag<CR>")
+keymap.set("n", "<Leader>rg", ":Rg<CR>")
+keymap.set("n", "<C-s>", ":Rg <C-R><C-W><CR>")
+keymap.set("n", "<Leader>l", ":Lines<CR>")

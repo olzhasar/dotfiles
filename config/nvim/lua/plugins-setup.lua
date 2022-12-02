@@ -14,7 +14,7 @@ local packer_bootstrap = ensure_packer()
 vim.cmd([[
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+    autocmd BufWritePost plugins-setup.lua source <afile> | source $MYVIMRC | PackerSync
   augroup end
 ]])
 
@@ -28,7 +28,28 @@ return packer.startup(function(use)
   use("wbthomason/packer.nvim")
 
   use("NLKNguyen/papercolor-theme")
-  use("nvim-telescope/telescope.nvim")
+  use { 'junegunn/fzf', run = ":call fzf#install()" }
+  use { 'junegunn/fzf.vim' }
+
+  use("nvim-lua/plenary.nvim")
+
+  -- Git
+  use("tpope/vim-fugitive")
+  use("tpope/vim-rhubarb")
+
+  -- Typing
+  use("numToStr/Comment.nvim")
+  use("tpope/vim-surround")
+  use("mattn/emmet-vim")
+  use("junegunn/goyo.vim")
+
+  -- File explorer
+  -- use("nvim-tree/nvim-tree.lua")
+
+  -- Icons
+  use("kyazdani42/nvim-web-devicons")
+  use("nvim-lualine/lualine.nvim")
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
