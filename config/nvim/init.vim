@@ -58,6 +58,7 @@ Plug 'Glench/Vim-Jinja2-Syntax'
 " => Testing
 Plug 'vim-test/vim-test'
 Plug 'tpope/vim-dispatch'
+Plug 'preservim/vimux'
 
 call plug#end()
 
@@ -156,7 +157,6 @@ nnoremap <Leader>tn :tabnext<CR>
 nnoremap <Leader>tp :tabprevious<CR>
 
 nnoremap <Leader>bd :Bd<CR>
-nnoremap <Leader>b :Buffers<CR>
 
 nnoremap <Leader>G :Goyo<CR>
 
@@ -167,7 +167,9 @@ nnoremap <Leader>e :Explore<CR>
 nnoremap <Leader>le :Lexplore<CR>
 
 nnoremap <C-f> :GFiles --cached --others --exclude-standard<CR>
+nnoremap <C-g> :GFiles?<CR>
 nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>bu :Buffers<CR>
 nnoremap <Leader>gf :GFiles?<CR>
 nnoremap <silent> <Leader>ag :Ag<CR>
 nnoremap <silent> <Leader>rg :Rg<CR>
@@ -193,7 +195,8 @@ nmap <silent> gn <Plug>(ale_next)
 nmap <silent> gp <Plug>(ale_previous)
 
 nmap <silent> <leader>t :TestNearest<CR>
-nmap <silent> <leader>T :TestFile<CR>
+" nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>T :VimuxRunCommand("ptw . " . bufname("%"))<CR>
 nmap <silent> <leader>L :TestLast<CR>
 
 set wildchar=<Tab> wildmenu wildmode=full
@@ -231,7 +234,11 @@ let g:vim_markdown_folding_disabled = 1
 let g:tex_flavor = 'latex'
 
 let test#python#runner = 'pytest'
-let test#strategy = 'dispatch'
+let test#strategy = 'vimux'
+
+let g:VimuxUseNearest = 1
+let g:VimuxRunnerType = "pane"
+let g:VimuxOpenExtraArgs = "-t :1.3"
 
 let g:gutentags_project_root = ['package.json', 'pyproject.toml', '.git']
 let g:gutentags_add_default_project_roots = 0
