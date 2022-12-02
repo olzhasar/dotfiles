@@ -46,6 +46,7 @@ return packer.startup(function(use)
   -- Git
   use("tpope/vim-fugitive")
   use("tpope/vim-rhubarb")
+  use("lewis6991/gitsigns.nvim")
 
   -- Typing
   use("numToStr/Comment.nvim")
@@ -53,6 +54,26 @@ return packer.startup(function(use)
   use("mattn/emmet-vim")
   use("junegunn/goyo.vim")
 
+  --Completion
+  use("hrsh7th/nvim-cmp")
+  use("hrsh7th/cmp-buffer")
+  use("hrsh7th/cmp-path")
+
+  --Snippets
+  use("L3MON4D3/LuaSnip")
+  use("saadparwaiz1/cmp_luasnip")
+
+  --LSP
+  use("neovim/nvim-lspconfig") -- easily configure language servers
+  use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
+  use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
+  use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
+  use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
+  use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
+
+  -- formatting & linting
+  use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
+  use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

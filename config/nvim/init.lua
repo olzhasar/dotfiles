@@ -10,6 +10,11 @@ local modules = {
 "plugins.fzf",
 "plugins.vimux",
 "plugins.gutentags",
+"plugins.cmp",
+"plugins.gitsigns",
+"plugins.lsp.mason",
+"plugins.lsp.lspconfig",
+"plugins.lsp.lspsaga",
 }
 
 for k, v in pairs(modules) do
