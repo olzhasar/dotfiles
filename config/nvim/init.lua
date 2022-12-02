@@ -1,11 +1,18 @@
-require("plugins-setup")
-require("core.options")	
-require("core.keymaps")
-require("core.colorscheme")
-require("core.autocmd")
-require("core.commands")
+local modules = {
+"plugins-setup",
+"core.options",
+"core.keymaps",
+"core.colorscheme",
+"core.autocmd",
+"core.commands",
 
-require("plugins.comment")
-require("plugins.fzf")
-require("plugins.vimux")
-require("plugins.gutentags")
+"plugins.comment",
+"plugins.fzf",
+"plugins.vimux",
+"plugins.gutentags",
+}
+
+for k, v in pairs(modules) do
+  package.loaded[v] = nil
+  require(v)
+end
