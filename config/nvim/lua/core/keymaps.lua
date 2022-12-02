@@ -27,3 +27,11 @@ keymap.set("n", "<Leader>ag", ":Ag<CR>")
 keymap.set("n", "<Leader>rg", ":Rg<CR>")
 keymap.set("n", "<C-s>", ":Rg <C-R><C-W><CR>")
 keymap.set("n", "<Leader>l", ":Lines<CR>")
+
+--Fugitive
+keymap.set("n", "<Leader>gs", ":vertical Git<CR>")
+keymap.set("n", "<Leader>gw", ":Gwrite<CR>")
+keymap.set("n", "<Leader>gp", ":Git push<CR>")
+keymap.set("n", "<Leader>gb", ":GBrowse<CR>")
+keymap.set("n", "<Leader>df", ":Gdiff<CR>")
+keymap.set("n", "<Leader>dt", ":Git difftool<CR>")
