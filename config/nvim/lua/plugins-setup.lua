@@ -27,11 +27,21 @@ end
 return packer.startup(function(use)
   use("wbthomason/packer.nvim")
 
+  -- Appearance
   use("NLKNguyen/papercolor-theme")
+  use("kyazdani42/nvim-web-devicons")
+  use("akinsho/bufferline.nvim")
+
+  -- Fuzzy finder
   use { 'junegunn/fzf', run = ":call fzf#install()" }
   use { 'junegunn/fzf.vim' }
 
+  -- Utils
   use("nvim-lua/plenary.nvim")
+  use("tpope/vim-eunuch")
+  use("rizzatti/dash.vim")
+  use("ludovicchabant/vim-gutentags")
+  use("tpope/vim-obsession")
 
   -- Git
   use("tpope/vim-fugitive")
@@ -42,13 +52,6 @@ return packer.startup(function(use)
   use("tpope/vim-surround")
   use("mattn/emmet-vim")
   use("junegunn/goyo.vim")
-
-  -- File explorer
-  -- use("nvim-tree/nvim-tree.lua")
-
-  -- Icons
-  use("kyazdani42/nvim-web-devicons")
-  use("nvim-lualine/lualine.nvim")
 
 
   -- Automatically set up your configuration after cloning packer.nvim
