@@ -42,6 +42,7 @@ return packer.startup(function(use)
   use("rizzatti/dash.vim")
   use("ludovicchabant/vim-gutentags")
   use("tpope/vim-obsession")
+  use("folke/trouble.nvim")
 
   -- Git
   use("tpope/vim-fugitive")

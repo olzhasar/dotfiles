@@ -13,6 +13,7 @@ local modules = {
   "plugins.cmp",
   "plugins.gitsigns",
   "plugins.bufferline",
+  "plugins.trouble",
   "plugins.lsp.mason",
   "plugins.lsp.lspconfig",
   "plugins.lsp.lspsaga",
