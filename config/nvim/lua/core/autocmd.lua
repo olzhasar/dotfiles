@@ -13,3 +13,10 @@ api.nvim_create_autocmd("BufWritePost", {
   command = ":luafile $MYVIMRC",
   group = vimrcGrp,
 })
+
+local cleanNetRW = api.nvim_create_augroup("cleanNetRW", { clear = true })
+api.nvim_create_autocmd("FileType", {
+  pattern = {"netrw"},
+  command = "setl bufhidden=delete",
+  group = cleanNetRW,
+})

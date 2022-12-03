@@ -13,6 +13,7 @@ local modules = {
   "plugins.gitsigns",
   "plugins.autopairs",
   "plugins.bufferline",
+  "plugins.cybu",
   "plugins.trouble",
   "plugins.treesitter",
   "plugins.lsp.mason",
