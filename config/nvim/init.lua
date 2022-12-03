@@ -1,5 +1,5 @@
 local modules = {
-  "plugins-setup",
+  "packer-setup",
   "core.options",
   "core.keymaps",
   "core.colorscheme",
