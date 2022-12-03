@@ -49,6 +49,7 @@ return packer.startup(function(use)
   use("tpope/vim-fugitive")
   use("tpope/vim-rhubarb")
   use("lewis6991/gitsigns.nvim")
+  use("sindrets/diffview.nvim")
 
   -- Typing
   use("numToStr/Comment.nvim")
