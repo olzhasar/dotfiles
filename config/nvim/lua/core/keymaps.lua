@@ -1,40 +1,52 @@
-local keymap = vim.keymap
+local function map(mode, lhs, rhs, opts)
+    local options = { noremap = true }
+    if opts then
+        options = vim.tbl_extend("force", options, opts)
+    end
+    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
 
 -- general
-keymap.set("n", "<Leader>e", ":Explore<CR>")
-keymap.set("n", "<Leader>le", ":Lexplore<CR>")
+map("n", "<Leader>e", ":Explore<CR>")
+map("n", "<Leader>le", ":Lexplore<CR>")
 
 -- navigation
-keymap.set("n", "<C-J>", "<C-W><C-J>")
-keymap.set("n", "<C-J>", "<C-W><C-J>")
-keymap.set("n", "<C-K>", "<C-W><C-K>")
-keymap.set("n", "<C-L>", "<C-W><C-L>")
-keymap.set("n", "<C-H>", "<C-W><C-H>")
+map("n", "<C-J>", "<C-W><C-J>")
+map("n", "<C-J>", "<C-W><C-J>")
+map("n", "<C-K>", "<C-W><C-K>")
+map("n", "<C-L>", "<C-W><C-L>")
+map("n", "<C-H>", "<C-W><C-H>")
 
-keymap.set("n", "∆", ":bp<CR>")
-keymap.set("n", "˚", ":bn<CR>")
+map("n", "∆", ":bp<CR>")
+map("n", "˚", ":bn<CR>")
 
-keymap.set("n", "<Leader>tn", ":tabnext<CR>")
-keymap.set("n", "<Leader>tp", ":tabprevious<CR>")
+map("n", "<Leader>tn", ":tabnext<CR>")
+map("n", "<Leader>tp", ":tabprevious<CR>")
 
 --FZF
-keymap.set("n", "<C-f>", ":GFiles --cached --others --exclude-standard<CR>")
-keymap.set("n", "<C-g>", ":GFiles?<CR>")
-keymap.set("n", "<Leader>f", ":Files<CR>")
-keymap.set("n", "<Leader>bu", ":Buffers<CR>")
-keymap.set("n", "<Leader>gf", ":GFiles?<CR>")
-keymap.set("n", "<Leader>ag", ":Ag<CR>")
-keymap.set("n", "<Leader>rg", ":Rg<CR>")
-keymap.set("n", "<C-s>", ":Rg <C-R><C-W><CR>")
-keymap.set("n", "<Leader>l", ":Lines<CR>")
+map("n", "<C-f>", ":GFiles --cached --others --exclude-standard<CR>")
+map("n", "<C-g>", ":GFiles?<CR>")
+map("n", "<Leader>f", ":Files<CR>")
+map("n", "<Leader>bu", ":Buffers<CR>")
+map("n", "<Leader>gf", ":GFiles?<CR>")
+map("n", "<Leader>ag", ":Ag<CR>")
+map("n", "<Leader>rg", ":Rg<CR>")
+map("n", "<C-s>", ":Rg <C-R><C-W><CR>")
+map("n", "<Leader>l", ":Lines<CR>")
+
+--Trouble
+map("n", "<Leader>tr", ":TroubleToggle<CR>")
 
 --Fugitive
-keymap.set("n", "<Leader>gs", ":vertical Git<CR>")
-keymap.set("n", "<Leader>gw", ":Gwrite<CR>")
-keymap.set("n", "<Leader>gp", ":Git push<CR>")
-keymap.set("n", "<Leader>gb", ":GBrowse<CR>")
-keymap.set("n", "<Leader>df", ":Gdiff<CR>")
-keymap.set("n", "<Leader>dt", ":Git difftool<CR>")
+map("n", "<Leader>gs", ":vertical Git<CR>")
+map("n", "<Leader>gw", ":Gwrite<CR>")
+map("n", "<Leader>gp", ":Git push<CR>")
+map("n", "<Leader>gb", ":GBrowse<CR>")
+map("n", "<Leader>df", ":Gdiff<CR>")
+map("n", "<Leader>dt", ":Git difftool<CR>")
 
 --Dash
-keymap.set("n", "<Leader>da", ":Dash<CR>")
+map("n", "<Leader>da", ":Dash<CR>")
+
+--Tests
+map("n", "<Leader>T", [[:exe "!tmux send -t 1.3 'ptw . " . bufname("%") . " ' Enter"<CR><CR>]], { silent = true })
