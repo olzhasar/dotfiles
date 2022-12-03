@@ -49,8 +49,8 @@ lspconfig["pyright"].setup({
   settings = {
     ["pyright"] = {
       ["typeCheckingMode"] = "off",
-    }
-  }
+    },
+  },
 })
 
 -- configure html server
@@ -61,6 +61,18 @@ lspconfig["html"].setup({
 
 -- configure docker server
 lspconfig["dockerls"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+-- configure docker server
+lspconfig["gopls"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+-- configure tailwindcss server
+lspconfig["tsserver"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })

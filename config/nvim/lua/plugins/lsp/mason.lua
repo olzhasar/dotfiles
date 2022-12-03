@@ -26,13 +26,14 @@ mason_lspconfig.setup({
     "tailwindcss",
     "pyright",
     "emmet_ls",
+    "tsserver",
     "sumneko_lua",
     "dockerls",
+    "gopls",
   },
   -- auto-install configured servers (with lspconfig)
   automatic_installation = true, -- not the same as ensure_installed
 })
-
 
 mason_null_ls.setup({
   -- list of formatters & linters for mason to install
