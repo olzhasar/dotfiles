@@ -17,7 +17,7 @@ autopairs.setup({
   },
 })
 
-autopairs.add_rule(rule("{%", "%", {"html", "htmldjango", "jinja.html"}))
+autopairs.add_rule(rule("{%", "%", { "html", "htmldjango", "jinja.html" }))
 
 local cmp_autopairs_setup, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
 if not cmp_autopairs_setup then
