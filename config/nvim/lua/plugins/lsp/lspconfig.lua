@@ -47,18 +47,16 @@ end
 lspconfig["pyright"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
-  settings = {
-    Python = {
-      analysis = {
-	autoSearchPaths = true,
-	useLibraryCodeForTypes = true,
-      }
-    }
-  }
 })
 
 -- configure html server
 lspconfig["html"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+-- configure docker server
+lspconfig["dockerls"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })

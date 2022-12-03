@@ -15,9 +15,10 @@ local modules = {
 "plugins.lsp.mason",
 "plugins.lsp.lspconfig",
 "plugins.lsp.lspsaga",
+"plugins.lsp.null-ls",
 }
 
-for k, v in pairs(modules) do
+for _, v in pairs(modules) do
   package.loaded[v] = nil
   require(v)
 end
