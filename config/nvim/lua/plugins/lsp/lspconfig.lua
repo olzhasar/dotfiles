@@ -15,11 +15,11 @@ local keymap = vim.keymap -- for conciseness
 -- enable keybinds only for when lsp server available
 local on_attach = function(client, bufnr)
   -- keybind options
-  local opts = { noremap = true, silent = true, buffer = bufnr }
+  local opts = { noremap = true, silent = true }
 
   -- set keybinds
   keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references
-  keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- got to declaration
+  keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts) -- got to declaration
   keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
   keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
   keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts) -- see available code actions
@@ -30,7 +30,6 @@ local on_attach = function(client, bufnr)
   keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
   keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
   keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opts) -- see outline on right hand side
-
 end
 
 -- used to enable autocompletion (assign to every lsp server config)
@@ -97,33 +96,33 @@ lspconfig["sumneko_lua"].setup({
 
 -- Filter Pyright diagnostics
 local function filter(arr, func)
-	-- Filter in place
-	-- https://stackoverflow.com/questions/49709998/how-to-filter-a-lua-array-inplace
-	local new_index = 1
-	local size_orig = #arr
-	for old_index, v in ipairs(arr) do
-		if func(v, old_index) then
-			arr[new_index] = v
-			new_index = new_index + 1
-		end
-	end
-	for i = new_index, size_orig do arr[i] = nil end
+  -- Filter in place
+  -- https://stackoverflow.com/questions/49709998/how-to-filter-a-lua-array-inplace
+  local new_index = 1
+  local size_orig = #arr
+  for old_index, v in ipairs(arr) do
+    if func(v, old_index) then
+      arr[new_index] = v
+      new_index = new_index + 1
+    end
+  end
+  for i = new_index, size_orig do
+    arr[i] = nil
+  end
 end
 
-
 local function filter_diagnostics(diagnostic)
-	-- Only filter out Pyright stuff for now
-	if diagnostic.source == "Pyright" then
-		return false
-	end
+  -- Only filter out Pyright stuff for now
+  if diagnostic.source == "Pyright" then
+    return false
+  end
 
-	return true
+  return true
 end
 
 local function custom_on_publish_diagnostics(a, params, client_id, c, config)
-	filter(params.diagnostics, filter_diagnostics)
-	vim.lsp.diagnostic.on_publish_diagnostics(a, params, client_id, c, config)
+  filter(params.diagnostics, filter_diagnostics)
+  vim.lsp.diagnostic.on_publish_diagnostics(a, params, client_id, c, config)
 end
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-	custom_on_publish_diagnostics, {})
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(custom_on_publish_diagnostics, {})
