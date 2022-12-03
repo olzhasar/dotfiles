@@ -58,6 +58,8 @@ return packer.startup(function(use)
   use("hrsh7th/nvim-cmp")
   use("hrsh7th/cmp-buffer")
   use("hrsh7th/cmp-path")
+  use("hrsh7th/cmp-cmdline")
+  use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
 
   --Snippets
   use("L3MON4D3/LuaSnip")
@@ -65,7 +67,6 @@ return packer.startup(function(use)
 
   --LSP
   use("neovim/nvim-lspconfig") -- easily configure language servers
-  use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
   use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
   use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
   use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
