@@ -7,10 +7,10 @@ cd ~/.dotfiles
 ```
 
 Then use `stow` command inside dotfiles dir:
+
 ```
-stow tmux
-stow bash
-stow git
 stow zsh
+stow git
+stow tmux
 stow -t ~/.config config
 ```
