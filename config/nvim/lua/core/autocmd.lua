@@ -9,14 +9,14 @@ api.nvim_create_autocmd("TextYankPost", {
 
 local vimrcGrp = api.nvim_create_augroup("Vimrc", { clear = true })
 api.nvim_create_autocmd("BufWritePost", {
-  pattern = {"init.lua", "*/lua/core/*.lua", "*/lua/plugins/*.lua", "*/lua/packer-setup.lua"},
+  pattern = { "init.lua", "*/lua/core/*.lua", "*/lua/plugins/*.lua", "*/lua/packer-setup.lua" },
   command = ":luafile $MYVIMRC",
   group = vimrcGrp,
 })
 
 local cleanNetRW = api.nvim_create_augroup("cleanNetRW", { clear = true })
 api.nvim_create_autocmd("FileType", {
-  pattern = {"netrw"},
-  command = "setl bufhidden=delete",
+  pattern = { "netrw" },
+  command = "setl bufhidden=wipe",
   group = cleanNetRW,
 })
