@@ -1,7 +1,13 @@
 local opt = vim.opt
+local o = vim.o
 
--- encoding
+-- general
+opt.hidden = true
 opt.encoding = "utf-8"
+opt.autoread = true
+opt.backup = false
+opt.writebackup = false
+opt.swapfile = false
 
 -- lines
 opt.relativenumber = true
@@ -24,7 +30,6 @@ opt.ignorecase = true
 opt.smartcase = true
 
 -- history
-opt.hidden = true
 opt.history = 1000
 opt.scrolloff = 10
 
@@ -36,10 +41,14 @@ opt.signcolumn = "yes"
 -- backspace
 opt.backspace = "indent,eol,start"
 
--- misc
-opt.backup = false
-opt.writebackup = false
-opt.swapfile = false
+-- statusline
+o.statusline = ""
+o.statusline = o.statusline .. " %f"
+o.statusline = o.statusline .. " %="
+o.statusline = o.statusline .. "%{luaeval('vim.b.gitsigns_head')} "
+o.statusline = o.statusline .. "%y "
+o.statusline = o.statusline .. "%p%% | "
+o.statusline = o.statusline .. "%l:%c "
 
 -- netrw
 vim.g.netrw_banner = 0
