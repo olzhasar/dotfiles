@@ -21,6 +21,7 @@ map("n", "<C-H>", "<C-W><C-H>")
 -- map("n", "˚", ":bn<CR>")
 map("n", "∆", "<Plug>(CybuPrev)")
 map("n", "˚", "<Plug>(CybuNext)")
+map("n", "<Leader>bd", ":Bd<CR>")
 
 map("n", "<Leader>tn", ":tabnext<CR>")
 map("n", "<Leader>tp", ":tabprevious<CR>")
