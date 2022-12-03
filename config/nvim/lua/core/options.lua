@@ -20,6 +20,7 @@ opt.shiftwidth = 2
 opt.softtabstop = 2
 opt.wrap = true
 opt.autoindent = true
+opt.smartindent = true
 
 -- splitting
 opt.splitright = true
