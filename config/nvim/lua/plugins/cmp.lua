@@ -61,16 +61,7 @@ cmp.setup({
         fallback()
       end
     end, { "i", "s" }),
-    ["<CR>"] = cmp.mapping({
-      i = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
-      c = function(fallback)
-        if cmp.visible() then
-          cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-        else
-          fallback()
-        end
-      end,
-    }),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
   }),
   -- sources for autocompletion
   sources = cmp.config.sources({
@@ -96,6 +87,7 @@ cmp.setup({
 
 cmp.setup.cmdline("/", {
   completion = { autocomplete = false },
+  mapping = cmp.mapping.preset.cmdline(),
   sources = {
     -- { name = 'buffer' }
     { name = "buffer", opts = { keyword_pattern = [=[[^[:blank:]].*]=] } },
@@ -105,6 +97,7 @@ cmp.setup.cmdline("/", {
 -- Use cmdline & path source for ':'.
 cmp.setup.cmdline(":", {
   completion = { autocomplete = false },
+  mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
     { name = "path" },
   }, {
