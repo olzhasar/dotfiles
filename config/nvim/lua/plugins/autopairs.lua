@@ -3,6 +3,11 @@ if not autopairs_setup then
   return
 end
 
+local rule_setup, rule = pcall(require, "nvim-autopairs.rule")
+if not rule_setup then
+  return
+end
+
 autopairs.setup({
   check_ts = true, -- enable treesitter
   ts_config = {
@@ -11,6 +16,8 @@ autopairs.setup({
     java = false, -- don't check treesitter on java
   },
 })
+
+autopairs.add_rule(rule("{%", "%", {"html", "htmldjango", "jinja2"}))
 
 local cmp_autopairs_setup, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
 if not cmp_autopairs_setup then
