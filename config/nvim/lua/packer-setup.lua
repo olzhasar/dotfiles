@@ -54,6 +54,7 @@ return packer.startup(function(use)
   use("tpope/vim-surround")
   use("mattn/emmet-vim")
   use("junegunn/goyo.vim")
+  use("windwp/nvim-autopairs")
 
   --Completion
   use("hrsh7th/nvim-cmp")
@@ -72,6 +73,15 @@ return packer.startup(function(use)
   use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
   use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
   use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
+
+  --Treesitter
+  use({
+    "nvim-treesitter/nvim-treesitter",
+    run = function()
+      local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+      ts_update()
+    end,
+  })
 
   -- formatting & linting
   use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
