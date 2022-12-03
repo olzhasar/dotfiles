@@ -38,7 +38,7 @@ map("n", "<Leader>ag", ":Ag<CR>")
 map("n", "<Leader>rg", ":Rg<CR>")
 map("n", "<C-s>", ":Rg <C-R><C-W><CR>")
 map("n", "<Leader>l", ":Lines<CR>")
-map("n", "<Leader>h", ":History<CR>")
+map("n", "<Leader>h", ":LocalHistory<CR>")
 
 --Trouble
 map("n", "<Leader>tr", ":TroubleToggle<CR>")
