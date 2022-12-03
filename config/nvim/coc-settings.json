@@ -1,9 +1,0 @@
-{
-  "python.linting.enabled": false,
-  "python.analysis.typeCheckingMode": "off",
-  "pyright.disableDiagnostics": true,
-  "tailwindCSS.htmlLanguages": ["html", "htmldjango", "jinja.html", "vue", "svelte"],
-  "coc.source.around.priority": 110,
-  "coc.source.buffer.priority": 95,
-  "coc.source.file.priority": 90
-}
