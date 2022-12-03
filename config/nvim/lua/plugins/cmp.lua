@@ -39,7 +39,7 @@ cmp.setup({
     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-n>"] = cmp.mapping.complete(), -- show completion suggestions
-    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c'}),
+    ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
     ["<C-e>"] = cmp.mapping.abort(), -- close completion window
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
@@ -61,6 +61,16 @@ cmp.setup({
         fallback()
       end
     end, { "i", "s" }),
+    ["<CR>"] = cmp.mapping({
+      i = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
+      c = function(fallback)
+        if cmp.visible() then
+          cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+        else
+          fallback()
+        end
+      end,
+    }),
   }),
   -- sources for autocompletion
   sources = cmp.config.sources({
@@ -74,30 +84,30 @@ cmp.setup({
     fields = { "kind", "abbr", "menu" },
     format = lspkind.cmp_format({
       mode = "symbol",
-      menu = ({
-	buffer = "[B]",
-	path = "[P]",
-	nvim_lsp = "[LSP]",
-	luasnip = "[SNIP]",
-      })
+      menu = {
+        buffer = "[B]",
+        path = "[P]",
+        nvim_lsp = "[LSP]",
+        luasnip = "[SNIP]",
+      },
     }),
   },
 })
 
-cmp.setup.cmdline('/', {
-    completion = { autocomplete = false },
-    sources = {
-        -- { name = 'buffer' }
-        { name = 'buffer', opts = { keyword_pattern = [=[[^[:blank:]].*]=] } }
-    }
+cmp.setup.cmdline("/", {
+  completion = { autocomplete = false },
+  sources = {
+    -- { name = 'buffer' }
+    { name = "buffer", opts = { keyword_pattern = [=[[^[:blank:]].*]=] } },
+  },
 })
 
 -- Use cmdline & path source for ':'.
-cmp.setup.cmdline(':', {
-    completion = { autocomplete = false },
-    sources = cmp.config.sources({
-        { name = 'path' }
-        }, {
-        { name = 'cmdline' }
-    })
+cmp.setup.cmdline(":", {
+  completion = { autocomplete = false },
+  sources = cmp.config.sources({
+    { name = "path" },
+  }, {
+    { name = "cmdline" },
+  }),
 })
