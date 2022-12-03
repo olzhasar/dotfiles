@@ -54,7 +54,7 @@ o.statusline = o.statusline .. "%l:%c "
 -- netrw
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
--- vim.g.netrw_bufsettings = "noma nomod nu nobl nowrap ro"
+vim.g.netrw_bufsettings = "noma nomod nu nobl nowrap ro"
 vim.g.netrw_list_hide = ".*.swp$,.*.pyc,.pytest_cache,.mypy_cache,__pycache__,.tags,__tests__"
 
 --python
