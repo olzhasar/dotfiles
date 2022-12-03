@@ -61,7 +61,7 @@ cmp.setup({
         fallback()
       end
     end, { "i", "s" }),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ["<CR>"] = cmp.mapping.confirm({ select = true }),
   }),
   -- sources for autocompletion
   sources = cmp.config.sources({
@@ -89,7 +89,6 @@ cmp.setup.cmdline("/", {
   completion = { autocomplete = false },
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
-    -- { name = 'buffer' }
     { name = "buffer", opts = { keyword_pattern = [=[[^[:blank:]].*]=] } },
   },
 })
@@ -102,5 +101,13 @@ cmp.setup.cmdline(":", {
     { name = "path" },
   }, {
     { name = "cmdline" },
+  }),
+})
+
+cmp.setup.filetype("gitcommit", {
+  sources = cmp.config.sources({
+    { name = "path" }, -- You can specify the `cmp_git` source if you were installed it.
+  }, {
+    { name = "buffer" },
   }),
 })
