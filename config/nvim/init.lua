@@ -8,7 +8,6 @@ local modules = {
 
   "plugins.comment",
   "plugins.fzf",
-  "plugins.vimux",
   "plugins.gutentags",
   "plugins.cmp",
   "plugins.gitsigns",
