@@ -25,8 +25,8 @@ opt.smartcase = true
 
 -- history
 opt.hidden = true
-opt.history=1000
-opt.scrolloff=10
+opt.history = 1000
+opt.scrolloff = 10
 
 -- appearance
 opt.termguicolors = true
@@ -35,6 +35,11 @@ opt.signcolumn = "yes"
 
 -- backspace
 opt.backspace = "indent,eol,start"
+
+-- misc
+opt.backup = false
+opt.writebackup = false
+opt.swapfile = false
 
 -- netrw
 vim.g.netrw_banner = 0
