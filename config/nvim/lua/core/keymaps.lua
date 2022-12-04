@@ -7,7 +7,7 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- general
-map("n", "<Leader>e", ":Explore<CR>")
+map("n", "<Leader>e", ":Rexplore<CR>")
 map("n", "<Leader>le", ":Lexplore<CR>")
 map("v", "<Leader>y", [["+y]])
 map("n", "<Leader>y", [["+y]])
