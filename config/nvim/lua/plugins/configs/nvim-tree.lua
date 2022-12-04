@@ -23,6 +23,12 @@ nvimtree.setup({
   renderer = {
     group_empty = true,
   },
+  diagnostics = {
+    enable = false,
+  },
+  git = {
+    enable= false,
+  },
   filters = {
     dotfiles = false,
     custom = {
