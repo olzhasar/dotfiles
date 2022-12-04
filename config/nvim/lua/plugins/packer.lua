@@ -31,7 +31,6 @@ return packer.startup(function(use)
   use("NLKNguyen/papercolor-theme")
   use("kyazdani42/nvim-web-devicons")
   use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
-  use({ "ghillb/cybu.nvim", branch = "main" })
 
   -- Fuzzy finder
   use({ "junegunn/fzf", run = ":call fzf#install()" })
