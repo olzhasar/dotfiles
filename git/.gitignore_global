@@ -8,4 +8,4 @@ Session.vim
 .testmondata
 .DS_Store
 *.~lock*
-.test_templates
+.envrc
