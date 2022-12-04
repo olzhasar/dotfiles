@@ -14,20 +14,25 @@ nvimtree.setup({
     adaptive_size = true,
     mappings = {
       list = {
-	{ key = "<CR>", action="edit_no_picker" },
-	{ key = "o", action="edit_no_picker" },
-	{ key = "O", action="edit" },
-      }
+        { key = "<CR>", action = "edit_no_picker" },
+        { key = "o", action = "edit_no_picker" },
+        { key = "O", action = "edit" },
+      },
     },
   },
   renderer = {
     group_empty = true,
   },
+  update_focused_file = {
+    enable = true,
+    update_root = false,
+    ignore_list = {},
+  },
   diagnostics = {
     enable = false,
   },
   git = {
-    enable= false,
+    enable = false,
   },
   filters = {
     dotfiles = false,
@@ -42,6 +47,6 @@ nvimtree.setup({
       ".DS_Store",
       "Session.vim",
       ".coverage",
-    }
+    },
   },
 })
