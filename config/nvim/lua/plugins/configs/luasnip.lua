@@ -3,4 +3,5 @@ if not present then
   return
 end
 
-loaders.load({ paths = {"~/.config/nvim/snippets/"}})
+loaders.lazy_load({ exclude = { "python" } })
+loaders.lazy_load({ paths = { "~/.config/nvim/snippets/" } })
