@@ -1,25 +1,41 @@
-local setup, nvimtree = pcall(require, "nvim-tree")
-if not setup then
+local present, nvimtree = pcall(require, "nvim-tree")
+if not present then
   return
 end
 
-vim.g.loaded = 1
+vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 nvimtree.setup({
   sort_by = "case_sensitive",
+  disable_netrw = true,
+  hijack_netrw = true,
   view = {
     adaptive_size = true,
     mappings = {
       list = {
-        { key = "u", action = "dir_up" },
-      },
+	{ key = "<CR>", action="edit_no_picker" },
+	{ key = "o", action="edit_no_picker" },
+	{ key = "O", action="edit" },
+      }
     },
   },
   renderer = {
     group_empty = true,
   },
   filters = {
-    dotfiles = true,
+    dotfiles = false,
+    custom = {
+      ".*.swp",
+      ".*.pyc",
+      ".pytest_cache",
+      ".mypy_cache",
+      "__pycache__",
+      ".tags",
+      "__tests__",
+      ".DS_Store",
+      "Session.vim",
+      ".coverage",
+    }
   },
 })

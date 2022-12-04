@@ -12,6 +12,7 @@ local modules = {
   "plugins.configs.cmp",
   "plugins.configs.gitsigns",
   "plugins.configs.autopairs",
+  "plugins.configs.nvim-tree",
   "plugins.configs.bufferline",
   "plugins.configs.trouble",
   "plugins.configs.treesitter",
