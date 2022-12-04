@@ -1,25 +1,61 @@
 {
   "parametrize": {
     "prefix": "@pytest.mark.parametrize",
-    "body": [
-      "@pytest.mark.parametrize(('${1:}'), [${2:}])"
-    ],
-    "description": "Pytest parametrize"
+    "body": ["@pytest.mark.parametrize(('${1:}'), [${2:}])"],
+    "description": "pytest parametrize"
+  },
+  "django_db": {
+    "prefix": "pytest_mark",
+    "body": ["pytest_mark = [pytest.mark.django_db]"],
+    "description": "pytest mark django_db"
   },
   "fixture": {
     "prefix": "@pytest.fixture",
-    "body": [
-      "@pytest.fixture",
-      "def ${1:}():",
-      "\tpass"
-    ],
-    "description": "Pytest parametrize"
+    "body": ["@pytest.fixture", "def ${1:}():", "\tpass"],
+    "description": "pytest fixture"
   },
   "logger": {
     "prefix": "logger",
-    "body": [
-      "logger = logging.getLogger(__name__)"
-    ],
+    "body": ["logger = logging.getLogger(__name__)"],
     "description": "logger"
+  },
+  "test_service": {
+    "prefix": "test_service",
+    "body": ["def test_${1:}():", "\tpass"],
+    "description": "pytest service unit test"
+  },
+  "test_endpoint_drf": {
+    "prefix": "TestEndpointDRF",
+    "body": [
+      "class Test${1:}:",
+      "\t@pytest.fixture",
+      "\tdef url(self):",
+      "\t\treturn \"${2:}\"",
+      "",
+      "\tdef test_ok(self, as_user: APIClient, url: str, django_assert_num_queries):",
+      "\t\twith django_assert_num_queries(1):",
+      "\t\t\tresponse = as_user.get(url)",
+      "",
+      "\t\tassert response.status_code == 200"
+    ],
+    "description": "DRF endpoint test"
+  },
+  "factoryboy_django": {
+    "prefix": "DjangoModelFactory",
+    "body": [
+      "class ${1:}Factory(DjangoModelFactory):",
+      "\tclass Meta:",
+      "\t\tmodel = ${1:}"
+    ],
+    "description": "factoryboy Factory"
+  },
+  "factoryboy_sqlachemy": {
+    "prefix": "BaseFactory",
+    "body": [
+      "class ${1:}Factory(BaseFactory):",
+      "\tclass Meta:",
+      "\t\tmodel = ${1:}"
+    ],
+    "description": "factoryboy Factory"
   }
 }
