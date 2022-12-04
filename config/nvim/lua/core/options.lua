@@ -42,12 +42,12 @@ opt.signcolumn = "yes"
 -- backspace
 opt.backspace = "indent,eol,start"
 
--- statusline
 o.statusline = ""
-o.statusline = o.statusline .. " %f"
+o.statusline = o.statusline .. "%y"
+o.statusline = o.statusline .. " %f "
+o.statusline = o.statusline .. " %{get(b:,'gitsigns_status', '')}"
 o.statusline = o.statusline .. " %="
-o.statusline = o.statusline .. "%{luaeval('vim.b.gitsigns_head')} "
-o.statusline = o.statusline .. "%y "
+o.statusline = o.statusline .. "%{get(g:, 'gitsigns_head', '')} "
 o.statusline = o.statusline .. "%p%% | "
 o.statusline = o.statusline .. "%l:%c "
 
