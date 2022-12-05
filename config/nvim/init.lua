@@ -15,6 +15,7 @@ local modules = {
   "plugins.configs.nvim-tree",
   "plugins.configs.bufferline",
   "plugins.configs.trouble",
+  "plugins.configs.which-key",
   "plugins.configs.luasnip",
   "plugins.configs.treesitter",
   "plugins.configs.lsp.mason",

@@ -44,6 +44,7 @@ return packer.startup(function(use)
   use("ludovicchabant/vim-gutentags")
   use("tpope/vim-obsession")
   use("folke/trouble.nvim")
+  use("folke/which-key.nvim")
 
   -- Git
   use("tpope/vim-fugitive")
@@ -86,6 +87,7 @@ return packer.startup(function(use)
     end,
   })
 
+  -- Markdown
   use({
     "iamcco/markdown-preview.nvim",
     run = "cd app && npm install",
