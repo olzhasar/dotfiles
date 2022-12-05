@@ -47,6 +47,7 @@ nvimtree.setup({
       ".DS_Store",
       "Session.vim",
       ".coverage",
+      ".null-ls_*",
     },
   },
 })

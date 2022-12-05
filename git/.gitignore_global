@@ -9,3 +9,4 @@ Session.vim
 .DS_Store
 *.~lock*
 .envrc
+.null-ls_*
