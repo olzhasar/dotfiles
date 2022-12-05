@@ -11,6 +11,7 @@ map("n", "<Leader>e", ":NvimTreeToggle<CR>")
 map("n", "<Leader>le", ":Lexplore<CR>")
 map("v", "<Leader>y", [["+y]])
 map("n", "<Leader>y", [["+y]])
+map("n", "gx", "<cmd>lua require('core.funcs').handleURL()<CR>")
 
 -- navigation
 map("n", "<C-J>", "<C-W><C-J>")
