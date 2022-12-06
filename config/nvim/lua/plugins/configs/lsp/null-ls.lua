@@ -29,6 +29,8 @@ null_ls.setup({
       end,
     }),
   },
+  diagnostics_format = "[#{c}] #{m} (#{s})",
+  temp_dir="/tmp/null-ls/",
   -- configure format on save
   on_attach = function(current_client, bufnr)
     if current_client.supports_method("textDocument/formatting") then
