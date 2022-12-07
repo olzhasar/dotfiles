@@ -46,7 +46,7 @@ map("n", "<Leader>tr", ":TroubleToggle<CR>")
 map("n", "<Leader>gs", ":vertical Git<CR>")
 map("n", "<Leader>gw", ":Gwrite<CR>")
 map("n", "<Leader>gp", ":Git push<CR>")
-map("n", "<Leader>gb", ":GBrowse<CR>")
+map("n", "<Leader>gb", ":Git branch<CR>")
 map("n", "<Leader>df", ":Gdiff<CR>")
 map("n", "<Leader>dt", ":Git difftool<CR>")
 
