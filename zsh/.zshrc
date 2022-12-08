@@ -34,7 +34,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 
 export GOPATH=$HOME/go
-export GOROOT=/usr/local/go
+export GOROOT=/opt/homebrew/Cellar/go/1.19.3/libexec/
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
 export PATH=$PATH:$GOROOT/bin
