@@ -12,7 +12,7 @@ nvimtree.setup({
   hijack_netrw = true,
   view = {
     adaptive_size = true,
-    relativenumber=true,
+    relativenumber = true,
     mappings = {
       list = {
         { key = "<CR>", action = "edit_no_picker" },

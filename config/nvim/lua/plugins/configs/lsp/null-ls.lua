@@ -13,12 +13,27 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
   -- setup formatters & linters
   sources = {
-    formatting.prettier.with({ disabled_filetypes = { "json" } }),
+    formatting.prettier.with({ disabled_filetypes = { "json", "yaml" } }),
     formatting.stylua, -- lua formatter
-    formatting.black,
-    formatting.isort,
-    diagnostics.flake8,
+    formatting.djhtml, -- format jinja, django templates
+    formatting.black.with({
+      condition = function(utils)
+        return utils.root_has_file("pyproject.toml")
+      end,
+    }),
+    diagnostics.actionlint,  -- lint github workflow files
+    formatting.isort.with({
+      condition = function(utils)
+        return utils.root_has_file("pyproject.toml")
+      end,
+    }),
+    diagnostics.flake8.with({
+      condition = function(utils)
+        return utils.root_has_file(".flake8")
+      end,
+    }),
     diagnostics.mypy.with({
+      method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
       condition = function(utils)
         return utils.root_has_file("pyproject.toml")
       end,
@@ -49,5 +64,8 @@ null_ls.setup({
         end,
       })
     end
+  end,
+  should_attach = function(bufnr)
+    return not vim.api.nvim_buf_get_name(bufnr):match("^git://")
   end,
 })
