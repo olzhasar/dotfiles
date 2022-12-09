@@ -1,9 +1,12 @@
 # This is Git's per-user configuration file.
 [user]
 # Please adapt and uncomment the following lines:
-name = olzhasar
-email = o.arystanov@gmail.com
+  name = olzhasar
+  email = o.arystanov@gmail.com
 [pull]
-	rebase = false
+  rebase = false
 [core]
-	excludesfile = /Users/olzhas/.gitignore_global
+  excludesfile = /Users/olzhas/.gitignore_global
+
+[alias]
+  cleanup = "!git branch --merged | egrep -v '(\\*|master|main|dev|prod|staging)' | xargs -n 1 -r git branch -d"
