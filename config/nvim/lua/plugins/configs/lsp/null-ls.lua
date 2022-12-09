@@ -5,6 +5,7 @@ end
 
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
+local log = require('null-ls.logger')
 
 -- to setup format on save
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -17,30 +18,30 @@ null_ls.setup({
     formatting.stylua, -- lua formatter
     formatting.djhtml, -- format jinja, django templates
     formatting.black.with({
-      condition = function(utils)
-        return utils.root_has_file("pyproject.toml")
+      condition = function(u)
+        return u.root_has_file("pyproject.toml")
       end,
     }),
     diagnostics.actionlint,  -- lint github workflow files
     formatting.isort.with({
-      condition = function(utils)
-        return utils.root_has_file("pyproject.toml")
+      condition = function(u)
+        return u.root_has_file("pyproject.toml")
       end,
     }),
     diagnostics.flake8.with({
-      condition = function(utils)
-        return utils.root_has_file(".flake8")
+      condition = function(u)
+        return u.root_has_file(".flake8")
       end,
     }),
     diagnostics.mypy.with({
-      method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
-      condition = function(utils)
-        return utils.root_has_file("pyproject.toml")
+      -- method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
+      condition = function(u)
+        return u.root_has_file("pyproject.toml")
       end,
     }),
     diagnostics.eslint_d.with({
-      condition = function(utils)
-        return utils.root_has_file(".eslintrc.js")
+      condition = function(u)
+        return u.root_has_file(".eslintrc.js")
       end,
     }),
   },
@@ -66,6 +67,14 @@ null_ls.setup({
     end
   end,
   should_attach = function(bufnr)
-    return not vim.api.nvim_buf_get_name(bufnr):match("^git://")
+    local name = vim.api.nvim_buf_get_name(bufnr)
+    if name:match("^git://") then
+      return false
+    elseif name:match("NvimTree") then
+      return false
+    elseif name:match("site%-packages") then
+      return false
+    end
+    return true
   end,
 })
