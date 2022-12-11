@@ -5,17 +5,8 @@ end
 
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
-local log = require("null-ls.logger")
-local h = require("null-ls.helpers")
+-- local log = require("null-ls.logger")
 local utils = require("null-ls.utils")
-
-local overrides = {
-  severities = {
-    error = h.diagnostics.severities["error"],
-    warning = h.diagnostics.severities["warning"],
-    note = h.diagnostics.severities["information"],
-  },
-}
 
 -- to setup format on save
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
