@@ -41,8 +41,7 @@ null_ls.setup({
         return u.root_has_file("pyproject.toml")
       end,
       runtime_condition = function(params)
-	local u = utils.make_conditional_utils()
-	return u.has_file(params.bufname)
+	return utils.path.exists(params.bufname)
       end,
     }),
     diagnostics.eslint_d.with({
