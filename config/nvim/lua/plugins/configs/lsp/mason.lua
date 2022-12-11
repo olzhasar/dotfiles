@@ -26,6 +26,7 @@ mason_lspconfig.setup({
     "tailwindcss",
     "pyright",
     "emmet_ls",
+    "clangd",
     "tsserver",
     "sumneko_lua",
     "dockerls",

@@ -42,7 +42,6 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
--- configure pyright server
 lspconfig["pyright"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
@@ -53,43 +52,41 @@ lspconfig["pyright"].setup({
   },
 })
 
--- configure html server
 lspconfig["html"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
 
--- configure docker server
 lspconfig["dockerls"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
 
--- configure docker server
 lspconfig["gopls"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
 
--- configure tailwindcss server
 lspconfig["tsserver"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
 
--- configure tailwindcss server
+lspconfig["clangd"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
 lspconfig["jsonls"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
 
--- configure tailwindcss server
 lspconfig["tailwindcss"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
 
--- configure emmet language server
 lspconfig["emmet_ls"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
