@@ -38,9 +38,9 @@ export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
 export GOPATH=$HOME/go
-export GOROOT=/opt/homebrew/Cellar/go/1.19.3/libexec/
+export GOROOT=/usr/local/go
 export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOBIN
+export PATH=$PATH:$GOPATH
 export PATH=$PATH:$GOROOT/bin
 
 # COMMANDS
