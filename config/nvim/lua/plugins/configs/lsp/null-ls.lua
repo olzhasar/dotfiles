@@ -18,6 +18,7 @@ null_ls.setup({
     formatting.prettier.with({ disabled_filetypes = { "yaml" } }),
     formatting.stylua, -- lua formatter
     formatting.djhtml, -- format jinja, django templates
+    formatting.gofmt,
     formatting.black.with({
       condition = function(u)
         return u.root_has_file("pyproject.toml")
