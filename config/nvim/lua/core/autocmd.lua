@@ -13,3 +13,10 @@ api.nvim_create_autocmd("BufWritePost", {
   command = ":luafile $MYVIMRC",
   group = vimrcGrp,
 })
+
+local confGrp = api.nvim_create_augroup("confGrp", { clear = true })
+api.nvim_create_autocmd("BufRead,BufNewFile", {
+  pattern = { "*.conf" },
+  command = ":setfiletype dosini",
+  group = confGrp,
+})
