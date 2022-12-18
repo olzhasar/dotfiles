@@ -5,6 +5,7 @@ end
 
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
+local hover = null_ls.builtins.hover
 -- local log = require("null-ls.logger")
 local utils = require("null-ls.utils")
 
@@ -15,6 +16,7 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
   -- setup formatters & linters
   sources = {
+    hover.dictionary,
     formatting.prettier.with({ disabled_filetypes = { "yaml" } }),
     formatting.stylua, -- lua formatter
     formatting.djhtml, -- format jinja, django templates
@@ -26,6 +28,7 @@ null_ls.setup({
     }),
     diagnostics.actionlint, -- lint github workflow files
     diagnostics.zsh,
+    diagnostics.vale,
     formatting.isort.with({
       condition = function(u)
         return u.root_has_file("pyproject.toml")
@@ -42,7 +45,7 @@ null_ls.setup({
         return u.root_has_file("pyproject.toml")
       end,
       runtime_condition = function(params)
-	return utils.path.exists(params.bufname)
+        return utils.path.exists(params.bufname)
       end,
     }),
     diagnostics.eslint_d.with({
