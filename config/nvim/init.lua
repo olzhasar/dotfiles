@@ -13,6 +13,7 @@ local modules = {
   "plugins.configs.gitsigns",
   "plugins.configs.autopairs",
   "plugins.configs.nvim-tree",
+  "plugins.configs.vimwiki",
   "plugins.configs.bufferline",
   "plugins.configs.trouble",
   "plugins.configs.which-key",
