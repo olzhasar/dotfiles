@@ -18,14 +18,8 @@ fi
 
 autoload -Uz compinit && compinit
 
-# ALIASES
-
-alias python=python3
-alias vim=nvim
-alias dev="cd $HOME/Development/"
-alias dotfiles="cd $HOME/.dotfiles && tmux new-session -A -s dotfiles nvim ."
-
 # EXPORTS
+export DEV_DIR="$HOME/Development/"
 
 export LANG=en_US.UTF-8
 export PATH="$HOME/.poetry/bin:$PATH"
@@ -42,6 +36,14 @@ export GOROOT=/usr/local/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOPATH
 export PATH=$PATH:$GOROOT/bin
+
+# ALIASES
+
+alias python=python3
+alias vim=nvim
+alias dev="cd $DEV_DIR"
+alias dotfiles="cd $HOME/.dotfiles && tmux new-session -A -s dotfiles nvim ."
+alias blog="cd $DEV_DIR/olzhasar.github.io && tmux new-session -A -s blog nvim ."
 
 # COMMANDS
 
