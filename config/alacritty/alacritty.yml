@@ -353,7 +353,7 @@ draw_bold_text_with_bright_colors: false
 #
 # Directory the shell is started in. If this is unset, or `None`, the working
 # directory of the parent process will be used.
-working_directory: /Users/olzhas/Development/
+working_directory: /Users/olzhas/dev/
 
 # WinPTY backend (Windows only)
 #

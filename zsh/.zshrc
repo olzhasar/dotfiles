@@ -19,7 +19,7 @@ fi
 autoload -Uz compinit && compinit
 
 # EXPORTS
-export DEV_DIR="$HOME/Development/"
+export DEV_DIR="$HOME/dev/"
 
 export LANG=en_US.UTF-8
 export PATH="$HOME/.poetry/bin:$PATH"
