@@ -28,7 +28,7 @@ mason_lspconfig.setup({
     "emmet_ls",
     "clangd",
     "tsserver",
-    "sumneko_lua",
+    "lua_ls",
     "dockerls",
     "gopls",
     "jsonls",

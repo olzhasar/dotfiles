@@ -48,6 +48,9 @@ return packer.startup(function(use)
   use("folke/which-key.nvim")
   use("vimwiki/vimwiki")
 
+  -- Latex
+  use("lervag/vimtex")
+
   -- Git
   use("tpope/vim-fugitive")
   use("tpope/vim-rhubarb")
