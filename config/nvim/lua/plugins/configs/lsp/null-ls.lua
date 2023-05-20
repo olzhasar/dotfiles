@@ -21,6 +21,7 @@ null_ls.setup({
     formatting.stylua, -- lua formatter
     formatting.djhtml, -- format jinja, django templates
     formatting.gofmt,
+    formatting.clang_format,
     formatting.black.with({
       condition = function(u)
         return u.root_has_file("pyproject.toml")
