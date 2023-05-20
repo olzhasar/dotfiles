@@ -10,3 +10,4 @@ Session.vim
 *.~lock*
 .envrc
 .null-ls_*
+compile_commands.json
