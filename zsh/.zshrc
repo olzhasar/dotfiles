@@ -43,9 +43,9 @@ alias python=python3
 alias vim=nvim
 alias dev="cd $DEV_DIR"
 alias dotfiles="cd $HOME/.dotfiles && tmux new-session -A -s dotfiles nvim ."
-alias blog="cd $DEV_DIR/olzhasar.github.io && tmux new-session -A -s blog nvim ."
+alias blog="cd $DEV_DIR/personal/olzhasar.github.io && tmux new-session -A -s blog nvim ."
+alias resume="cd $DEV_DIR/personal/cv && tmux new-session -A -s cv nvim ."
 
 # COMMANDS
 
-eval "$(pyenv init -)"
 eval "$(direnv hook zsh)"
