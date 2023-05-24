@@ -9,3 +9,5 @@ stow zsh
 stow git
 stow tmux
 stow -t ~/.config config
+
+brew bundle
