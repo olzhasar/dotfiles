@@ -1,16 +1,31 @@
-USE GNU stow to automatically create symlinks:
+# My dotfiles
 
-Clone this repo to `~/.dotfiles`
+## Setting up new machine
 
-```
+1. Clone this repo to `~/.dotfiles`
+
+```sh
 cd ~/.dotfiles
 ```
 
-Then use `stow` command inside dotfiles dir:
+2. Set up
 
+- Install everything
+
+```sh
+make
 ```
-stow zsh
-stow git
-stow tmux
-stow -t ~/.config config
+
+or
+
+- Install `brew` packages
+
+```sh
+make brew
+```
+
+- Stow all files:
+
+```sh
+make stow
 ```
