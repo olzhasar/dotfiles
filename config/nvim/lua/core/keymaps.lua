@@ -49,10 +49,11 @@ map("n", "<Leader>gb", ":Git branch<CR>")
 map("n", "<Leader>df", ":Gdiff<CR>")
 map("n", "<Leader>dt", ":Git difftool<CR>")
 
---Dash
+--Documentation
 map("n", "<Leader>da", ":Dash<CR>")
+map("n", "<Leader>M", ":Man<CR>")
 
 --Tmux commands
 map("n", "<Leader>rs", [[:exe "!tmux send -t 1.2 './manage.py runserver' Enter"<CR><CR>]], { silent = true })
-map("n", "<Leader>T", [[:exe "!tmux send -t 1.3 'ptw . " . bufname("%") . " ' Enter"<CR><CR>]], { silent = true })
-map("n", "<Leader>M", [[:exe "!tmux send -t 1.2 'make' Enter"<CR><CR>]], { silent = true })
+map("n", "<Leader>ptw", [[:exe "!tmux send -t 1.3 'ptw . " . bufname("%") . " ' Enter"<CR><CR>]], { silent = true })
+map("n", "<Leader>ma", [[:exe "!tmux send -t 1.2 'make' Enter"<CR><CR>]], { silent = true })
