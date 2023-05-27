@@ -27,17 +27,22 @@ null_ls.setup({
         return u.root_has_file("pyproject.toml")
       end,
     }),
-    diagnostics.actionlint, -- lint github workflow files
-    diagnostics.zsh,
-    diagnostics.vale,
     formatting.isort.with({
       condition = function(u)
         return u.root_has_file("pyproject.toml")
       end,
     }),
+    diagnostics.actionlint, -- lint github workflow files
+    diagnostics.zsh,
+    diagnostics.vale,
     diagnostics.flake8.with({
       condition = function(u)
         return u.root_has_file(".flake8")
+      end,
+    }),
+    diagnostics.ruff.with({
+      condition = function(u)
+        return u.root_has_file("pyproject.toml")
       end,
     }),
     diagnostics.mypy.with({
