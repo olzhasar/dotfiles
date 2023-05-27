@@ -56,7 +56,7 @@ tmux-dev() {
   else
     tmux new-session -d "nvim ."
   fi
-  tmux split-window -v -p 20
+  tmux split-window -v -p 25
   tmux split-window -h
   tmux select-pane -t 1
   tmux attach-session -d
