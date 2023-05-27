@@ -1,8 +1,16 @@
-.PHONY: all stow brew
+.PHONY: help brew_dump brew_install stow
 
-all: stow brew
+help:
+	@echo brew_dump - dump all brew packages to the Brewfile
+	@echo brew_install - install all brew packages
+	@echo stow - stow all files
 
-brew:
+brew_dump:
+	command -v brew >/dev/null 2>&1 || { echo >&2 "Error: Homebrew is not installed."; exit 1; }
+	rm -f Brewfile
+	brew bundle dump
+
+brew_install:
 	command -v brew >/dev/null 2>&1 || { echo >&2 "Error: Homebrew is not installed."; exit 1; }
 	brew bundle
 
