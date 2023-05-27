@@ -35,5 +35,31 @@ alias blog="cd $DEV_DIR/personal/olzhasar.github.io && tmux new-session -A -s bl
 alias resume="cd $DEV_DIR/personal/cv && tmux new-session -A -s cv nvim ."
 
 # COMMANDS
+tmux-dev() {
+  local session_name
+
+  if [[ -n $1 ]]; then
+    local project_dir
+    project_dir=$(find "$DEV_DIR" -type d -name "$1" -maxdepth 3 -print -quit)
+
+    if [ -n "$project_dir" ]; then
+      cd "$project_dir"
+      session_name=$1
+    else
+      echo "Project directory '$1' not found in $DEV_DIR"
+      return 1
+    fi
+  fi
+
+  if [ -n "$session_name" ]; then
+    tmux new-session -s "$session_name" -d "nvim ."
+  else
+    tmux new-session -d "nvim ."
+  fi
+  tmux split-window -v -p 20
+  tmux split-window -h
+  tmux select-pane -t 1
+  tmux attach-session -d
+}
 
 eval "$(direnv hook zsh)"
