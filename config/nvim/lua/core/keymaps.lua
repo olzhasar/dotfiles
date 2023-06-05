@@ -6,54 +6,40 @@ local function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
--- general
+-- General
 map("n", "<Leader>e", ":Explore<CR>")
 map("n", "<Leader>le", ":Lexplore<CR>")
-map("v", "<Leader>y", [["+y]])
+map("v", "<Leader>y", [["+y]]) -- copy to system clipboard
 map("n", "<Leader>y", [["+y]])
+map("n", "<Leader>bd", ":Bd<CR>") -- close current buffer
 
--- navigation
-map("n", "<C-J>", "<C-W><C-J>")
-map("n", "<C-J>", "<C-W><C-J>")
-map("n", "<C-K>", "<C-W><C-K>")
-map("n", "<C-L>", "<C-W><C-L>")
-map("n", "<C-H>", "<C-W><C-H>")
+-- Telescope
+map("n", "<C-f>", ":Telescope git_files<CR>")
+map("n", "<C-s>", ":Telescope grep_string<CR>")
+map("n", "<Leader>ff", ":Telescope find_files<CR>")
+map("n", "<Leader>fb", ":Telescope buffers<CR>")
+map("n", "<Leader>fg", ":Telescope live_grep<CR>")
+map("n", "<Leader>fc", ":Telescope git_commits<CR>")
+map("n", "<Leader><Space>", ":Telescope git_status<CR>")
+map("n", "<Leader>fd", ":Telescope lsp_definitions<CR>")
+map("n", "<Leader>fr", ":Telescope lsp_references<CR>")
 
-map("n", "∆", ":bp<CR>")
-map("n", "˚", ":bn<CR>")
-map("n", "<Leader>bd", ":Bd<CR>")
-
-map("n", "<Leader>tn", ":tabnext<CR>")
-map("n", "<Leader>tp", ":tabprevious<CR>")
-
---FZF
-map("n", "<C-f>", ":GFiles --cached --others --exclude-standard<CR>")
-map("n", "<C-g>", ":GFiles?<CR>")
-map("n", "<Leader>f", ":Files<CR>")
-map("n", "<Leader>bu", ":Buffers<CR>")
-map("n", "<Leader>gf", ":GFiles?<CR>")
-map("n", "<Leader>ag", ":Ag<CR>")
-map("n", "<Leader>rg", ":Rg<CR>")
-map("n", "<C-s>", ":Rg <C-R><C-W><CR>")
-map("n", "<Leader>l", ":Lines<CR>")
-map("n", "<Leader>h", ":LocalHistory<CR>")
-
---Trouble
+-- Trouble
 map("n", "<Leader>tr", ":TroubleToggle<CR>")
 
---Fugitive
+-- Fugitive
 map("n", "<Leader>gs", ":vertical Git<CR>")
 map("n", "<Leader>gw", ":Gwrite<CR>")
 map("n", "<Leader>gp", ":Git push<CR>")
 map("n", "<Leader>gb", ":Git branch<CR>")
-map("n", "<Leader>df", ":Gdiff<CR>")
+map("n", "<Leader>df", ":Gvdiffsplit<CR>")
 map("n", "<Leader>dt", ":Git difftool<CR>")
 
---Documentation
+-- Documentation
 map("n", "<Leader>da", ":Dash<CR>")
 map("n", "<Leader>M", ":Man<CR>")
 
---Tmux commands
+-- Tmux commands
 map("n", "<Leader>rs", [[:exe "!tmux send -t 1.2 './manage.py runserver' Enter"<CR><CR>]], { silent = true })
 map("n", "<Leader>ptw", [[:exe "!tmux send -t 1.3 'ptw . " . bufname("%") . " ' Enter"<CR><CR>]], { silent = true })
 map("n", "<Leader>ma", [[:exe "!tmux send -t 1.2 'make' Enter"<CR><CR>]], { silent = true })

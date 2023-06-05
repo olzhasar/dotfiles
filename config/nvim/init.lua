@@ -7,6 +7,7 @@ local modules = {
   "core.commands",
 
   "plugins.configs.comment",
+  "plugins.configs.telescope",
   "plugins.configs.fzf",
   "plugins.configs.gutentags",
   "plugins.configs.cmp",
