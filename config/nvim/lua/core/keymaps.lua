@@ -32,11 +32,18 @@ map("n", "<Leader>tr", ":TroubleToggle<CR>")
 
 -- Fugitive
 map("n", "<Leader>gs", ":vertical Git<CR>")
-map("n", "<Leader>gw", ":Gwrite<CR>")
 map("n", "<Leader>gp", ":Git push<CR>")
 map("n", "<Leader>gb", ":Git branch<CR>")
 map("n", "<Leader>df", ":Gvdiffsplit<CR>")
+map("n", "<Leader>dh", ":Gvdiffsplit HEAD<CR>")
 map("n", "<Leader>dt", ":Git difftool<CR>")
+
+-- Git signs
+map("n", "<Leader>gw", ":Gitsigns stage_buffer<CR>")
+map("n", "<Leader>hR", ":Gitsigns reset_buffer<CR>")
+map("n", "<Leader>hp", ":Gitsigns preview_hunk<CR>")
+map("n", "<Leader>hh", ":Gitsigns stage_hunk<CR>")
+map("n", "<Leader>hu", ":Gitsigns undo_stage_hunk<CR>")
 
 -- Documentation
 map("n", "<Leader>da", ":Dash<CR>")
