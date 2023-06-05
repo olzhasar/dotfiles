@@ -33,8 +33,6 @@ return packer.startup(function(use)
   use("nvim-tree/nvim-tree.lua")
 
   -- Fuzzy finder
-  use({ "junegunn/fzf", run = ":call fzf#install()" })
-  use({ "junegunn/fzf.vim" })
   use({ "nvim-telescope/telescope.nvim", tag = "0.1.1" })
 
   -- Utils
