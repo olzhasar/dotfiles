@@ -8,13 +8,15 @@ if not actions_present then
   return
 end
 
-telescope.setup{
+telescope.setup({
   defaults = {
     mappings = {
       i = {
-	["<C-J>"] = actions.move_selection_next,
-	["<C-K>"] = actions.move_selection_previous,
+        ["<C-J>"] = actions.move_selection_next,
+        ["<C-K>"] = actions.move_selection_previous,
       },
     },
-  }
-}
+  },
+})
+
+require("telescope").load_extension("fzf")

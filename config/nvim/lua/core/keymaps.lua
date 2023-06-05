@@ -12,6 +12,7 @@ map("n", "<Leader>le", ":Lexplore<CR>")
 map("v", "<Leader>y", [["+y]]) -- copy to system clipboard
 map("n", "<Leader>y", [["+y]])
 map("n", "<Leader>bd", ":Bd<CR>") -- close current buffer
+map("n", "<Leader>wk", ":WhichKey<CR>") -- close current buffer
 
 -- Telescope
 map("n", "<C-f>", ":Telescope git_files<CR>")
@@ -23,6 +24,7 @@ map("n", "<Leader>fc", ":Telescope git_commits<CR>")
 map("n", "<Leader><Space>", ":Telescope git_status<CR>")
 map("n", "<Leader>fd", ":Telescope lsp_definitions<CR>")
 map("n", "<Leader>fr", ":Telescope lsp_references<CR>")
+map("n", "<Leader>fh", ":Telescope help_tags<CR>")
 
 -- Trouble
 map("n", "<Leader>tr", ":TroubleToggle<CR>")
