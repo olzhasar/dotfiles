@@ -25,6 +25,7 @@ map("n", "<Leader><Space>", ":Telescope git_status<CR>")
 map("n", "<Leader>fd", ":Telescope lsp_definitions<CR>")
 map("n", "<Leader>fr", ":Telescope lsp_references<CR>")
 map("n", "<Leader>fh", ":Telescope help_tags<CR>")
+map("n", "<Space><Space>", ":Telescope file_browser<CR>")
 
 -- Trouble
 map("n", "<Leader>tr", ":TroubleToggle<CR>")
