@@ -30,7 +30,6 @@ return packer.startup(function(use)
   -- Appearance
   use("NLKNguyen/papercolor-theme")
   use("kyazdani42/nvim-web-devicons")
-  use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
   use("nvim-tree/nvim-tree.lua")
 
   -- Fuzzy finder
