@@ -37,7 +37,7 @@ null_ls.setup({
     diagnostics.vale,
     diagnostics.flake8.with({
       condition = function(u)
-        return u.root_has_file(".flake8")
+        return u.root_has_file(".flake8") or u.root_has_file("pyproject.toml")
       end,
     }),
     diagnostics.ruff.with({
