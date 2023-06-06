@@ -18,7 +18,7 @@ map("n", "<Leader>wk", ":WhichKey<CR>") -- close current buffer
 map("n", "<C-f>", ":Telescope git_files<CR>")
 map("n", "<C-s>", ":Telescope grep_string<CR>")
 map("n", "<Leader>ff", ":Telescope find_files<CR>")
-map("n", "<Leader>fb", ":Telescope buffers<CR>")
+map("n", "<Leader>fb", ":Telescope file_browser<CR>")
 map("n", "<Leader>fg", ":Telescope live_grep<CR>")
 map("n", "<Leader>fc", ":Telescope git_commits<CR>")
 map("n", "<Leader><Space>", ":Telescope git_status<CR>")
@@ -26,7 +26,7 @@ map("n", "<Leader>fd", ":Telescope lsp_definitions<CR>")
 map("n", "<Leader>fr", ":Telescope lsp_references<CR>")
 map("n", "<Leader>fh", ":Telescope help_tags<CR>")
 map("n", "<Leader>fm", ":Telescope man_pages<CR>")
-map("n", "<Space><Space>", ":Telescope file_browser<CR>")
+map("n", "<Space><Space>", ":Telescope buffers<CR>")
 
 -- Trouble
 map("n", "<Leader>tr", ":TroubleToggle<CR>")
