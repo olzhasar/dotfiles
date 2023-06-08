@@ -12,3 +12,5 @@ export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOPATH
 export PATH=$PATH:$GOBIN
 export PATH=$PATH:$GOROOT/bin
+
+export PATH="$HOME/.cargo/bin:$PATH"
