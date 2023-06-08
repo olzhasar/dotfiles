@@ -27,22 +27,28 @@ null_ls.setup({
         return u.root_has_file("pyproject.toml")
       end,
     }),
-    formatting.isort.with({
+    formatting.ruff.with({
       condition = function(u)
-        return u.root_has_file("pyproject.toml")
+        return utils.is_executable("ruff") and u.root_has_file("pyproject.toml")
       end,
     }),
+    formatting.isort.with({
+      condition = function(u)
+        return u.root_has_file("pyproject.toml") and not utils.is_executable("ruff")
+      end,
+    }),
+    diagnostics.luacheck,
     diagnostics.actionlint, -- lint github workflow files
     diagnostics.zsh,
     diagnostics.vale,
-    diagnostics.flake8.with({
-      condition = function(u)
-        return u.root_has_file(".flake8") or u.root_has_file("pyproject.toml")
-      end,
-    }),
     diagnostics.ruff.with({
       condition = function(u)
-        return u.root_has_file("pyproject.toml")
+        return utils.is_executable("ruff") and u.root_has_file("pyproject.toml")
+      end,
+    }),
+    diagnostics.flake8.with({
+      condition = function(u)
+        return u.root_has_file(".flake8")
       end,
     }),
     diagnostics.mypy.with({
@@ -95,5 +101,5 @@ null_ls.setup({
 })
 
 vim.api.nvim_create_user_command("NullLsToggle", function()
-    require("null-ls").toggle({})
+  require("null-ls").toggle({})
 end, {})

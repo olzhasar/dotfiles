@@ -33,15 +33,15 @@ return packer.startup(function(use)
 
   -- Fuzzy finder
   use({ "nvim-telescope/telescope.nvim", tag = "0.1.1" })
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use { 'nvim-telescope/telescope-file-browser.nvim' }
+  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+  use({ "nvim-telescope/telescope-file-browser.nvim" })
 
   -- Utils
   use("nvim-lua/plenary.nvim")
   use("tpope/vim-eunuch") -- Unix helpers, :Move, :Rename, etc.
   use("rizzatti/dash.vim")
   use("ludovicchabant/vim-gutentags")
-  use("tpope/vim-obsession")  -- Automatically reload session
+  use("tpope/vim-obsession") -- Automatically reload session
   use("folke/trouble.nvim")
   use("folke/which-key.nvim") -- Show keymaps
   use("vimwiki/vimwiki")
@@ -51,7 +51,7 @@ return packer.startup(function(use)
 
   -- Git
   use("tpope/vim-fugitive")
-  use("tpope/vim-rhubarb")  -- enable :Gbrowse for opening Github urls
+  use("tpope/vim-rhubarb") -- enable :Gbrowse for opening Github urls
   use("lewis6991/gitsigns.nvim")
   use("sindrets/diffview.nvim")
 
