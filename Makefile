@@ -19,4 +19,5 @@ stow:
 	stow zsh
 	stow git
 	stow tmux
+	stow vale
 	stow -t ~/.config config
