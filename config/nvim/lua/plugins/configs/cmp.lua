@@ -12,11 +12,6 @@ local lspkind_status, lspkind = pcall(require, "lspkind")
 if not lspkind_status then
   return
 end
---
--- local has_words_before = function()
---   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
---   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
--- end
 
 vim.opt.completeopt = "menu,menuone,noselect"
 
@@ -36,8 +31,6 @@ cmp.setup({
   mapping = cmp.mapping.preset.insert({
     ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
     ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
-    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-n>"] = cmp.mapping.complete(), -- show completion suggestions
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
     ["<C-e>"] = cmp.mapping.abort(), -- close completion window
@@ -65,11 +58,12 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = "nvim_lsp" }, -- lsp
     { name = "luasnip" }, -- snippets
+    { name = "dictionary", keyword_length = 4 },
     { name = "buffer", option = {
       get_bufnrs = function()
         return vim.api.nvim_list_bufs()
       end,
-    } }, -- text within current buffer
+    } }, -- text within all buffers
     { name = "path" }, -- file system paths
     { name = "nvim_lsp_signature_help" }, -- file system paths
   }),
@@ -109,8 +103,37 @@ cmp.setup.cmdline(":", {
 
 cmp.setup.filetype("gitcommit", {
   sources = cmp.config.sources({
-    { name = "path" }, -- You can specify the `cmp_git` source if you were installed it.
-  }, {
-    { name = "buffer" },
-  }),
+    { name = "buffer", option = {
+      get_bufnrs = function()
+        return vim.api.nvim_list_bufs()
+      end,
+    }}, -- text within all buffers
+    { name = "dictionary", keyword_length = 4 },
+    { name = "path" },
+  })
+})
+
+local dict = require("cmp_dictionary")
+
+dict.setup({
+  -- The following are default values.
+  exact = 2,
+  first_case_insensitive = true,
+  document = false,
+  document_command = "wn %s -over",
+  async = true,
+  sqlite = false,
+  max_items = -1,
+  capacity = 5,
+  debug = false,
+})
+
+dict.switcher({
+  filetype = {
+    markdown = "~/.aspell.dict",
+    gitcommit = "~/.aspell.dict",
+  },
+  spelllang = {
+    en = "~/.aspell.dict",
+  },
 })
