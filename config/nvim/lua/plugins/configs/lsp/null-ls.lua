@@ -39,6 +39,7 @@ null_ls.setup({
     }),
     diagnostics.luacheck,
     diagnostics.actionlint, -- lint github workflow files
+    diagnostics.codespell,
     diagnostics.zsh,
     diagnostics.vale,
     diagnostics.ruff.with({
