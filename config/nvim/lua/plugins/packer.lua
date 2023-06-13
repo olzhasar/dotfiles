@@ -59,8 +59,9 @@ return packer.startup(function(use)
   use("numToStr/Comment.nvim")
   use("tpope/vim-surround")
   use("mattn/emmet-vim")
-  use("junegunn/goyo.vim")
   use("windwp/nvim-autopairs")
+  use("junegunn/goyo.vim")
+  use("folke/twilight.nvim")
 
   --Completion
   use("hrsh7th/nvim-cmp")
