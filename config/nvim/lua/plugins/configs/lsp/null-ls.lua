@@ -34,7 +34,7 @@ null_ls.setup({
     }),
     formatting.isort.with({
       condition = function(u)
-        return u.root_has_file("pyproject.toml") and not utils.is_executable("ruff")
+        return u.root_has_file("pyproject.toml")
       end,
     }),
     diagnostics.luacheck,
