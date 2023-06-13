@@ -1,4 +1,17 @@
 repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+    -   id: check-added-large-files
+    -   id: check-case-conflict
+    -   id: check-json
+    -   id: check-symlinks
+    -   id: check-shebang-scripts-are-executable
+    -   id: check-yaml
+    -   id: destroyed-symlinks
+    -   id: detect-private-key
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
   - repo: https://github.com/codespell-project/codespell
     rev: v2.2.4
     hooks:
@@ -7,3 +20,7 @@ repos:
     rev: v8.16.1
     hooks:
       - id: gitleaks
+  - repo: https://github.com/lunarmodules/luacheck
+    rev: v1.1.1
+    hooks:
+      - id: luacheck
