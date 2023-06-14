@@ -31,10 +31,10 @@ map("n", "<Space><Space>", ":Telescope buffers<CR>")
 -- Trouble
 map("n", "<Leader>tr", ":TroubleToggle<CR>")
 
--- Fugitive
+-- Git
 map("n", "<Leader>gs", ":vertical Git<CR>")
 map("n", "<Leader>gp", ":Git push<CR>")
-map("n", "<Leader>gb", ":Git branch<CR>")
+map("n", "<Leader>gb", ":Telescope git_branches<CR>")
 map("n", "<Leader>df", ":Gvdiffsplit<CR>")
 map("n", "<Leader>dh", ":Gvdiffsplit HEAD<CR>")
 map("n", "<Leader>dt", ":Git difftool<CR>")
