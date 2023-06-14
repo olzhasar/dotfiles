@@ -51,6 +51,9 @@ map("n", "<Leader>hu", ":Gitsigns undo_stage_hunk<CR>")
 map("n", "<Leader>da", ":Dash<CR>")
 map("n", "<Leader>M", ":Man<CR>")
 
+-- Journaling
+map("n", "<Leader>Z", ":ZenMode<CR>")
+
 -- Tmux commands
 map("n", "<Leader>rs", [[:exe "!tmux send -t 1.2 './manage.py runserver' Enter"<CR><CR>]], { silent = true })
 map("n", "<Leader>ptw", [[:exe "!tmux send -t 1.3 'ptw . " . bufname("%") . " ' Enter"<CR><CR>]], { silent = true })

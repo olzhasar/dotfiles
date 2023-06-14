@@ -39,12 +39,13 @@ return packer.startup(function(use)
   -- Utils
   use("nvim-lua/plenary.nvim")
   use("tpope/vim-eunuch") -- Unix helpers, :Move, :Rename, etc.
-  use("rizzatti/dash.vim")
   use("ludovicchabant/vim-gutentags")
   use("tpope/vim-obsession") -- Automatically reload session
   use("folke/trouble.nvim")
   use("folke/which-key.nvim") -- Show keymaps
-  use("vimwiki/vimwiki")
+
+  -- Documentation
+  use("rizzatti/dash.vim")
 
   -- Latex
   use("lervag/vimtex")
@@ -58,10 +59,13 @@ return packer.startup(function(use)
   -- Typing
   use("numToStr/Comment.nvim")
   use("tpope/vim-surround")
-  use("mattn/emmet-vim")
   use("windwp/nvim-autopairs")
-  use("junegunn/goyo.vim")
+  use("mattn/emmet-vim")
+
+  -- Journaling
   use("folke/twilight.nvim")
+  use("folke/zen-mode.nvim")
+  use("vimwiki/vimwiki")
 
   --Completion
   use("hrsh7th/nvim-cmp")
