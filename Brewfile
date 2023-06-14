@@ -52,7 +52,6 @@ brew "pgcli"
 brew "pipenv"
 brew "postgresql@14"
 brew "pyenv"
-brew "python@3.10"
 brew "rabbitmq", restart_service: true
 brew "ranger"
 brew "redis", restart_service: true
