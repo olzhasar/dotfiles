@@ -38,6 +38,7 @@ mason_lspconfig.setup({
     "terraformls",
     "texlab",
     "bashls",
+    "marksman",
   },
   -- auto-install configured servers (with lspconfig)
   automatic_installation = true, -- not the same as ensure_installed
