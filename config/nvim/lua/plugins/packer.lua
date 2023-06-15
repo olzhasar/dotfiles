@@ -83,7 +83,6 @@ return packer.startup(function(use)
 
   --LSP
   use("neovim/nvim-lspconfig") -- easily configure language servers
-  use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
   use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
   use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
   use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig

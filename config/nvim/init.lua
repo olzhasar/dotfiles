@@ -19,7 +19,6 @@ local modules = {
   "plugins.configs.treesitter",
   "plugins.configs.lsp.mason",
   "plugins.configs.lsp.lspconfig",
-  "plugins.configs.lsp.lspsaga",
   "plugins.configs.lsp.null-ls",
 }
 
