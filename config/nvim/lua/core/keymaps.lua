@@ -29,14 +29,13 @@ map("n", "<Leader>fm", ":Telescope man_pages<CR>")
 map("n", "<Space><Space>", ":Telescope buffers<CR>")
 
 -- Testing
-
 map("n", "<leader>tn", '<cmd>lua require("neotest").run.run()<CR>') -- run nearest test
 map("n", "<leader>ta", '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>') -- run file
 map("n", "<leader>to", '<cmd>lua require("neotest").output.open()<CR>') -- show test output
 map("n", "<leader>ts", '<cmd>lua require("neotest").summary.toggle()<CR>') -- show test summary
 
 -- Git
-map("n", "<Leader>gs", ":vertical Git<CR>")
+map("n", "<Leader>gs", ":Git<CR>")
 map("n", "<Leader>gp", ":Git push<CR>")
 map("n", "<Leader>gb", ":Telescope git_branches<CR>")
 map("n", "<Leader>df", ":Gvdiffsplit<CR>")
