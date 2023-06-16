@@ -25,7 +25,7 @@ cmp.setup({
     completion = {
       winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
       col_offset = -3,
-      side_padding = 0,
+      side_padding = 1,
     },
   },
   mapping = cmp.mapping.preset.insert({
@@ -59,11 +59,14 @@ cmp.setup({
     { name = "nvim_lsp" }, -- lsp
     { name = "luasnip" }, -- snippets
     { name = "dictionary", keyword_length = 4 },
-    { name = "buffer", option = {
-      get_bufnrs = function()
-        return vim.api.nvim_list_bufs()
-      end,
-    } }, -- text within all buffers
+    {
+      name = "buffer",
+      option = {
+        get_bufnrs = function()
+          return vim.api.nvim_list_bufs()
+        end,
+      },
+    }, -- text within all buffers
     { name = "path" }, -- file system paths
     { name = "nvim_lsp_signature_help" }, -- file system paths
   }),
@@ -103,14 +106,17 @@ cmp.setup.cmdline(":", {
 
 cmp.setup.filetype("gitcommit", {
   sources = cmp.config.sources({
-    { name = "buffer", option = {
-      get_bufnrs = function()
-        return vim.api.nvim_list_bufs()
-      end,
-    }}, -- text within all buffers
+    {
+      name = "buffer",
+      option = {
+        get_bufnrs = function()
+          return vim.api.nvim_list_bufs()
+        end,
+      },
+    }, -- text within all buffers
     { name = "dictionary", keyword_length = 4 },
     { name = "path" },
-  })
+  }),
 })
 
 local dict = require("cmp_dictionary")
