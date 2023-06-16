@@ -12,6 +12,7 @@ local modules = {
   "plugins.configs.cmp",
   "plugins.configs.gitsigns",
   "plugins.configs.autopairs",
+  "plugins.configs.neotest",
   "plugins.configs.vimwiki",
   "plugins.configs.trouble",
   "plugins.configs.which-key",

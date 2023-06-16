@@ -111,6 +111,17 @@ return packer.startup(function(use)
   use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
   use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
 
+  -- testing
+  use({
+    "nvim-neotest/neotest",
+    requires = {
+      "antoinemadec/FixCursorHold.nvim",
+    },
+  })
+  use("nvim-neotest/neotest-python")
+  use("nvim-neotest/neotest-go")
+  use("nvim-neotest/neotest-jest")
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
