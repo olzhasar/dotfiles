@@ -36,15 +36,19 @@ map("n", "<leader>ts", '<cmd>lua require("neotest").summary.toggle()<CR>') -- sh
 
 -- Git
 map("n", "<Leader>gs", ":Git<CR>")
+map("n", "<Leader>gv", ":vertical Git<CR>")
+map("n", "<Leader>gR", ":Gitsigns reset_buffer<CR>")
+map("n", "<Leader>gw", ":Gitsigns stage_buffer<CR>")
 map("n", "<Leader>gp", ":Git push<CR>")
+map("n", "<Leader>gl", ":Git log<CR>")
 map("n", "<Leader>gb", ":Telescope git_branches<CR>")
+
+-- Git diff
 map("n", "<Leader>df", ":Gvdiffsplit<CR>")
 map("n", "<Leader>dh", ":Gvdiffsplit HEAD<CR>")
 map("n", "<Leader>dt", ":Git difftool<CR>")
 
 -- Git signs
-map("n", "<Leader>gw", ":Gitsigns stage_buffer<CR>")
-map("n", "<Leader>hR", ":Gitsigns reset_buffer<CR>")
 map("n", "<Leader>hr", ":Gitsigns reset_hunk<CR>")
 map("n", "<Leader>hp", ":Gitsigns preview_hunk<CR>")
 map("n", "<Leader>hh", ":Gitsigns stage_hunk<CR>")
