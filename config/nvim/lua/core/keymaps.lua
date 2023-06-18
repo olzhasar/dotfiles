@@ -30,7 +30,7 @@ map("n", "<C-u>", "<C-u>zz")
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 
-map("v", "<Leader>G", ":lua vim.googleSearch()<CR>", {noremap = true})
+map("v", "<Leader>G", ":lua vim.googleSearch()<CR>", { noremap = true })
 
 -- Telescope
 map("n", "<C-f>", ":Telescope git_files<CR>")
@@ -60,6 +60,7 @@ map("n", "<Leader>gw", ":Gitsigns stage_buffer<CR>")
 map("n", "<Leader>gp", ":Git push<CR>")
 map("n", "<Leader>gl", ":Git log<CR>")
 map("n", "<Leader>gb", ":Telescope git_branches<CR>")
+map("n", "<Leader>gh", ":Telescope git_bcommits<CR>")
 
 -- Git diff
 map("n", "<Leader>df", ":Gvdiffsplit<CR>")
