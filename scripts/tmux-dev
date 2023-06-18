@@ -14,7 +14,7 @@ fi
 if [[ $selected == "." ]]; then
   selected=$0
 fi
-selected_name=$(basename "$selected")
+selected_name=$(basename "$selected" | tr . _)
 
 if ! tmux has-session -t=$selected_name 2> /dev/null; then
     tmux new-session -s $selected_name -c $selected -d "nvim ."
