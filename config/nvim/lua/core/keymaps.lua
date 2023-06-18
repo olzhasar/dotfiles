@@ -67,7 +67,7 @@ map("n", "<Leader>dt", ":Git difftool<CR>")
 -- Git signs
 map("n", "<Leader>hr", ":Gitsigns reset_hunk<CR>")
 map("n", "<Leader>hp", ":Gitsigns preview_hunk<CR>")
-map("n", "<Leader>hh", ":Gitsigns stage_hunk<CR>")
+map("n", "<Leader>hs", ":Gitsigns stage_hunk<CR>")
 map("n", "<Leader>hu", ":Gitsigns undo_stage_hunk<CR>")
 
 -- Documentation
