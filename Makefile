@@ -24,6 +24,7 @@ stow:
 	stow tmux
 	stow vale
 	stow -t ~/.config config
+	stow -t ~/.local/scripts scripts
 
 .PHONY: cron
 cron:
