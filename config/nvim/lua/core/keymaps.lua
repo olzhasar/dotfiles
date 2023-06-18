@@ -30,6 +30,8 @@ map("n", "<C-u>", "<C-u>zz")
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 
+map("v", "<Leader>G", ":lua googleSearch()<CR>", {noremap = true})
+
 -- Telescope
 map("n", "<C-f>", ":Telescope git_files<CR>")
 map("n", "<C-s>", ":Telescope grep_string<CR>")

@@ -6,6 +6,8 @@ local modules = {
   "core.autocmd",
   "core.commands",
 
+  "plugins.custom.google_search",
+
   "plugins.configs.comment",
   "plugins.configs.telescope",
   "plugins.configs.gutentags",
