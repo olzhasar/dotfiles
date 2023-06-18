@@ -9,10 +9,26 @@ end
 -- General
 map("n", "<Leader>e", ":Explore<CR>")
 map("n", "<Leader>le", ":Lexplore<CR>")
+map("n", "Q", "<nop>")
+
+-- Copy pasting
 map("v", "<Leader>y", [["+y]]) -- copy to system clipboard
 map("n", "<Leader>y", [["+y]])
+map("n", "<Leader>Y", [["+Y]])
+map("x", "<leader>p", [["_dP]])
+map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- Buffers
 map("n", "<Leader>bd", ":Bd<CR>") -- close current buffer
 map("n", "<Leader>wk", ":WhichKey<CR>") -- close current buffer
+
+-- Navigating
+map("v", "J", ":m '>+1<CR>gv=gv")
+map("v", "K", ":m '<-2<CR>gv=gv")
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")
+map("n", "n", "nzzzv")
+map("n", "N", "Nzzzv")
 
 -- Telescope
 map("n", "<C-f>", ":Telescope git_files<CR>")
