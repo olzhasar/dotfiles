@@ -18,13 +18,7 @@ vim.cmd([[
   augroup end
 ]])
 
-local status, packer = pcall(require, "packer")
-if not status then
-  print("Packer not found")
-  return
-end
-
-return packer.startup(function(use)
+return require("packer").startup(function(use)
   use("wbthomason/packer.nvim")
 
   -- Appearance

@@ -1,26 +1,7 @@
--- import mason plugin safely
-local mason_status, mason = pcall(require, "mason")
-if not mason_status then
-  return
-end
+require("mason").setup()
 
--- import mason-lspconfig plugin safely
-local mason_lspconfig_status, mason_lspconfig = pcall(require, "mason-lspconfig")
-if not mason_lspconfig_status then
-  return
-end
-
--- import mason-null-ls plugin safely
-local mason_null_ls_status, mason_null_ls = pcall(require, "mason-null-ls")
-if not mason_null_ls_status then
-  return
-end
-
--- enable mason
-mason.setup()
-
-mason_lspconfig.setup({
-  -- list of servers for mason to install
+require("mason-lspconfig").setup({
+  -- language servers
   ensure_installed = {
     "html",
     "tailwindcss",
@@ -44,15 +25,15 @@ mason_lspconfig.setup({
   automatic_installation = true, -- not the same as ensure_installed
 })
 
-mason_null_ls.setup({
-  -- list of formatters & linters for mason to install
+require("mason-null-ls").setup({
+  -- linters & formatters
   ensure_installed = {
-    "prettier", -- ts/js formatter
-    "stylua", -- lua formatter
-    "luacheck", -- lua linter
-    "eslint_d", -- ts/js linter
-    "clang-format", -- c/c++ formatter
+    "prettier",
+    "stylua",
+    "luacheck",
+    "eslint_d",
+    "clang-format",
   },
-  -- auto-install configured formatters & linters (with null-ls)
+
   automatic_installation = false,
 })

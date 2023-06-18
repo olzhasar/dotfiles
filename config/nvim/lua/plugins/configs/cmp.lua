@@ -1,17 +1,7 @@
-local cmp_status, cmp = pcall(require, "cmp")
-if not cmp_status then
-  return
-end
-
-local luasnip_status, luasnip = pcall(require, "luasnip")
-if not luasnip_status then
-  return
-end
-
-local lspkind_status, lspkind = pcall(require, "lspkind")
-if not lspkind_status then
-  return
-end
+local cmp =require("cmp")
+local luasnip = require("luasnip")
+local lspkind = require("lspkind")
+local cmp_dict = require("cmp_dictionary")
 
 vim.opt.completeopt = "menu,menuone,noselect"
 
@@ -119,9 +109,7 @@ cmp.setup.filetype("gitcommit", {
   }),
 })
 
-local dict = require("cmp_dictionary")
-
-dict.setup({
+cmp_dict.setup({
   -- The following are default values.
   exact = 2,
   first_case_insensitive = true,
@@ -134,12 +122,12 @@ dict.setup({
   debug = false,
 })
 
-dict.switcher({
+cmp_dict.switcher({
   filetype = {
-    markdown = "~/.aspell.dict",
-    gitcommit = "~/.aspell.dict",
+    markdown = "~/.aspell.cmp_dict",
+    gitcommit = "~/.aspell.cmp_dict",
   },
   spelllang = {
-    en = "~/.aspell.dict",
+    en = "~/.aspell.cmp_dict",
   },
 })

@@ -1,12 +1,5 @@
-local present, telescope = pcall(require, "telescope")
-if not present then
-  return
-end
-
-local actions_present, actions = pcall(require, "telescope.actions")
-if not actions_present then
-  return
-end
+local telescope = require("telescope")
+local actions = require("telescope.actions")
 
 telescope.setup({
   defaults = {
@@ -19,5 +12,5 @@ telescope.setup({
   },
 })
 
-require("telescope").load_extension("fzf")
-require("telescope").load_extension("file_browser")
+telescope.load_extension("fzf")
+telescope.load_extension("file_browser")

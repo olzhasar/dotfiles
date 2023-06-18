@@ -1,10 +1,4 @@
-local setup, neotest = pcall(require, "neotest")
-
-if not setup then
-    return
-end
-
-neotest.setup({
+require("neotest").setup({
   adapters = {
     require("neotest-python"),
     require("neotest-go"),

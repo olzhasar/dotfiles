@@ -1,24 +1,18 @@
-local setup, null_ls = pcall(require, "null-ls")
-if not setup then
-  return
-end
+local null_ls = require("null-ls")
 
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 local hover = null_ls.builtins.hover
--- local log = require("null-ls.logger")
 local utils = require("null-ls.utils")
 
 -- to setup format on save
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
--- configure null_ls
 null_ls.setup({
-  -- setup formatters & linters
   sources = {
     hover.dictionary,
     formatting.prettier.with({ disabled_filetypes = { "yaml" } }),
-    formatting.stylua, -- lua formatter
+    formatting.stylua,
     formatting.djhtml, -- format jinja, django templates
     formatting.gofmt,
     formatting.clang_format,

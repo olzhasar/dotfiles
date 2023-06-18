@@ -1,16 +1,7 @@
-local status, treesitter = pcall(require, "nvim-treesitter.configs")
-if not status then
-  return
-end
-
-treesitter.setup({
-  -- enable syntax highlighting
+require("nvim-treesitter.configs").setup({
   highlight = { enable = false },
-  -- enable indentation
   indent = { enable = false },
-  -- enable autotagging (w/ nvim-ts-autotag plugin)
   autotag = { enable = true },
-  -- ensure these language parsers are installed
   ensure_installed = {
     "c",
     "cpp",
@@ -34,7 +25,6 @@ treesitter.setup({
     "gitignore",
     "gitcommit",
   },
-  -- auto install above language parsers
   auto_install = true,
 
   textobjects = {
