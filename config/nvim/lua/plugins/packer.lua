@@ -39,7 +39,6 @@ return packer.startup(function(use)
   -- Utils
   use("nvim-lua/plenary.nvim")
   use("tpope/vim-eunuch") -- Unix helpers, :Move, :Rename, etc.
-  use("ludovicchabant/vim-gutentags")
   use("tpope/vim-obsession") -- Automatically reload session
   use("folke/trouble.nvim")
   use("folke/which-key.nvim") -- Show keymaps
