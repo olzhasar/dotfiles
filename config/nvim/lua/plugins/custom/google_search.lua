@@ -1,5 +1,3 @@
-local M = {}
-
 local function getSelectedText()
   local start_pos = vim.fn.getpos("'<") -- Get start position of visual selection
   local end_pos = vim.fn.getpos("'>") -- Get end position of visual selection
@@ -23,23 +21,30 @@ local function getSelectedText()
   local lines_count = #lines
   if lines_count > 1 then
     -- Trim leading text in the first line
-    selected_text = selected_text:sub(start_col + 1)
+    selected_text = selected_text:sub(start_col)
     -- Trim trailing text in the last line
     selected_text = selected_text:sub(1, -(#lines[lines_count] - end_col))
   else
     -- Trim both leading and trailing text in a single line selection
-    selected_text = selected_text:sub(start_col + 1, end_col)
+    selected_text = selected_text:sub(start_col, end_col)
   end
 
   return selected_text
 end
 
-function M.google_search()
+local function sanitizeQuery(query)
+  local sanitized_query = query:gsub("[^%w%.%-_~]", function(c)
+    return string.format("%%%02X", string.byte(c))
+  end)
+  return sanitized_query
+end
+
+local function googleSearch()
   local selected_text = getSelectedText()
-  local encoded_query = vim.fn.escape(selected_text, "&")
+  local encoded_query = sanitizeQuery(selected_text)
 
   local search_url = "https://www.google.com/search?q=" .. encoded_query:gsub(" ", "+")
   os.execute("open " .. search_url)
 end
 
-return M
+vim.googleSearch = googleSearch
