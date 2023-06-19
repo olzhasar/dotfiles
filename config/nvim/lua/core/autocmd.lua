@@ -9,8 +9,8 @@ api.nvim_create_autocmd("TextYankPost", {
 
 local vimrcGrp = api.nvim_create_augroup("Vimrc", { clear = true })
 api.nvim_create_autocmd("BufWritePost", {
-  pattern = { "init.lua", "*/lua/core/*.lua", "*/lua/plugins/*.lua" },
-  command = ":luafile $MYVIMRC",
+  pattern = { "init.lua", "*/lua/core/*.lua", "*/lua/plugins/*.lua", "*/after/plugin/*.lua" },
+  command = ":luafile %",
   group = vimrcGrp,
 })
 
