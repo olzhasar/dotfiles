@@ -10,6 +10,7 @@ end
 map("n", "<Leader>e", ":Explore<CR>")
 map("n", "<Leader>le", ":Lexplore<CR>")
 map("n", "Q", "<nop>")
+map("n", "<Leader>u", ":UndotreeToggle<CR>")
 
 -- Copy pasting
 map("v", "<Leader>y", [["+y]]) -- copy to system clipboard

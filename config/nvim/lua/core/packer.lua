@@ -29,6 +29,7 @@ return require("packer").startup(function(use)
   use("tpope/vim-obsession") -- Automatically reload session
   use("folke/trouble.nvim")
   use("folke/which-key.nvim") -- Show keymaps
+  use("mbbill/undotree")
 
   -- Documentation
   use("rizzatti/dash.vim")
