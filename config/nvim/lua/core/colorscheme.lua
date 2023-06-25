@@ -1,1 +1,1 @@
-vim.cmd("colorscheme papercolor")
+vim.cmd("colorscheme gruvbox")

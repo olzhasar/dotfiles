@@ -16,6 +16,7 @@ return require("packer").startup(function(use)
 
   -- Appearance
   use("NLKNguyen/papercolor-theme")
+  use("ellisonleao/gruvbox.nvim")
   use("kyazdani42/nvim-web-devicons")
 
   -- Fuzzy finder

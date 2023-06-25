@@ -36,7 +36,7 @@ opt.scrolloff = 10
 
 -- appearance
 opt.termguicolors = true
-opt.background = "light"
+opt.background = "dark"
 opt.signcolumn = "yes"
 
 -- backspace
