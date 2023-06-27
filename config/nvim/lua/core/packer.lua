@@ -17,6 +17,7 @@ return require("packer").startup(function(use)
   -- Appearance
   use("NLKNguyen/papercolor-theme")
   use("ellisonleao/gruvbox.nvim")
+  use({ "catppuccin/nvim", as = "catppuccin" })
   use("kyazdani42/nvim-web-devicons")
 
   -- Fuzzy finder
@@ -27,7 +28,6 @@ return require("packer").startup(function(use)
   -- Utils
   use("nvim-lua/plenary.nvim")
   use("tpope/vim-eunuch") -- Unix helpers, :Move, :Rename, etc.
-  use("tpope/vim-obsession") -- Automatically reload session
   use("folke/trouble.nvim")
   use("folke/which-key.nvim") -- Show keymaps
   use("mbbill/undotree")
@@ -40,7 +40,6 @@ return require("packer").startup(function(use)
 
   -- Git
   use("tpope/vim-fugitive")
-  use("tpope/vim-rhubarb") -- enable :Gbrowse for opening Github urls
   use("lewis6991/gitsigns.nvim")
   use("sindrets/diffview.nvim")
 
@@ -51,9 +50,7 @@ return require("packer").startup(function(use)
   use("mattn/emmet-vim")
 
   -- Journaling
-  use("folke/twilight.nvim")
   use("folke/zen-mode.nvim")
-  use("vimwiki/vimwiki")
 
   --Completion
   use("hrsh7th/nvim-cmp")
