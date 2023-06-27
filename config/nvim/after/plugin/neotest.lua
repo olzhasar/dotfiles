@@ -1,7 +1,12 @@
 require("neotest").setup({
   adapters = {
     require("neotest-python"),
-    require("neotest-go"),
+    require("neotest-go")({
+      experimental = {
+        test_table = true,
+      },
+      args = { "-timeout=20s" },
+    }),
     require("neotest-jest"),
   },
   highlights = {
@@ -22,7 +27,7 @@ require("neotest").setup({
     target = "NeotestTarget",
     test = "NeotestTest",
     unknown = "NeotestUnknown",
-    watching = "NeotestWatching"
+    watching = "NeotestWatching",
   },
   icons = {
     child_indent = "│",
@@ -38,6 +43,6 @@ require("neotest").setup({
     running_animated = { "/", "|", "\\", "-", "/", "|", "\\", "-" },
     skipped = "",
     unknown = "",
-    watching = ""
+    watching = "",
   },
 })
