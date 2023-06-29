@@ -166,6 +166,6 @@ alt - r : yabai -m space --rotate 90
 # alt - p : yabai -m window --toggle sticky --toggle topmost --toggle pip
 #
 cmd - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
-cmd + shift - return : open -na "Google Chrome"
+cmd + shift - return : open -na "Brave Browser"
 cmd + shift - f : open -n $HOME
 cmd + shift - s : open -na "System Settings"
