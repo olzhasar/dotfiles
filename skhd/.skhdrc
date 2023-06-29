@@ -163,5 +163,5 @@ alt - r : yabai -m space --rotate 90
 #
 cmd - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
 cmd + shift - return : open -na "Google Chrome"
-cmd + shift - f : open $HOME
+cmd + shift - f : open -n $HOME
 cmd + shift - s : open -na "System Settings"
