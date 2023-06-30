@@ -23,7 +23,6 @@ stow:
 	stow git
 	stow tmux
 	stow vale
-	stow yabai
 	stow skhd
 	stow -t ~/.config config
 	stow -t ~/.local/scripts scripts
