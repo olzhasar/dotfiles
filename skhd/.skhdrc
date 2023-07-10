@@ -70,7 +70,7 @@
 #
 #               an EOL character signifies the end of the bind.
 
-cmd + ctrl - t : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
-cmd + shift - return : open -na "Brave Browser"
-cmd + shift - f : open $HOME
-cmd + shift - s : open -na "System Settings"
+alt - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
+alt + shift - return : open -na "Brave Browser"
+alt + shift - f : open $HOME
+alt + shift - s : open -na "System Settings"
