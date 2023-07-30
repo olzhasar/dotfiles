@@ -1,3 +1,2 @@
 0 */6 * * * /opt/homebrew/bin/brew cleanup
 5 */6 * * * /opt/homebrew/bin/brew upgrade
-10 */6 * * * /opt/homebrew/bin/nvim --headless +PackerSync +qa
