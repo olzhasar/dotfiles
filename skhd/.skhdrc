@@ -69,6 +69,11 @@
 #               prepend '\' at the end of the previous line.
 #
 #               an EOL character signifies the end of the bind.
+#
+
+.blacklist [
+   "/Library/Applications/VMware",
+]
 
 alt - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
 alt + shift - return : open -na "Brave Browser"
