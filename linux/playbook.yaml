@@ -35,6 +35,11 @@
           - ninja-build
           - gettext
           - cmake
+          - stow
+          - nodejs
+          - npm
+          - kitty
+          - i3
 
     - name: Check neovim
       shell: type nvim
@@ -62,6 +67,52 @@
       become: true
       become_user: root
       when: nvim_status.rc == -1
+
+    - name: Install Fonts
+      block:
+        - name: Download font
+          get_url:
+            url: https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz
+            dest: /tmp/
+
+        - name: Create fonts dir
+          file:
+            path: ~/.fonts
+            state: directory
+
+        - name: Extract font archive
+          unarchive:
+            dest: ~/.fonts
+            src: /tmp/JetBrainsMono.tar.xz
+            remote_src: true
+
+        - name: Remove archive
+          file:
+            path: /tmp/JetBrainsMono.tar.xz
+            state: absent
+
+        - name: Update font cache
+          command:
+            cmd: fc-cache -fv
+
+    - name: Configure dotfiles
+      block:
+        - name: clone repo
+          git:
+            dest: ~/.dotfiles
+            repo: https://github.com/olzhasar/dotfiles.git
+        - name: stow tmux
+          command:
+            cmd: stow tmux
+            chdir: ~/.dotfiles
+        - name: stow git
+          command:
+            cmd: stow git
+            chdir: ~/.dotfiles
+        - name: stow config
+          command:
+            cmd: stow -t ~/.config config
+            chdir: ~/.dotfiles
 
     - name: Check brave browser
       shell: type brave-browser
