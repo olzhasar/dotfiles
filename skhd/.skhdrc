@@ -72,7 +72,7 @@
 #
 
 .blacklist [
-   "/Library/Applications/VMware",
+   "VMWare Fusion"
 ]
 
 alt - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
