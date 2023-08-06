@@ -1,0 +1,87 @@
+- hosts: devmachines
+
+  tasks:
+    - name: Update apt package list
+      become: true
+      apt:
+        update_cache: true
+      register: apt_update
+      retries: 5
+      until: apt_update is success
+
+    - name: Upgrade installed packages
+      become: true
+      apt:
+        upgrade: true
+
+    - name: Install core packages
+      become: true
+      apt:
+        pkg:
+          - wget
+          - curl
+          - git
+          - htop
+          - p7zip
+          - unzip
+          - xclip
+          - tmux
+          - fzf
+          - ripgrep
+          - silversearcher-ag
+          - software-properties-common
+          - python3-dev
+          - python3-pip
+          - ninja-build
+          - gettext
+          - cmake
+
+    - name: Check neovim
+      shell: type nvim
+      register: nvim_status
+
+    - name: Install neovim
+      block:
+        - name: Clone repo
+          git:
+            repo: https://github.com/neovim/neovim
+            dest: /tmp/neovim
+            depth: 1
+            version: stable
+
+        - name: Install nvim
+          command:
+            cmd: make install
+            chdir: /tmp/neovim
+
+        - name: Remove nvim tmp directory
+          file:
+            path: /tmp/neovim
+            state: absent
+
+      become: true
+      become_user: root
+      when: nvim_status.rc == -1
+
+    - name: Check brave browser
+      shell: type brave-browser
+      register: brave_status
+
+    - name: Install brave browser
+      block:
+        - name: Download gpg
+          get_url:
+            url: https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+            dest: /usr/share/keyrings/
+
+        - name: Add repo to apt sources
+          shell: echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | tee /etc/apt/sources.list.d/brave-browser-release.list
+
+        - name: Install
+          apt:
+            name: brave-browser
+            update_cache: true
+
+      become: true
+      become_user: root
+      when: brave_status.rc == -1
