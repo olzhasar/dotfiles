@@ -25,6 +25,7 @@
           - p7zip
           - unzip
           - xclip
+          - zsh
           - tmux
           - fzf
           - ripgrep
@@ -41,6 +42,10 @@
           - golang
           - kitty
           - i3
+
+    - name: Make zsh default shell
+      become: true
+      shell: chsh -s $(which zsh)
 
     - name: Check neovim
       shell: type nvim
