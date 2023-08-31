@@ -44,8 +44,9 @@
           - i3
 
     - name: Make zsh default shell
+      shell: usermod --shell $(which zsh) {{ ansible_env.USER }}
       become: true
-      shell: chsh -s $(which zsh)
+      changed_when: false
 
     - name: Check neovim
       shell: type nvim
