@@ -37,6 +37,7 @@
           - gettext
           - cmake
           - stow
+          - direnv
           - nodejs
           - npm
           - golang
