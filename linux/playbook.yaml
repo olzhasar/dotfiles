@@ -38,12 +38,14 @@
           - stow
           - nodejs
           - npm
+          - golang
           - kitty
           - i3
 
     - name: Check neovim
       shell: type nvim
       register: nvim_status
+      ignore_errors: true
 
     - name: Install neovim
       block:
@@ -66,7 +68,7 @@
 
       become: true
       become_user: root
-      when: nvim_status.rc == -1
+      when: nvim_status.rc != 0
 
     - name: Install Fonts
       block:
@@ -117,6 +119,7 @@
     - name: Check brave browser
       shell: type brave-browser
       register: brave_status
+      ignore_errors: true
 
     - name: Install brave browser
       block:
@@ -135,4 +138,4 @@
 
       become: true
       become_user: root
-      when: brave_status.rc == -1
+      when: brave_status.rc != 0
