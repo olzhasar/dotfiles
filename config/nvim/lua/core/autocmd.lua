@@ -13,7 +13,7 @@ api.nvim_create_autocmd("BufWritePost", {
   group = au_group,
 })
 
-api.nvim_create_autocmd("BufRead,BufNewFile", {
+api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "*.conf" },
   command = ":setfiletype dosini",
   group = au_group,
