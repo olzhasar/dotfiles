@@ -21,7 +21,7 @@ return require("packer").startup(function(use)
   use("kyazdani42/nvim-web-devicons")
 
   -- Fuzzy finder
-  use({ "nvim-telescope/telescope.nvim", tag = "0.1.1" })
+  use({ "nvim-telescope/telescope.nvim", tag = "0.1.3" })
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
   use({ "nvim-telescope/telescope-file-browser.nvim" })
 
