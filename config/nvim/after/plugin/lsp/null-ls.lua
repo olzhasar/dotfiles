@@ -18,17 +18,17 @@ null_ls.setup({
     formatting.clang_format,
     formatting.black.with({
       condition = function(u)
-        return u.root_has_file("pyproject.toml")
+        return u.has_file("pyproject.toml")
       end,
     }),
     formatting.ruff.with({
       condition = function(u)
-        return utils.is_executable("ruff") and u.root_has_file("pyproject.toml")
+        return utils.is_executable("ruff") and u.has_file("pyproject.toml")
       end,
     }),
     formatting.isort.with({
       condition = function(u)
-        return u.root_has_file("pyproject.toml")
+        return u.has_file("pyproject.toml")
       end,
     }),
     diagnostics.luacheck,
@@ -38,18 +38,18 @@ null_ls.setup({
     diagnostics.vale,
     diagnostics.ruff.with({
       condition = function(u)
-        return utils.is_executable("ruff") and u.root_has_file("pyproject.toml")
+        return utils.is_executable("ruff") and u.has_file("pyproject.toml")
       end,
     }),
     diagnostics.flake8.with({
       condition = function(u)
-        return u.root_has_file(".flake8")
+        return u.has_file(".flake8")
       end,
     }),
     diagnostics.mypy.with({
       -- method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
       condition = function(u)
-        return u.root_has_file("pyproject.toml")
+        return u.has_file("pyproject.toml")
       end,
       runtime_condition = function(params)
         return utils.path.exists(params.bufname)
