@@ -20,7 +20,7 @@ api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 })
 
 api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = { "*.jinja", "*.j2", ".jinja2", "*.jinja.html" },
+  pattern = { "*.jinja", "*.j2", "*.jinja2", "*.jinja.html" },
   command = ":setfiletype htmldjango",
   group = au_group,
 })
