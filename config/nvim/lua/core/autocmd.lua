@@ -19,6 +19,12 @@ api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   group = au_group,
 })
 
+api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.jinja", "*.j2", ".jinja2", "*.jinja.html" },
+  command = ":setfiletype htmldjango",
+  group = au_group,
+})
+
 api.nvim_create_autocmd("BufWritePost", {
   pattern = { "packer.lua" },
   command = "PackerSync",
