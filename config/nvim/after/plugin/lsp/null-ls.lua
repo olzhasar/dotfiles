@@ -33,7 +33,11 @@ null_ls.setup({
     }),
     diagnostics.luacheck,
     diagnostics.actionlint, -- lint github workflow files
-    diagnostics.codespell,
+    diagnostics.codespell.with({
+      condition = function(_)
+        return utils.is_executable("codespell")
+      end,
+    }),
     diagnostics.zsh,
     diagnostics.vale,
     diagnostics.ruff.with({
