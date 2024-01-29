@@ -38,6 +38,7 @@ command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 # ALIASES
 alias python=python3
 alias vim=nvim
+alias vimg="vim . +Git"
 alias dev="cd $DEV_DIR"
 alias dotfiles="cd $HOME/.dotfiles && tmux new-session -A -s dotfiles nvim ."
 alias t=tmux-dev
