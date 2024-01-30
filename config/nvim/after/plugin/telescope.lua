@@ -9,6 +9,8 @@ telescope.setup({
         ["<C-K>"] = actions.move_selection_previous,
         ["<C-S>"] = actions.select_horizontal,
         ["<C-Q>"] = actions.smart_send_to_qflist + actions.open_qflist,
+        ["<C-A>"] = actions.select_all,
+        ["<C-D>"] = actions.drop_all,
       },
     },
   },
