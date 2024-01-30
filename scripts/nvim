@@ -1,0 +1,8 @@
+#!/bin/sh
+
+while true; do
+    /opt/homebrew/bin/nvim "$@"
+    if [ $? -ne 111 ]; then
+        break
+    fi
+done
