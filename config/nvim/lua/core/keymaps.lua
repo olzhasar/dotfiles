@@ -38,9 +38,9 @@ map("n", "N", "Nzzzv")
 map("v", "<Leader>G", ":lua vim.googleSearch()<CR>", { noremap = true })
 
 -- Telescope
-map("n", "<C-f>", ":Telescope find_files<cr>")
+map("n", "<C-f>", "<cmd>lua require('telescope.builtin').git_files({show_untracked=true})<cr>")
 map("n", "<C-s>", ":Telescope grep_string<CR>")
-map("n", "<leader>ff", ":Telescope git_files<cr>")
+map("n", "<leader>ff", ":Telescope find_files<cr>")
 map("n", "<Leader>fb", ":Telescope file_browser<CR>")
 map("n", "<Leader>fg", ":Telescope live_grep<CR>")
 map("n", "<Leader>fc", ":Telescope git_commits<CR>")
