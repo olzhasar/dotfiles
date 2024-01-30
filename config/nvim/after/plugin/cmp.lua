@@ -77,7 +77,7 @@ cmp.setup({
   sorting = {
     comparators = {
       cmp.config.compare.offset,
-      cmp.config.compare.exact,
+      cmp.config.compare.exact_length,
       cmp.config.compare.score,
       cmp.config.compare.recently_used,
 
@@ -137,24 +137,7 @@ cmp.setup.filetype("gitcommit", {
 })
 
 cmp_dict.setup({
-  -- The following are default values.
-  exact = 2,
+  exact_length = 2,
   first_case_insensitive = true,
-  document = false,
-  document_command = "wn %s -over",
-  async = true,
-  sqlite = false,
-  max_items = -1,
-  capacity = 5,
-  debug = false,
-})
-
-cmp_dict.switcher({
-  filetype = {
-    markdown = "~/.aspell.cmp_dict",
-    gitcommit = "~/.aspell.cmp_dict",
-  },
-  spelllang = {
-    en = "~/.aspell.cmp_dict",
-  },
+  max_number_items = -1,
 })
