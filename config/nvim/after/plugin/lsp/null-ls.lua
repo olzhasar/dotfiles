@@ -40,11 +40,6 @@ null_ls.setup({
     }),
     diagnostics.zsh,
     diagnostics.vale,
-    diagnostics.ruff.with({
-      condition = function(u)
-        return utils.is_executable("ruff") and u.has_file("pyproject.toml")
-      end,
-    }),
     diagnostics.flake8.with({
       condition = function(u)
         return u.has_file(".flake8")
