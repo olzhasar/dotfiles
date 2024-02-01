@@ -47,6 +47,7 @@ cmp.setup({
   -- sources for autocompletion
   sources = cmp.config.sources({
     { name = "nvim_lsp" }, -- lsp
+    { name = "nvim_lsp_signature_help" },
     { name = "luasnip" }, -- snippets
     { name = "dictionary", keyword_length = 4 },
     {
@@ -58,7 +59,6 @@ cmp.setup({
       },
     }, -- text within all buffers
     { name = "path" }, -- file system paths
-    { name = "nvim_lsp_signature_help" }, -- file system paths
   }),
   -- configure lspkind for vs-code like icons
   formatting = {
@@ -74,32 +74,32 @@ cmp.setup({
     }),
   },
 
-  sorting = {
-    comparators = {
-      cmp.config.compare.offset,
-      cmp.config.compare.exact_length,
-      cmp.config.compare.score,
-      cmp.config.compare.recently_used,
-
-      -- Move items starting with underscore to the end
-      function(entry1, entry2)
-        local _, entry1_under = entry1.completion_item.label:find("^_+")
-        local _, entry2_under = entry2.completion_item.label:find("^_+")
-        entry1_under = entry1_under or 0
-        entry2_under = entry2_under or 0
-        if entry1_under > entry2_under then
-          return false
-        elseif entry1_under < entry2_under then
-          return true
-        end
-      end,
-
-      cmp.config.compare.kind,
-      cmp.config.compare.sort_text,
-      cmp.config.compare.length,
-      cmp.config.compare.order,
-    },
-  },
+  -- sorting = {
+  --   comparators = {
+  --     cmp.config.compare.offset,
+  --     cmp.config.compare.exact_length,
+  --     cmp.config.compare.score,
+  --     cmp.config.compare.recently_used,
+  --
+  --     -- Move items starting with underscore to the end
+  --     function(entry1, entry2)
+  --       local _, entry1_under = entry1.completion_item.label:find("^_+")
+  --       local _, entry2_under = entry2.completion_item.label:find("^_+")
+  --       entry1_under = entry1_under or 0
+  --       entry2_under = entry2_under or 0
+  --       if entry1_under > entry2_under then
+  --         return false
+  --       elseif entry1_under < entry2_under then
+  --         return true
+  --       end
+  --     end,
+  --
+  --     cmp.config.compare.kind,
+  --     cmp.config.compare.sort_text,
+  --     cmp.config.compare.length,
+  --     cmp.config.compare.order,
+  --   },
+  -- },
 })
 
 cmp.setup.cmdline("/", {
