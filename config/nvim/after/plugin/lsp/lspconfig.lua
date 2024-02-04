@@ -117,6 +117,12 @@ lspconfig["tailwindcss"].setup({
   on_attach = on_attach,
 })
 
+lspconfig["htmx"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  filetypes = { "html", "htmldjango" },
+})
+
 lspconfig["emmet_ls"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
