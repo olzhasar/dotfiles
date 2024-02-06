@@ -48,6 +48,7 @@ return require("packer").startup(function(use)
   use("tpope/vim-surround")
   use("windwp/nvim-autopairs")
   use("mattn/emmet-vim")
+  use("github/copilot.vim")
 
   -- Journaling
   use("folke/zen-mode.nvim")
