@@ -59,3 +59,11 @@ vim.g.netrw_list_hide =
 
 --python
 vim.g.python3_host_prog = "/Users/olzhas/.pyenv/shims/python3"
+
+--copilot
+vim.g.copilot_filetypes = {
+  gitcommit = true,
+  markdown = true,
+  yaml = true,
+  toml = true,
+}
