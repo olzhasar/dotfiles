@@ -30,3 +30,9 @@ api.nvim_create_autocmd("BufWritePost", {
   command = "PackerSync",
   group = au_group,
 })
+
+api.nvim_create_autocmd("BufWritePre", {
+  pattern = { "*" },
+  command = "silent! call mkdir(fnamemodify(expand('<afile>'), ':p:h'), 'p')",
+  group = au_group,
+})
