@@ -8,10 +8,9 @@ end
 
 -- General
 map("n", "<Leader>e", ":Explore<CR>")
-map("n", "<Leader>le", ":Lexplore<CR>")
-map("n", ",e", [[:e <C-R>=expand("%:p:h") . "/" <CR>]])
-map("n", ",s", [[:split <C-R>=expand("%:p:h") . "/" <CR>]])
-map("n", ",vs", [[:vsplit <C-R>=expand("%:p:h") . "/" <CR>]])
+map("n", ",e", [[:e <C-R>=expand("%:h") . "/" <CR>]])
+map("n", ",s", [[:split <C-R>=expand("%:h") . "/" <CR>]])
+map("n", ",v", [[:vsplit <C-R>=expand("%:h") . "/" <CR>]])
 map("n", "Q", "<nop>")
 map("n", "<Leader>u", ":UndotreeToggle<CR>")
 map("n", "<Leader>bg", ":BackgroundSwitch<CR>")
