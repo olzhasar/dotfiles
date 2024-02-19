@@ -14,8 +14,14 @@ api.nvim_create_autocmd("BufWritePost", {
 })
 
 api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = { "*.conf" },
+  pattern = { "*.conf", "*.cnf", "*.cfg", "*.ini", "*.dosini" },
   command = ":setfiletype dosini",
+  group = au_group,
+})
+
+api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.nginx.conf" },
+  command = ":setfiletype nginx",
   group = au_group,
 })
 
