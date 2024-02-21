@@ -51,6 +51,16 @@ lspconfig["html"].setup({
   on_attach = on_attach,
 })
 
+lspconfig["cssls"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+lspconfig["volar"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
 lspconfig["dockerls"].setup({
   capabilities = capabilities,
   on_attach = on_attach,

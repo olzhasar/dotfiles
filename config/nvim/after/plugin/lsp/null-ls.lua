@@ -31,6 +31,18 @@ null_ls.setup({
         return u.has_file("pyproject.toml")
       end,
     }),
+    formatting.rustywind.with({
+      filetypes = {
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "vue",
+        "svelte",
+        "html",
+        "htmldjango",
+      },
+    }),
     diagnostics.luacheck,
     diagnostics.actionlint, -- lint github workflow files
     diagnostics.codespell.with({

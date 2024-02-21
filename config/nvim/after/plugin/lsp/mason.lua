@@ -20,6 +20,8 @@ require("mason-lspconfig").setup({
     "texlab",
     "bashls",
     "marksman",
+    "cssls",
+    "volar", -- vue.js
     "htmx",
   },
   -- auto-install configured servers (with lspconfig)
@@ -34,6 +36,7 @@ require("mason-null-ls").setup({
     "luacheck",
     "eslint_d",
     "clang-format",
+    "rustywind",
   },
 
   automatic_installation = false,
