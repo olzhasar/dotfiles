@@ -11,9 +11,24 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
   sources = {
     hover.dictionary,
-    formatting.prettier.with({ disabled_filetypes = { "yaml" } }),
     formatting.stylua,
     formatting.djhtml, -- format jinja, django templates
+    formatting.prettier.with({
+      filetypes = {
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "vue",
+        "svelte",
+        "html",
+        "htmldjango",
+        "css",
+        "scss",
+        "less",
+        "json",
+      },
+    }),
     formatting.gofmt,
     formatting.clang_format,
     formatting.black.with({
