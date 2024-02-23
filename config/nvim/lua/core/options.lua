@@ -52,7 +52,7 @@ o.statusline = o.statusline .. "%l:%c "
 --
 -- netrw
 vim.g.netrw_banner = 0
-vim.g.netrw_keepdir = 0
+vim.g.netrw_keepdir = 1
 vim.g.netrw_localcopydircmd = "cp -r"
 vim.g.netrw_fastbrowse = 0
 vim.g.netrw_altfile = 1
