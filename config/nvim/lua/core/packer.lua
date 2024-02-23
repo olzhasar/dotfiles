@@ -25,10 +25,12 @@ return require("packer").startup(function(use)
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
   use({ "nvim-telescope/telescope-file-browser.nvim" })
 
+  -- Language specific
+  use("fatih/vim-go")
+
   -- Utils
   use("nvim-lua/plenary.nvim")
   use("tpope/vim-eunuch") -- Unix helpers, :Move, :Rename, etc.
-  use("tpope/vim-vinegar") -- Enhances netrw
   use("folke/trouble.nvim")
   use("folke/which-key.nvim") -- Show keymaps
   use("mbbill/undotree")
