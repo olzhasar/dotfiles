@@ -6,7 +6,6 @@ require("mason-lspconfig").setup({
     "html",
     "tailwindcss",
     "pyright",
-    "emmet_ls",
     "clangd",
     "tsserver",
     "lua_ls",
