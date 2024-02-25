@@ -84,6 +84,7 @@ lspconfig["clangd"].setup({
 lspconfig["jsonls"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
+  filetypes = { "json", "jsonc" },
 })
 
 lspconfig["yamlls"].setup({
