@@ -1,5 +1,8 @@
-local dark_colorscheme = "gruvbox"
+local dark_colorscheme = "gruvbox-material"
 local light_colorscheme = "catppuccin-latte"
+
+vim.g.gruvbox_material_background = "hard"
+vim.g.gruvbox_material_foreground = "mix"
 
 local function set_colorscheme(scheme, bg)
   vim.cmd.colorscheme(scheme)

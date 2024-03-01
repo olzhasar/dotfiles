@@ -16,7 +16,7 @@ return require("packer").startup(function(use)
 
   -- Appearance
   use("NLKNguyen/papercolor-theme")
-  use("ellisonleao/gruvbox.nvim")
+  use("sainnhe/gruvbox-material")
   use({ "catppuccin/nvim", as = "catppuccin" })
   use("kyazdani42/nvim-web-devicons")
 
@@ -24,9 +24,6 @@ return require("packer").startup(function(use)
   use({ "nvim-telescope/telescope.nvim", tag = "0.1.3" })
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
   use({ "nvim-telescope/telescope-file-browser.nvim" })
-
-  -- Language specific
-  use("fatih/vim-go")
 
   -- Utils
   use("nvim-lua/plenary.nvim")
