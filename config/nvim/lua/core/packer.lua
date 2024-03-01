@@ -107,6 +107,7 @@ return require("packer").startup(function(use)
   use("nvim-neotest/neotest-python")
   use("nvim-neotest/neotest-go")
   use("nvim-neotest/neotest-jest")
+  use("marilari88/neotest-vitest")
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

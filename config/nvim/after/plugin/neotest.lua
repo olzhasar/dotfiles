@@ -8,6 +8,7 @@ require("neotest").setup({
       args = { "-timeout=20s" },
     }),
     require("neotest-jest"),
+    require("neotest-vitest"),
   },
   highlights = {
     adapter_name = "NeotestAdapterName",
