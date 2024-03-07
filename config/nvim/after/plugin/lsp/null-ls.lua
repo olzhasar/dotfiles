@@ -23,12 +23,15 @@ null_ls.setup({
         "svelte",
         "html",
         "htmldjango",
-	"gohtmltmpl",
+        "gohtmltmpl",
         "css",
         "scss",
         "less",
         "json",
       },
+      condition = function(u)
+        return u.has_file("prettier.config.js") or u.has_file(".prettierrc.js")
+      end,
     }),
     formatting.gofmt,
     formatting.clang_format,
