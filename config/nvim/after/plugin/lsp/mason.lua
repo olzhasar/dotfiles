@@ -20,7 +20,7 @@ require("mason-lspconfig").setup({
     "bashls",
     "marksman",
     "cssls",
-    "volar", -- vue.js
+    "volar@1.8.27",
     "htmx",
   },
   -- auto-install configured servers (with lspconfig)
