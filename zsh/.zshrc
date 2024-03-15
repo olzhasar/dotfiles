@@ -16,6 +16,8 @@ docker() {
 
 # OHMYZSH
 
+unsetopt autocd  # do not cd on directory name
+
 plugins=(git httpie zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
