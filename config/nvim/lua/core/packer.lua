@@ -102,6 +102,7 @@ return require("packer").startup(function(use)
     "nvim-neotest/neotest",
     requires = {
       "antoinemadec/FixCursorHold.nvim",
+      "nvim-neotest/nvim-nio",
     },
   })
   use("nvim-neotest/neotest-python")
