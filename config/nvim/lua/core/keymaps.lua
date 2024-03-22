@@ -14,6 +14,8 @@ map("n", ",v", [[:vsplit <C-R>=expand("%:h") . "/" <CR>]])
 map("n", "Q", "<nop>")
 map("n", "<Leader>u", ":UndotreeToggle<CR>")
 map("n", "<Leader>bg", ":BackgroundSwitch<CR>")
+map("n", "<leader>a", "<cmd>lua require('lspimport').import()<CR>", { noremap = true })
+map("n", "<leader>lr", ":LspRestart<CR>")
 
 -- Copy pasting
 map("v", "<Leader>y", [["+y]]) -- copy to system clipboard
@@ -47,7 +49,12 @@ map("n", "<Leader>fc", ":Telescope git_commits<CR>")
 map("n", "<Leader><Space>", ":Telescope git_status<CR>")
 map("n", "<Leader>fr", ":Telescope lsp_references<CR>")
 map("n", "<Leader>fh", ":Telescope help_tags<CR>")
-map("n", "<Leader>fm", ":Telescope marks<CR>")
+map(
+  "n",
+  "<Leader>fm",
+  ":<cmd>lua require('telescope.builtin').man_pages({sections={'ALL'}, man_cmd={'apropos', '.*'}})<cr>"
+)
+map("n", "<Leader>f'", ":Telescope marks<CR>")
 map("n", "<Leader>fj", ":Telescope jumplist<CR>")
 map("n", "<Space><Space>", ":Telescope buffers<CR>")
 
