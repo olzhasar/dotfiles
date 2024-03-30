@@ -1,13 +1,13 @@
 #!/bin/sh
 
-if [[ $(uname) == "Darwin" ]]; then
+if [ "$(uname)" = "Darwin" ]; then
   nvim_bin="/opt/homebrew/bin/nvim"
 else
   nvim_bin="/usr/local/bin/nvim"
 fi
 
 while true; do
-    nvim_bin "$@"
+    "$nvim_bin" "$@"
     if [ $? -ne 111 ]; then
         break
     fi
