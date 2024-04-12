@@ -24,6 +24,7 @@ stow:
 	stow tmux
 	stow vale
 	stow skhd
+	stow amethyst
 	stow -t ~/.config config
 	stow -t ~/.local/scripts scripts
 
