@@ -28,14 +28,19 @@ null_ls.setup({
         "scss",
         "less",
         "json",
-	"jsonc",
+        "jsonc",
       },
     }),
     formatting.gofmt,
     formatting.clang_format,
     formatting.black.with({
       condition = function(u)
-        return u.has_file("pyproject.toml")
+        return utils.is_executable("black") and u.has_file("pyproject.toml")
+      end,
+    }),
+    formatting.isort.with({
+      condition = function(u)
+        return u.has_file("pyproject.toml") and not utils.is_executable("ruff")
       end,
     }),
     formatting.ruff.with({
@@ -43,10 +48,12 @@ null_ls.setup({
         return utils.is_executable("ruff") and u.has_file("pyproject.toml")
       end,
     }),
-    formatting.isort.with({
+    formatting.ruff.with({
       condition = function(u)
-        return u.has_file("pyproject.toml")
+        return utils.is_executable("ruff") and u.has_file("pyproject.toml")
       end,
+      command = "ruff",
+      args = { "format", "-n", "--stdin-filename", "$FILENAME", "-" },
     }),
     formatting.rustywind.with({
       filetypes = {
@@ -70,6 +77,11 @@ null_ls.setup({
     }),
     diagnostics.zsh,
     diagnostics.vale,
+    diagnostics.ruff.with({
+      condition = function(u)
+	return utils.is_executable("ruff") and u.has_file("pyproject.toml")
+      end,
+    }),
     diagnostics.flake8.with({
       condition = function(u)
         return u.has_file(".flake8")
