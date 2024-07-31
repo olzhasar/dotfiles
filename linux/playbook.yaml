@@ -42,12 +42,24 @@
           - npm
           - golang
           - kitty
-          - i3
+          - postgresql
+          - postgresql-contrib
+          - redis-server
 
     - name: Make zsh default shell
       shell: usermod --shell $(which zsh) {{ ansible_env.USER }}
       become: true
       changed_when: false
+
+    - name: Install oh-my-zsh
+      shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+      args:
+        creates: ~/.oh-my-zsh
+
+    - name: Install zsh zsh-autosuggestions
+      shell: git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+      args:
+        creates: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
     - name: Check neovim
       shell: type nvim
@@ -74,8 +86,32 @@
             state: absent
 
       become: true
-      become_user: root
       when: nvim_status.rc != 0
+
+    - name: Install tree-sitter-cli
+      command: npm install -g tree-sitter-cli
+      become: true
+
+    - name: Make common directories
+      file:
+        name: "{{ item }}"
+        state: directory
+      loop:
+        - ~/dev
+        - ~/.config
+        - ~/.local/scripts
+
+    - name: Configure dotfiles
+      block:
+        - name: clone repo
+          git:
+            dest: ~/.dotfiles
+            repo: https://github.com/olzhasar/dotfiles.git
+            update: no
+        - name: stow
+          command:
+            cmd: make stow
+            chdir: ~/.dotfiles
 
     - name: Install Fonts
       block:
@@ -104,25 +140,6 @@
           command:
             cmd: fc-cache -fv
 
-    - name: Configure dotfiles
-      block:
-        - name: clone repo
-          git:
-            dest: ~/.dotfiles
-            repo: https://github.com/olzhasar/dotfiles.git
-        - name: stow tmux
-          command:
-            cmd: stow tmux
-            chdir: ~/.dotfiles
-        - name: stow git
-          command:
-            cmd: stow git
-            chdir: ~/.dotfiles
-        - name: stow config
-          command:
-            cmd: stow -t ~/.config config
-            chdir: ~/.dotfiles
-
     - name: Check brave browser
       shell: type brave-browser
       register: brave_status
@@ -144,5 +161,4 @@
             update_cache: true
 
       become: true
-      become_user: root
       when: brave_status.rc != 0
