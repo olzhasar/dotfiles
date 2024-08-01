@@ -210,7 +210,7 @@ throw-space-9:
 
 throw-space-10:
    mod: mod1
-   key: '10'
+   key: '0'
 
 # Select tall layout
 select-tall-layout:
