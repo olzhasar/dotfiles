@@ -6,19 +6,11 @@ ZSH_THEME="robbyrussell"
 # docker
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
 
-docker() {
- if [[ `uname -m` == "arm64" ]] && [[ "$1" == "run" || "$1" == "build" ]]; then
-    /usr/local/bin/docker "$1" --platform linux/amd64 "${@:2}"
-  else
-     /usr/local/bin/docker "$@"
-  fi
-}
-
 # OHMYZSH
 
 unsetopt autocd  # do not cd on directory name
 
-plugins=(git httpie zsh-autosuggestions)
+plugins=(git zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
 # EDITOR
