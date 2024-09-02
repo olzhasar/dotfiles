@@ -30,7 +30,6 @@ return require("packer").startup(function(use)
   use("tpope/vim-eunuch") -- Unix helpers, :Move, :Rename, etc.
   use("folke/trouble.nvim")
   use("folke/which-key.nvim") -- Show keymaps
-  use("mbbill/undotree")
 
   -- Documentation
   use("rizzatti/dash.vim")
