@@ -93,9 +93,8 @@ return require("packer").startup(function(use)
     ft = { "markdown" },
   })
 
-  -- formatting & linting
-  use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
-  use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
+  -- formatting
+  use("stevearc/conform.nvim")
 
   -- testing
   use({

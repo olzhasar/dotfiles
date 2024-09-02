@@ -26,17 +26,3 @@ require("mason-lspconfig").setup({
   -- auto-install configured servers (with lspconfig)
   automatic_installation = true, -- not the same as ensure_installed
 })
-
-require("mason-null-ls").setup({
-  -- linters & formatters
-  ensure_installed = {
-    "prettier",
-    "stylua",
-    "luacheck",
-    "eslint_d",
-    "clang-format",
-    "rustywind",
-  },
-
-  automatic_installation = false,
-})
