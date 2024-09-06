@@ -2,14 +2,12 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
+unsetopt autocd  # do not cd on directory name
 
 # docker
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
 
 # OHMYZSH
-
-unsetopt autocd  # do not cd on directory name
-
 plugins=(git zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
@@ -29,12 +27,15 @@ export DEV_DIR="$HOME/dev/"
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 
+# direnv
+eval "$(direnv hook zsh)"
+
 # ALIASES
 alias python=python3
 alias vim=nvim
-alias vimg="vim . +Git"
 alias dev="cd $DEV_DIR"
 alias dotfiles="cd $HOME/.dotfiles && tmux new-session -A -s dotfiles nvim ."
-alias t=tmux-dev
 
-eval "$(direnv hook zsh)"
+if [[ -f ~/.zshrc.local ]]; then
+  source ~/.zshrc.local
+fi
