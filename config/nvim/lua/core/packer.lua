@@ -92,8 +92,9 @@ return require("packer").startup(function(use)
     ft = { "markdown" },
   })
 
-  -- formatting
+  -- formatting & linting
   use("stevearc/conform.nvim")
+  use("mfussenegger/nvim-lint")
 
   -- testing
   use({
