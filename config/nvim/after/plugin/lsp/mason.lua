@@ -7,7 +7,7 @@ require("mason-lspconfig").setup({
     "tailwindcss",
     "pyright",
     "clangd",
-    "tsserver",
+    "ts_ls",
     "lua_ls",
     "dockerls",
     "gopls",
