@@ -23,12 +23,11 @@ autoload -Uz compinit && compinit
 # EXPORTS
 export DEV_DIR="$HOME/dev/"
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-
 # direnv
 eval "$(direnv hook zsh)"
+
+# uv
+eval "$(uv generate-shell-completion zsh)"
 
 # ALIASES
 alias python=python3

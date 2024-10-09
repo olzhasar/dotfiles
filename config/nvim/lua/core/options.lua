@@ -61,7 +61,7 @@ vim.g.netrw_list_hide = "^\\./$,.*.swp$,.*.pyc,.pytest_cache,.mypy_cache,.ruff_c
   .. ".tags$,node_modules,.*.sqlite,celerybeat-schedule$"
 
 --python
-vim.g.python3_host_prog = "/Users/olzhas/.pyenv/shims/python3"
+vim.g.python3_host_prog = "$HOME/.local/share/nvim/.venv/bin/python3"
 
 --copilot
 vim.g.copilot_filetypes = {

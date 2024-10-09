@@ -11,8 +11,6 @@ if [[ $(uname) == "Darwin" ]]; then
   export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 fi
 
-export PATH="$HOME/.ebcli-virtual-env/executables:$PATH"
-
 export GOPATH="$HOME/go"
 export GOROOT="/usr/local/go"
 export PATH="$GOPATH/bin:$PATH"
