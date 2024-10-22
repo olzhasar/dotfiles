@@ -29,6 +29,8 @@ eval "$(direnv hook zsh)"
 # uv
 eval "$(uv generate-shell-completion zsh)"
 
+source <(fzf --zsh)
+
 # ALIASES
 alias python=python3
 alias vim=nvim
