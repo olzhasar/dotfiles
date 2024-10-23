@@ -42,11 +42,3 @@ api.nvim_create_autocmd("BufWritePre", {
   command = "silent! call mkdir(fnamemodify(expand('<afile>'), ':p:h'), 'p')",
   group = au_group,
 })
-
-api.nvim_create_autocmd("BufEnter", {
-  pattern = { "content/*.md" },
-  callback = function(_)
-    require("zen-mode").toggle()
-  end,
-  group = au_group,
-})

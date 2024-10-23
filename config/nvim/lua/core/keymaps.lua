@@ -86,7 +86,6 @@ map("n", "<Leader>hs", ":Gitsigns stage_hunk<CR>")
 map("n", "<Leader>hu", ":Gitsigns undo_stage_hunk<CR>")
 
 -- Documentation
-map("n", "<Leader>da", ":Dash<CR>")
 map("n", "<Leader>M", ":Man<CR>")
 
 -- Journaling
