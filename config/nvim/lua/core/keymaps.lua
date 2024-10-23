@@ -71,6 +71,7 @@ map("n", "<Leader>gR", ":Gitsigns reset_buffer<CR>")
 map("n", "<Leader>gw", ":Gitsigns stage_buffer<CR>")
 map("n", "<Leader>gp", ":Git push<CR>")
 map("n", "<Leader>gl", ":Git log<CR>")
+map("n", "<Leader>gB", ":Git blame<CR>")
 map("n", "<Leader>gb", ":Telescope git_branches<CR>")
 map("n", "<Leader>gh", ":Telescope git_bcommits<CR>")
 
