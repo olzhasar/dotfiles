@@ -23,7 +23,6 @@ return require("packer").startup(function(use)
   -- Fuzzy finder
   use({ "nvim-telescope/telescope.nvim", tag = "0.1.3" })
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-  use({ "nvim-telescope/telescope-file-browser.nvim" })
 
   -- Utils
   use("nvim-lua/plenary.nvim")

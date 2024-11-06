@@ -43,7 +43,7 @@ map("n", "<C-f>", "<cmd>lua require('telescope.builtin').git_files({show_untrack
 map("n", "<C-s>", ":Telescope grep_string<CR>")
 map("n", "<leader>ff", ":Telescope find_files<cr>")
 map("n", "<Leader>fd", "<cmd>lua require('telescope.builtin').find_files({cwd = '~/dev'})<cr>") -- search entire dev dir
-map("n", "<Leader>fb", ":Telescope file_browser<CR>")
+map("n", "<Leader>fb", ":Telescope buffers<CR>")
 map("n", "<Leader>fg", ":Telescope live_grep<CR>")
 map("n", "<Leader>fc", ":Telescope git_commits<CR>")
 map("n", "<Leader><Space>", ":Telescope git_status<CR>")
