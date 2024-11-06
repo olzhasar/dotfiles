@@ -57,7 +57,7 @@ vim.g.netrw_localcopydircmd = "cp -r"
 vim.g.netrw_fastbrowse = 0
 vim.g.netrw_altfile = 1
 vim.g.netrw_bufsettings = "noma nomod nu nobl nowrap ro"
-vim.g.netrw_list_hide = "^\\./$,.*.swp$,.*.pyc,.pytest_cache,.mypy_cache,.ruff_cache,__pycache__,"
+vim.g.netrw_list_hide = "^\\./$,.*.swp$,.*.pyc,.*.o$,.pytest_cache,.mypy_cache,.ruff_cache,__pycache__,"
   .. ".tags$,node_modules,.*.sqlite,celerybeat-schedule$"
 
 --python
