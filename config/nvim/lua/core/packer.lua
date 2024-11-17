@@ -30,9 +30,6 @@ return require("packer").startup(function(use)
   use("folke/trouble.nvim")
   use("folke/which-key.nvim") -- Show keymaps
 
-  -- Documentation
-  use("rizzatti/dash.vim")
-
   -- Latex
   use("lervag/vimtex")
 
@@ -74,10 +71,7 @@ return require("packer").startup(function(use)
   --Treesitter
   use({
     "nvim-treesitter/nvim-treesitter",
-    run = function()
-      local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
-      ts_update()
-    end,
+    run = ":TSUpdate",
   })
   use("nvim-treesitter/nvim-treesitter-textobjects")
 
