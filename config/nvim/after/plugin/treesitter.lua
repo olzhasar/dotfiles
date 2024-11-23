@@ -2,12 +2,12 @@ require("nvim-treesitter.configs").setup({
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
+    disable = { "c", "cpp" }, -- temp disable c and cpp https://github.com/nvim-treesitter/nvim-treesitter/issues/7398
   },
   indent = { enable = true },
   autotag = { enable = true },
   ensure_installed = {
     "c",
-    "cpp",
     "make",
     "go",
     "python",
