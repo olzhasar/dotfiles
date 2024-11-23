@@ -62,11 +62,3 @@ vim.g.netrw_list_hide = "^\\./$,.*.swp$,.*.pyc,.*.o$,.pytest_cache,.mypy_cache,.
 
 --python
 vim.g.python3_host_prog = "$HOME/.local/share/nvim/.venv/bin/python3"
-
---copilot
-vim.g.copilot_filetypes = {
-  gitcommit = true,
-  markdown = true,
-  yaml = true,
-  toml = true,
-}

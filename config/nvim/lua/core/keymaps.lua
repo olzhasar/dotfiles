@@ -11,22 +11,20 @@ map("n", "<Leader>e", ":Explore<CR>")
 map("n", ",e", [[:e <C-R>=expand("%:h") . "/" <CR>]])
 map("n", ",s", [[:split <C-R>=expand("%:h") . "/" <CR>]])
 map("n", ",v", [[:vsplit <C-R>=expand("%:h") . "/" <CR>]])
-map("n", "Q", "<nop>")
 map("n", "<Leader>u", ":UndotreeToggle<CR>")
 map("n", "<Leader>bg", ":BackgroundSwitch<CR>")
-map("n", "<leader>a", "<cmd>lua require('lspimport').import()<CR>", { noremap = true })
 map("n", "<leader>lr", ":LspRestart<CR>")
 
 -- Copy pasting
-map("v", "<Leader>y", [["+y]]) -- copy to system clipboard
 map("n", "<Leader>y", [["+y]])
+map("x", "<Leader>y", [["+y]])
 map("n", "<Leader>Y", [["+Y]])
+map("x", "<Leader>Y", [["+Y]])
 map("x", "<leader>p", [["_dP]])
 map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Buffers
 map("n", "<Leader>bd", ":Bd<CR>") -- close current buffer
-map("n", "<Leader>wk", ":WhichKey<CR>") -- close current buffer
 
 -- Navigating
 map("v", "J", ":m '>+1<CR>gv=gv")
@@ -35,8 +33,6 @@ map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
-
-map("v", "<Leader>G", ":lua vim.googleSearch()<CR>", { noremap = true })
 
 -- Telescope
 map("n", "<C-f>", "<cmd>lua require('telescope.builtin').git_files({show_untracked=true})<cr>")
@@ -57,6 +53,7 @@ map(
 map("n", "<Leader>f'", ":Telescope marks<CR>")
 map("n", "<Leader>fj", ":Telescope jumplist<CR>")
 map("n", "<Space><Space>", ":Telescope buffers<CR>")
+map("n", "<Leader>cs", ":Telescope colorscheme<CR>")
 
 -- Testing
 map("n", "<leader>tn", '<cmd>lua require("neotest").run.run()<CR>') -- run nearest test

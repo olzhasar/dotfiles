@@ -7,12 +7,6 @@ api.nvim_create_autocmd("TextYankPost", {
   group = au_group,
 })
 
-api.nvim_create_autocmd("BufWritePost", {
-  pattern = { "init.lua", "*/lua/core/*.lua", "*/lua/plugins/*.lua", "*/after/plugin/*.lua" },
-  command = ":luafile %",
-  group = au_group,
-})
-
 api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "*.conf", "*.cnf", "*.cfg", "*.ini", "*.dosini" },
   command = ":setfiletype dosini",
@@ -28,12 +22,6 @@ api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "*.jinja", "*.j2", "*.jinja2", "*.jinja.html", "**/templates/**/*.html" },
   command = ":setfiletype htmldjango",
-  group = au_group,
-})
-
-api.nvim_create_autocmd("BufWritePost", {
-  pattern = { "packer.lua" },
-  command = "PackerSync",
   group = au_group,
 })
 
