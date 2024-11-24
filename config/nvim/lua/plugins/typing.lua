@@ -34,6 +34,10 @@ return {
         markdown = true,
         yaml = true,
         toml = true,
+        c = false,
+        cpp = false,
+        go = false,
+        rust = false,
       }
     end,
   },
