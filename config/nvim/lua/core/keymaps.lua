@@ -97,4 +97,4 @@ map("n", "<Leader>ma", ":make<CR>", { silent = true })
 
 -- Copilot
 map("n", "<Leader>cc", ":CopilotChatToggle<CR>")
-map("i", "<C-l>", "<Plug>(copilot-suggest)")
+map("i", "<C-s>", "<Plug>(copilot-suggest)")

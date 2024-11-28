@@ -15,7 +15,7 @@ return {
     loaders.lazy_load({ exclude = { "python" } })
     loaders.lazy_load({ paths = { "~/.config/nvim/snippets/" } })
 
-    vim.keymap.set({ "i" }, "<C-s>", function()
+    vim.keymap.set({ "i" }, "<C-l>", function()
       ls.expand_or_jump()
     end, { silent = true })
   end,
