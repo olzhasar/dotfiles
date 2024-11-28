@@ -3,7 +3,9 @@ local au_group = api.nvim_create_augroup("user_defined_commands", { clear = true
 
 -- Highlight on yank
 api.nvim_create_autocmd("TextYankPost", {
-  command = "silent! lua vim.highlight.on_yank()",
+  callback = function()
+    vim.highlight.on_yank()
+  end,
   group = au_group,
 })
 
@@ -22,6 +24,16 @@ api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "*.jinja", "*.j2", "*.jinja2", "*.jinja.html", "**/templates/**/*.html" },
   command = ":setfiletype htmldjango",
+  group = au_group,
+})
+
+api.nvim_create_autocmd({ "BufEnter" }, {
+  pattern = { "*posts/*.md" },
+  callback = function()
+    require("cmp").setup.buffer({
+      enabled = false,
+    })
+  end,
   group = au_group,
 })
 
