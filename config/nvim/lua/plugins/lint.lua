@@ -22,13 +22,21 @@ return {
             end
           end,
         },
-        format_on_save = {
-          -- These options will be passed to conform.format()
-          timeout_ms = 500,
-          lsp_format = "fallback",
-        },
-        ["*"] = { "codespell" },
+        format_on_save = function(bufnr)
+          if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+            return
+          end
+          return { timeout_ms = 500, lsp_format = "fallback" }
+        end,
       })
+
+      vim.api.nvim_create_user_command("ConformToggle", function()
+        if vim.b.disable_autoformat then
+          vim.b.disable_autoformat = false
+        else
+          vim.b.disable_autoformat = true
+        end
+      end, { desc = "Toggle format on save" })
     end,
   },
   {
