@@ -25,30 +25,4 @@ return {
       cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
     end,
   },
-  {
-    "github/copilot.vim",
-    event = "InsertEnter",
-    config = function()
-      vim.g.copilot_filetypes = {
-        gitcommit = true,
-        markdown = true,
-        yaml = true,
-        toml = true,
-        c = false,
-        cpp = false,
-        go = false,
-        rust = false,
-      }
-    end,
-  },
-  {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    branch = "canary",
-    dependencies = {
-      { "github/copilot.vim" }, -- or zbirenbaum/copilot.lua
-      { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
-    },
-    build = "make tiktoken", -- Only on MacOS or Linux
-    opts = {},
-  },
 }
