@@ -27,12 +27,15 @@ api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   group = au_group,
 })
 
-api.nvim_create_autocmd({ "BufEnter" }, {
+api.nvim_create_autocmd({ "BufRead" }, {
   pattern = { "*posts/*.md" },
   callback = function()
     require("cmp").setup.buffer({
       enabled = false,
     })
+    vim.o.background = "light"
+    vim.cmd.colorscheme(vim.g.light_colorscheme)
+    require("zen-mode").toggle()
   end,
   group = au_group,
 })

@@ -8,6 +8,9 @@ end
 
 vim.api.nvim_create_user_command("BackgroundSwitch", switch_background, {})
 
+vim.g.light_colorscheme = "catppuccin-latte"
+vim.g.dark_colorscheme = "gruvbox-material"
+
 return {
   {
     "sainnhe/gruvbox-material",
@@ -16,9 +19,9 @@ return {
     config = function()
       vim.g.gruvbox_material_background = "hard"
       vim.g.gruvbox_material_foreground = "mix"
-      vim.cmd.colorscheme("gruvbox-material")
+      vim.cmd.colorscheme(vim.g.dark_colorscheme)
     end,
   },
-  { "catppuccin/nvim", lazy = true },
+  { "catppuccin/nvim", lazy = false },
   { "kyazdani42/nvim-web-devicons", lazy = true },
 }
