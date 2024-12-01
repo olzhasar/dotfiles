@@ -19,10 +19,10 @@ return {
         "terraformls",
         "texlab",
         "bashls",
-        "marksman",
         "cssls",
         "volar@1.8.27",
         "htmx",
+        "harper_ls",
       },
       -- auto-install configured servers (with lspconfig)
       automatic_installation = true, -- not the same as ensure_installed
@@ -77,6 +77,11 @@ return {
             ["typeCheckingMode"] = "off",
           },
         },
+      })
+
+      lspconfig["harper_ls"].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
       })
 
       lspconfig["ruff"].setup({
@@ -150,11 +155,6 @@ return {
         on_attach = on_attach,
       })
 
-      lspconfig["marksman"].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
-
       lspconfig["bashls"].setup({
         capabilities = capabilities,
         on_attach = on_attach,
@@ -164,6 +164,7 @@ return {
       lspconfig["tailwindcss"].setup({
         capabilities = capabilities,
         on_attach = on_attach,
+        filetypes = { "html", "htmldjango", "javascript", "typescript", "vue" },
       })
 
       lspconfig["htmx"].setup({
