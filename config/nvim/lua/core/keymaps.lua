@@ -15,6 +15,7 @@ map("n", "<Leader>u", ":UndotreeToggle<CR>")
 map("n", "<Leader>bg", ":BackgroundSwitch<CR>")
 map("n", "<leader>lr", ":LspRestart<CR>")
 map("n", "Q", "<nop>")
+map("n", "<Leader>F", "<cmd>lua require('conform').format({ lsp_fallback=true })<CR>")
 
 -- Copy pasting
 map("n", "<Leader>y", [["+y]])
