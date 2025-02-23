@@ -93,7 +93,7 @@ map("n", "<Leader>Z", ":ZenMode<CR>")
 
 -- Tmux commands
 map("n", "<Leader>rs", [[:exe "!tmux send -t 1.2 './manage.py runserver' Enter"<CR><CR>]], { silent = true })
-map("n", "<Leader>ptw", [[:exe "!tmux send -t 1.3 'ptw . " . bufname("%") . " ' Enter"<CR><CR>]], { silent = true })
+-- map("n", "<Leader>ptw", [[:exe "!tmux send -t 1.3 'ptw . " . bufname("%") . " ' Enter"<CR><CR>]], { silent = true })
 map("n", "<Leader>ma", ":make<CR>", { silent = true })
 
 -- Codeium
