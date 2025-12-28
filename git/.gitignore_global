@@ -11,4 +11,5 @@ Session.vim
 .envrc
 .null-ls_*
 compile_commands.json
+AGENTS.md
 scratch.md
