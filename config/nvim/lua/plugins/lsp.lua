@@ -18,9 +18,9 @@ return {
         "ansiblels",
         "terraformls",
         "texlab",
+        -- "ty",
         "bashls",
         "cssls",
-        "volar@1.8.27",
         "htmx",
         "harper_ls",
       },
@@ -36,7 +36,6 @@ return {
       "williamboman/mason-lspconfig.nvim",
     },
     config = function()
-      local lspconfig = require("lspconfig")
       local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
       -- enable keybinds only for when lsp server available
@@ -61,129 +60,76 @@ return {
       -- used to enable autocompletion (assign to every lsp server config)
       local capabilities = cmp_nvim_lsp.default_capabilities()
 
-      -- Change the Diagnostic symbols in the sign column (gutter)
-      local signs = { Error = " ", Warn = " ", Hint = "ﴞ ", Info = " " }
-      for type, icon in pairs(signs) do
-        local hl = "DiagnosticSign" .. type
-        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+      vim.diagnostic.config({
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = " ",
+            [vim.diagnostic.severity.WARN] = " ",
+            [vim.diagnostic.severity.HINT] = " ",
+            [vim.diagnostic.severity.INFO] = " ",
+          },
+          linehl = {
+            [vim.diagnostic.severity.ERROR] = "ErrorMsg",
+          },
+        },
+        severity_sort = true,
+      })
+
+      -- Helper: merge a base config with per-server overrides
+      local base = {
+        on_attach = on_attach,
+        capabilities = capabilities,
+      }
+      local function setup(server, extra)
+        vim.lsp.config(server, vim.tbl_deep_extend("force", {}, base, extra or {}))
       end
 
-      lspconfig["pyright"].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
+      -- Simple servers
+      setup("pyright", {
         settings = {
           ["pyright"] = {
             ["typeCheckingMode"] = "off",
           },
         },
       })
+      -- setup("ty")
+      setup("harper_ls")
+      setup("ruff")
+      setup("html")
+      setup("cssls")
+      setup("dockerls")
+      setup("gopls")
+      setup("ts_ls")
+      setup("clangd")
+      setup("yamlls")
+      setup("sqlls")
+      setup("ansiblels")
+      setup("terraformls")
+      setup("texlab")
 
-      lspconfig["harper_ls"].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
-
-      lspconfig["ruff"].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
-
-      lspconfig["html"].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
-
-      lspconfig["cssls"].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
-
-      lspconfig["volar"].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
-
-      lspconfig["dockerls"].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
-
-      lspconfig["gopls"].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
-
-      lspconfig["ts_ls"].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
-
-      lspconfig["clangd"].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
-
-      lspconfig["jsonls"].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
+      -- Per-server tweaks
+      setup("jsonls", {
         filetypes = { "json", "jsonc" },
       })
 
-      lspconfig["yamlls"].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
-
-      lspconfig["sqlls"].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
-
-      lspconfig["ansiblels"].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
-
-      lspconfig["terraformls"].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
-
-      lspconfig["texlab"].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
-
-      lspconfig["bashls"].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
+      setup("bashls", {
         filetypes = { "sh", "bash" },
       })
 
-      lspconfig["tailwindcss"].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
+      setup("tailwindcss", {
         filetypes = { "html", "htmldjango", "javascript", "typescript", "vue" },
       })
 
-      lspconfig["htmx"].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
+      setup("htmx", {
         filetypes = { "html", "htmldjango" },
       })
 
       -- configure lua server (with special settings)
-      lspconfig["lua_ls"].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-        settings = { -- custom settings for lua
+      setup("lua_ls", {
+        settings = {
           Lua = {
-            -- make the language server recognize "vim" global
-            diagnostics = {
-              globals = { "vim" },
-            },
+            diagnostics = { globals = { "vim" } },
             workspace = {
-              -- make language server aware of runtime files
               library = {
                 [vim.fn.expand("$VIMRUNTIME/lua")] = true,
                 [vim.fn.stdpath("config") .. "/lua"] = true,
@@ -192,6 +138,28 @@ return {
           },
         },
       })
+
+      -- Finally: enable the configs (auto-activate by filetypes/root markers)
+
+      vim.lsp.enable("html")
+      vim.lsp.enable("tailwindcss")
+      vim.lsp.enable("clangd")
+      vim.lsp.enable("ts_ls")
+      vim.lsp.enable("lua_ls")
+      vim.lsp.enable("dockerls")
+      vim.lsp.enable("gopls")
+      vim.lsp.enable("jsonls")
+      vim.lsp.enable("sqlls")
+      vim.lsp.enable("yamlls")
+      vim.lsp.enable("ansiblels")
+      vim.lsp.enable("terraformls")
+      vim.lsp.enable("texlab")
+      vim.lsp.enable("bashls")
+      vim.lsp.enable("cssls")
+      vim.lsp.enable("htmx")
+      vim.lsp.enable("harper_ls")
+      vim.lsp.enable("ty")
+      vim.lsp.enable("ruff")
     end,
   },
 }
