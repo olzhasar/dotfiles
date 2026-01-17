@@ -1,12 +1,11 @@
-export ZSH="$HOME/.oh-my-zsh"
-
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
 unsetopt autocd  # do not cd on directory name
 
 # OHMYZSH
+export ZSH="$HOME/.oh-my-zsh"
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="robbyrussell"
 plugins=(git zsh-autosuggestions)
-source $ZSH/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
 
 # EDITOR
 if [[ -n $SSH_CONNECTION ]]; then
@@ -15,18 +14,22 @@ else
   export EDITOR='nvim'
 fi
 
-autoload -Uz compinit && compinit
-
 # EXPORTS
 export DEV_DIR="$HOME/dev/"
 
 # direnv
-eval "$(direnv hook zsh)"
+if command -v direnv >/dev/null 2>&1; then
+  eval "$(direnv hook zsh)"
+fi
 
 # uv
-eval "$(uv generate-shell-completion zsh)"
+if command -v uv >/dev/null 2>&1; then
+  eval "$(uv generate-shell-completion zsh)"
+fi
 
-source <(fzf --zsh)
+if command -v fzf >/dev/null 2>&1; then
+  source <(fzf --zsh)
+fi
 
 # ALIASES
 alias python=python3
