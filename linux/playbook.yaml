@@ -108,9 +108,9 @@
             dest: ~/.dotfiles
             repo: https://github.com/olzhasar/dotfiles.git
             update: no
-        - name: stow
+        - name: bootstrap
           command:
-            cmd: make stow
+            cmd: ./bootstrap.sh
             chdir: ~/.dotfiles
 
     - name: Install Fonts
