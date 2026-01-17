@@ -4,10 +4,11 @@ Configuration files for the following software:
 
 - neovim
 - kitty
-- alacritty
 - zsh
 - brew
 - tmux
 - git
 - direnv
 - github cli
+
+OS-specific stuff lives in `darwin/` and `macos/` respectively

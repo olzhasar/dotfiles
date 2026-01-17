@@ -11,5 +11,5 @@ if [[ $(uname) == "Darwin" ]]; then
   stow amethyst
   stow skhd
 
-  crontab $HOME/.dotfiles/cron/crontab_macos
+  crontab $HOME/.dotfiles/darwin/cron/crontab_macos
 fi
