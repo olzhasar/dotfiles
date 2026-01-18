@@ -46,6 +46,7 @@
           - postgresql-contrib
           - redis-server
           - just
+          - gh
           - wireshark
           - libreoffice
 
@@ -53,6 +54,11 @@
       shell: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
       args:
         creates: ~/.cargo/bin/rustc
+
+    - name: Install stylua
+      command: ~/.cargo/bin/cargo install stylua
+      args:
+        creates: ~/.cargo/bin/stylua
 
     - name: Make zsh default shell
       shell: usermod --shell $(which zsh) {{ ansible_env.USER }}
