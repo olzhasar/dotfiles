@@ -45,6 +45,14 @@
           - postgresql
           - postgresql-contrib
           - redis-server
+          - just
+          - wireshark
+          - libreoffice
+
+    - name: Install Rust
+      shell: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+      args:
+        creates: ~/.cargo/bin/rustc
 
     - name: Make zsh default shell
       shell: usermod --shell $(which zsh) {{ ansible_env.USER }}
@@ -110,7 +118,7 @@
             update: no
         - name: bootstrap
           command:
-            cmd: ./bootstrap.sh
+            cmd: ./scripts/stow.sh
             chdir: ~/.dotfiles
 
     - name: Install Fonts

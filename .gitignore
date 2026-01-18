@@ -1,2 +1,3 @@
 /config/kitty/themes/
+/config/kitty/*.local
 /config/gh/hosts*

@@ -28,11 +28,14 @@ if command -v uv >/dev/null 2>&1; then
 fi
 
 if command -v fzf >/dev/null 2>&1; then
-  source <(fzf --zsh)
+  if fzf --zsh >/dev/null 2>&1; then
+    source <(fzf --zsh)
+  fi
 fi
 
 # ALIASES
 alias python=python3
+alias clip='xclip -selection clipboard'
 alias vim=nvim
 alias dev="cd $DEV_DIR"
 alias dotfiles="cd $HOME/.dotfiles && tmux new-session -A -s dotfiles nvim ."

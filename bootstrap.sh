@@ -1,15 +1,15 @@
-#!/bin/zsh
+#!/usr/bin/env bash
+set -euo pipefail
 
-# stow common dotfiles
-stow zsh
-stow git
-stow tmux
-stow -t ~/.config config
-stow -t ~/.local/scripts scripts
-
-if [[ $(uname) == "Darwin" ]]; then
-  stow amethyst
-  stow skhd
-
-  crontab $HOME/.dotfiles/darwin/cron/crontab_macos
-fi
+case "$(uname)" in
+  Darwin)
+    ./darwin/bootstrap.sh
+    ;;
+  Linux)
+    ./linux/bootstrap.sh
+    ;;
+  *)
+    echo "Unsupported OS: $(uname)" >&2
+    exit 1
+    ;;
+esac
