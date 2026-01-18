@@ -23,7 +23,7 @@ fi
 selected_name=$(basename "$selected" | tr . _)
 
 if ! tmux has-session -t="$selected_name" 2> /dev/null; then
-    tmux new-session -s "$selected_name" -c "$selected" -d "nvim . +Git; exec $SHELL"
+    tmux new-session -s "$selected_name" -c "$selected" -d "$SHELL -lc 'direnv exec . nvim . +Git; exec $SHELL'"
     tmux split-window -t "$selected_name" -c "$selected" -vl 10
     tmux split-window -t "$selected_name" -c "$selected" -h
     tmux select-pane -t "$selected_name":1.1
