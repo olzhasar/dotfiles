@@ -4,6 +4,6 @@ if [[ -x /opt/homebrew/bin/brew ]]; then
   export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 fi
 
-if [[ -f ~/.zprofile.local ]]; then
-  source ~/.zprofile.local
+if [[ -f "$HOME/.zprofile.local" ]]; then
+  source "$HOME/.zprofile.local"
 fi

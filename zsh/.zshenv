@@ -11,7 +11,10 @@ export GOROOT="/usr/local/go"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$GOROOT/bin:$PATH"
 
-if [[ -f ~/.zshenv.local ]]; then
-  source ~/.zshenv.local
+if [[ -f "$HOME/.zshenv.local" ]]; then
+  source "$HOME/.zshenv.local"
 fi
-. "$HOME/.cargo/env"
+
+if [[ -f "$HOME/.cargo/env" ]]; then
+  . "$HOME/.cargo/env"
+fi

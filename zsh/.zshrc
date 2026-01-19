@@ -40,6 +40,6 @@ alias vim=nvim
 alias dev="cd $DEV_DIR"
 alias dotfiles="cd $HOME/.dotfiles && tmux new-session -A -s dotfiles nvim ."
 
-if [[ -f ~/.zshrc.local ]]; then
-  source ~/.zshrc.local
+if [[ -f "$HOME/.zshrc.local" ]]; then
+  source "$HOME/.zshrc.local"
 fi
