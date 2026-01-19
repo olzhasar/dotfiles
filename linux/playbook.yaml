@@ -126,7 +126,7 @@
             update: no
         - name: bootstrap
           command:
-            cmd: ./scripts/stow.sh
+            cmd: ./bin/stow.sh
             chdir: ~/.dotfiles
 
     - name: Install Fonts

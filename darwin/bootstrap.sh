@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-./scripts/stow.sh
+./bin/stow.sh
 
 stow amethyst
 stow skhd

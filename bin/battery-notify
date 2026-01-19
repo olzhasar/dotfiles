@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+
+set -u
+
+state_file="/tmp/battery-notify.state"
+error_log="/tmp/battery-notify.err"
+sleep_seconds=60
+thresholds="20 10 5"
+
+exec 2>>"$error_log"
+
+get_battery_path() {
+  upower -e | grep -m1 "battery" || true
+}
+
+notify_low_battery() {
+  local level="$1"
+  local urgency="normal"
+  if [ "$level" -le 5 ]; then
+    urgency="critical"
+  fi
+  notify-send -u "$urgency" "Low battery" "Battery at ${level}%"
+}
+
+battery_path="$(get_battery_path)"
+if [ -z "$battery_path" ]; then
+  exit 0
+fi
+
+while true; do
+  info="$(upower -i "$battery_path")"
+  state="$(printf '%s\n' "$info" | awk -F': *' '/state/ {print $2}')"
+  level="$(printf '%s\n' "$info" | awk -F': *' '/percentage/ {gsub("%","",$2); print $2}')"
+
+  if [ -z "${level:-}" ]; then
+    sleep "$sleep_seconds"
+    continue
+  fi
+
+  if [ "$state" != "discharging" ]; then
+    rm -f "$state_file"
+    sleep "$sleep_seconds"
+    continue
+  fi
+
+  last_notified=""
+  if [ -f "$state_file" ]; then
+    last_notified="$(cat "$state_file" 2>/dev/null || true)"
+  fi
+
+  for t in $thresholds; do
+    if [ "$level" -le "$t" ]; then
+      if [ -z "$last_notified" ] || [ "$t" -lt "$last_notified" ]; then
+        notify_low_battery "$level"
+        printf '%s\n' "$t" > "$state_file"
+      fi
+      break
+    fi
+  done
+
+  sleep "$sleep_seconds"
+done
