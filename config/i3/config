@@ -32,13 +32,14 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id sh -c 'if command -v systemd-detect-virt >/dev/null 2>&1 && systemd-detect-virt -q; then exit 0; fi; exec xss-lock --transfer-sleep-lock -- i3lock --nofork'
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
-exec_always --no-startup-id picom
-exec --no-startup-id ~/.dotfiles/bin/battery-notify
+exec --no-startup-id sh -c 'if command -v systemd-detect-virt >/dev/null 2>&1 && systemd-detect-virt -q; then exit 0; fi; exec nm-applet'
+exec_always --no-startup-id sh -c 'if command -v systemd-detect-virt >/dev/null 2>&1 && systemd-detect-virt -q; then exit 0; fi; exec picom'
+exec --no-startup-id sh -c 'if command -v systemd-detect-virt >/dev/null 2>&1 && systemd-detect-virt -q; then exit 0; fi; exec ~/.dotfiles/bin/battery-notify'
+exec --no-startup-id sh -c 'if command -v systemd-detect-virt >/dev/null 2>&1 && systemd-detect-virt -q; then exit 0; fi; exec xiccd'
 
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 10%+
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
