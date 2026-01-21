@@ -43,6 +43,7 @@
           - npm
           - golang
           - kitty
+          - i3status
           - postgresql
           - postgresql-contrib
           - redis-server
@@ -51,6 +52,14 @@
           - wireshark
           - libreoffice
           - fonts-inter
+          - mako-notifier
+          - sway
+          - swaybg
+          - swayidle
+          - swaylock
+          - wl-clipboard
+          - wofi
+          - xdg-desktop-portal-wlr
 
     - name: Install Rust
       shell: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
