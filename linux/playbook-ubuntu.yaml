@@ -1,0 +1,162 @@
+- hosts: devmachines
+
+  tasks:
+    - name: Update apt package list
+      become: true
+      apt:
+        update_cache: true
+      register: apt_update
+      retries: 5
+      until: apt_update is success
+
+    - name: Upgrade installed packages
+      become: true
+      apt:
+        upgrade: true
+
+    - name: Install core packages
+      become: true
+      apt:
+        pkg:
+          - wget
+          - curl
+          - git
+          - htop
+          - p7zip
+          - unzip
+          - xclip
+          - zsh
+          - tmux
+          - fzf
+          - ripgrep
+          - silversearcher-ag
+          - autorandr
+          - software-properties-common
+          - python3-dev
+          - python3-pip
+          - ninja-build
+          - gettext
+          - cmake
+          - stow
+          - direnv
+          - nodejs
+          - npm
+          - golang
+          - kitty
+          - i3status
+          - postgresql
+          - postgresql-contrib
+          - redis-server
+          - just
+          - gh
+          - wireshark
+          - libreoffice
+          - fonts-inter
+          - mako-notifier
+          - sway
+          - swaybg
+          - swayidle
+          - swaylock
+          - wl-clipboard
+          - wofi
+          - xdg-desktop-portal-wlr
+
+    - name: Install Rust
+      shell: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+      args:
+        creates: ~/.cargo/bin/rustc
+
+    - name: Install stylua
+      command: ~/.cargo/bin/cargo install stylua
+      args:
+        creates: ~/.cargo/bin/stylua
+
+    - name: Install uv
+      shell: curl -LsSf https://astral.sh/uv/install.sh | sh
+      args:
+        creates: ~/.local/bin/uv
+
+    - name: Make zsh default shell
+      shell: usermod --shell $(which zsh) {{ ansible_env.USER }}
+      become: true
+      changed_when: false
+
+    - name: Install oh-my-zsh
+      shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+      args:
+        creates: ~/.oh-my-zsh
+
+    - name: Install zsh zsh-autosuggestions
+      shell: git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+      args:
+        creates: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+
+    - name: Install neovim
+      shell: |
+        if ! command -v nvim >/dev/null 2>&1; then
+          rm -rf /tmp/neovim
+          git clone --depth 1 --branch stable https://github.com/neovim/neovim /tmp/neovim
+          make -C /tmp/neovim install
+          rm -rf /tmp/neovim
+        fi
+      args:
+        creates: /usr/local/bin/nvim
+      become: true
+
+    - name: Install tree-sitter-cli
+      command: npm install -g tree-sitter-cli
+      become: true
+
+    - name: Make common directories
+      file:
+        name: "{{ item }}"
+        state: directory
+      loop:
+        - ~/dev
+        - ~/.config
+        - ~/.local/scripts
+
+    - name: Install Fonts
+      block:
+        - name: Download font
+          get_url:
+            url: https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz
+            dest: /tmp/
+
+        - name: Create fonts dir
+          file:
+            path: ~/.fonts
+            state: directory
+
+        - name: Extract font archive
+          unarchive:
+            dest: ~/.fonts
+            src: /tmp/JetBrainsMono.tar.xz
+            remote_src: true
+
+        - name: Remove archive
+          file:
+            path: /tmp/JetBrainsMono.tar.xz
+            state: absent
+
+        - name: Update font cache
+          command:
+            cmd: fc-cache -fv
+
+    - name: Install brave browser
+      shell: curl -fsS https://dl.brave.com/install.sh | sh
+      args:
+        creates: /usr/bin/brave-browser
+      become: true
+
+    - name: Configure dotfiles
+      block:
+        - name: clone repo
+          git:
+            dest: ~/.dotfiles
+            repo: https://github.com/olzhasar/dotfiles.git
+            update: no
+        - name: bootstrap
+          command:
+            cmd: ./bin/stow.sh
+            chdir: ~/.dotfiles
