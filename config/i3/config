@@ -37,7 +37,6 @@ exec --no-startup-id sh -c 'if command -v systemd-detect-virt >/dev/null 2>&1 &&
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id sh -c 'if command -v systemd-detect-virt >/dev/null 2>&1 && systemd-detect-virt -q; then exit 0; fi; exec nm-applet'
-exec_always --no-startup-id sh -c 'if command -v systemd-detect-virt >/dev/null 2>&1 && systemd-detect-virt -q; then exit 0; fi; exec picom'
 exec --no-startup-id sh -c 'if command -v systemd-detect-virt >/dev/null 2>&1 && systemd-detect-virt -q; then exit 0; fi; exec ~/.dotfiles/bin/battery-notify'
 exec --no-startup-id sh -c 'if command -v systemd-detect-virt >/dev/null 2>&1 && systemd-detect-virt -q; then exit 0; fi; exec xiccd'
 
