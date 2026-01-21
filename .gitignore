@@ -1,3 +1,4 @@
 /config/kitty/themes/
 /config/kitty/*.local
 /config/gh/hosts*
+/config/sway/config.d/
