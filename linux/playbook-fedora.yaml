@@ -52,6 +52,29 @@
           - libreoffice
           - rsms-inter-fonts
 
+    - name: Install Docker
+      become: true
+      shell: |
+        curl -fsSL https://get.docker.com -o /tmp/get-docker.sh
+        sh /tmp/get-docker.sh
+        rm -f /tmp/get-docker.sh
+      args:
+        creates: /usr/bin/docker
+
+    - name: Enable and start Docker
+      become: true
+      systemd:
+        name: docker
+        enabled: true
+        state: started
+
+    - name: Add user to docker group
+      become: true
+      user:
+        name: "{{ ansible_env.USER }}"
+        groups: docker
+        append: true
+
     - name: Install Rust
       shell: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
       args:
