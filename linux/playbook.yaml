@@ -1,0 +1,11 @@
+- hosts: devmachines
+  gather_facts: true
+
+  tasks:
+    - import_tasks: tasks/ubuntu.yaml
+      when: ansible_distribution == "Ubuntu"
+
+    - import_tasks: tasks/fedora.yaml
+      when: ansible_distribution == "Fedora"
+
+    - import_tasks: tasks/common.yaml

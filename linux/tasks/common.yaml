@@ -1,0 +1,132 @@
+- name: Install Docker
+  become: true
+  shell: |
+    curl -fsSL https://get.docker.com -o /tmp/get-docker.sh
+    sh /tmp/get-docker.sh
+    rm -f /tmp/get-docker.sh
+  args:
+    creates: /usr/bin/docker
+
+- name: Enable and start Docker
+  become: true
+  systemd:
+    name: docker
+    enabled: true
+    state: started
+
+- name: Add user to docker group
+  become: true
+  user:
+    name: "{{ ansible_env.USER }}"
+    groups: docker
+    append: true
+
+- name: Install Rust
+  shell: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+  args:
+    creates: ~/.cargo/bin/rustc
+
+- name: Install stylua
+  command: ~/.cargo/bin/cargo install stylua
+  args:
+    creates: ~/.cargo/bin/stylua
+
+- name: Install uv
+  shell: curl -LsSf https://astral.sh/uv/install.sh | sh
+  args:
+    creates: ~/.local/bin/uv
+
+- name: Make zsh default shell
+  shell: usermod --shell $(which zsh) {{ ansible_env.USER }}
+  become: true
+  changed_when: false
+
+- name: Install oh-my-zsh
+  shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  args:
+    creates: ~/.oh-my-zsh
+
+- name: Install zsh zsh-autosuggestions
+  shell: git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+  args:
+    creates: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+
+- name: Install neovim
+  shell: |
+    if ! command -v nvim >/dev/null 2>&1; then
+      rm -rf /tmp/neovim
+      git clone --depth 1 --branch stable https://github.com/neovim/neovim /tmp/neovim
+      make -C /tmp/neovim install
+      rm -rf /tmp/neovim
+    fi
+  args:
+    creates: /usr/local/bin/nvim
+  become: true
+
+- name: Install tree-sitter-cli
+  become: true
+  npm:
+    name: tree-sitter-cli
+    global: true
+    state: present
+
+- name: Install yarn
+  become: true
+  npm:
+    name: yarn
+    global: true
+    state: present
+
+- name: Make common directories
+  file:
+    name: "{{ item }}"
+    state: directory
+  loop:
+    - ~/dev
+    - ~/.config
+    - ~/.local/scripts
+
+- name: Install Fonts
+  block:
+    - name: Download font
+      get_url:
+        url: https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz
+        dest: /tmp/
+
+    - name: Create fonts dir
+      file:
+        path: ~/.fonts
+        state: directory
+
+    - name: Extract font archive
+      unarchive:
+        dest: ~/.fonts
+        src: /tmp/JetBrainsMono.tar.xz
+        remote_src: true
+
+    - name: Remove archive
+      file:
+        path: /tmp/JetBrainsMono.tar.xz
+        state: absent
+
+    - name: Update font cache
+      command:
+        cmd: fc-cache -fv
+
+- name: Install brave browser
+  shell: curl -fsS https://dl.brave.com/install.sh | sh
+  args:
+    creates: /usr/bin/brave-browser
+  become: true
+
+- name: Configure dotfiles
+  block:
+    - name: clone repo
+      git:
+        dest: ~/.dotfiles
+        repo: https://github.com/olzhasar/dotfiles.git
+        update: no
+    - name: bootstrap
+      command:
+        cmd: ./bin/stow.sh
+        chdir: ~/.dotfiles

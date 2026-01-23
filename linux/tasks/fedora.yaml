@@ -1,0 +1,50 @@
+- name: Update dnf package list
+  become: true
+  dnf:
+    update_cache: true
+  register: dnf_update
+  retries: 5
+  until: dnf_update is success
+
+- name: Upgrade installed packages
+  become: true
+  dnf:
+    name: "*"
+    state: latest
+
+- name: Install core packages
+  become: true
+  dnf:
+    name:
+      - wget
+      - curl
+      - git
+      - htop
+      - p7zip
+      - p7zip-plugins
+      - unzip
+      - xclip
+      - zsh
+      - tmux
+      - fzf
+      - ripgrep
+      - the_silver_searcher
+      - python3-devel
+      - python3-pip
+      - ninja-build
+      - gettext
+      - cmake
+      - stow
+      - direnv
+      - nodejs
+      - npm
+      - golang
+      - kitty
+      - postgresql
+      - postgresql-contrib
+      - redis
+      - just
+      - gh
+      - wireshark
+      - libreoffice
+      - rsms-inter-fonts
