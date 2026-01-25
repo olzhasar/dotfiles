@@ -15,7 +15,7 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 # Recommends: foot
-set $term kitty
+set $term wezterm
 # Your preferred browser
 set $browser gtk-launch brave-browser
 # Your preferred application launcher
@@ -43,7 +43,7 @@ client.urgent           #fb4934 #fb4934   #ffffff   #fb4934   #fb4934
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg, jxl-pixbuf-loader
-output * bg /usr/share/backgrounds/default.jxl fill
+output * bg /usr/share/backgrounds/default-dark.jxl fill
 #
 # Example configuration:
 #
