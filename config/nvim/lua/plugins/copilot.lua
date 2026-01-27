@@ -1,7 +1,9 @@
 return {
   {
-    "Exafunction/codeium.vim",
-    event = "InsertEnter",
+    "Exafunction/windsurf.vim",
+    keys = {
+      { "<C-s>", mode="i" },
+    },
     config = function()
       vim.g.codeium_manual = true
 
