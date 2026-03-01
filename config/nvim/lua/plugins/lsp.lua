@@ -26,6 +26,8 @@ return {
       },
       -- auto-install configured servers (with lspconfig)
       automatic_installation = true, -- not the same as ensure_installed
+      -- do not auto-enable servers with default configs; we enable explicitly below
+      automatic_enable = false,
     },
   },
   {
@@ -79,6 +81,8 @@ return {
       local base = {
         on_attach = on_attach,
         capabilities = capabilities,
+        -- Require a workspace/root for all servers by default (no rootless clients).
+        workspace_required = true,
       }
       local function setup(server, extra)
         vim.lsp.config(server, vim.tbl_deep_extend("force", {}, base, extra or {}))
@@ -86,6 +90,7 @@ return {
 
       -- Simple servers
       setup("pyright", {
+        workspace_required = false,
         settings = {
           ["pyright"] = {
             ["typeCheckingMode"] = "off",
@@ -98,8 +103,12 @@ return {
       setup("html")
       setup("cssls")
       setup("dockerls")
-      setup("gopls")
-      setup("ts_ls")
+      setup("gopls", {
+        workspace_required = false,
+      })
+      setup("ts_ls", {
+        workspace_required = false,
+      })
       setup("clangd")
       setup("yamlls")
       setup("sqlls")
@@ -158,7 +167,7 @@ return {
       vim.lsp.enable("cssls")
       vim.lsp.enable("htmx")
       vim.lsp.enable("harper_ls")
-      vim.lsp.enable("ty")
+      vim.lsp.enable("pyright")
       vim.lsp.enable("ruff")
     end,
   },
