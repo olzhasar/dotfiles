@@ -9,8 +9,9 @@ Session.vim
 .DS_Store
 *.~lock*
 .envrc
-.null-ls_*
 compile_commands.json
 AGENTS.md
+CLAUDE.md
+/.docs/
 scratch.md
 .claude

@@ -43,3 +43,10 @@ alias dotfiles="cd $HOME/.dotfiles && tmux new-session -A -s dotfiles nvim ."
 if [[ -f "$HOME/.zshrc.local" ]]; then
   source "$HOME/.zshrc.local"
 fi
+
+# bun completions
+[ -s "/Users/olzhas/.bun/_bun" ] && source "/Users/olzhas/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
