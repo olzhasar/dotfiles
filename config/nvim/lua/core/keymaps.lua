@@ -28,6 +28,12 @@ map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 -- Buffers
 map("n", "<Leader>bd", ":Bd<CR>") -- close current buffer
 
+-- Quickfix
+map("n", "]q", ":cnext<CR>zz", { silent = true })
+map("n", "[q", ":cprev<CR>zz", { silent = true })
+map("n", "<Leader>qo", ":copen<CR>", { silent = true })
+map("n", "<Leader>qc", ":cclose<CR>", { silent = true })
+
 -- Navigating
 map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '<-2<CR>gv=gv")
@@ -86,7 +92,8 @@ map("n", "<Leader>hs", ":Gitsigns stage_hunk<CR>")
 map("n", "<Leader>hu", ":Gitsigns undo_stage_hunk<CR>")
 
 -- Documentation
-map("n", "<Leader>M", ":Man<CR>")
+map("n", "<Leader>k", ":Man <C-r><C-w><CR>")
+map("n", "<Leader>M", ":Man ")
 
 -- Journaling
 map("n", "<Leader>Z", ":ZenMode<CR>")
@@ -94,7 +101,8 @@ map("n", "<Leader>Z", ":ZenMode<CR>")
 -- Tmux commands
 map("n", "<Leader>rs", [[:exe "!tmux send -t 1.2 './manage.py runserver' Enter"<CR><CR>]], { silent = true })
 -- map("n", "<Leader>ptw", [[:exe "!tmux send -t 1.3 'ptw . " . bufname("%") . " ' Enter"<CR><CR>]], { silent = true })
-map("n", "<Leader>ma", ":make<CR>", { silent = true })
+map("n", "<Leader>ma", ":Make<CR>", { silent = true })
+map("n", "<Leader>mt", ":Make ")
 
 -- Codeium
 map("n", "<Leader>cc", ":CodeiumAuto<CR>")

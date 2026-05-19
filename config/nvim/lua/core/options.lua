@@ -38,6 +38,9 @@ opt.scrolloff = 10
 opt.termguicolors = true
 opt.signcolumn = "yes"
 
+-- filetypes
+vim.g.c_syntax_for_h = 1
+
 -- backspace
 opt.backspace = "indent,eol,start"
 
