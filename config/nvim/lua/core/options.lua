@@ -8,6 +8,8 @@ opt.autoread = true
 opt.backup = false
 opt.writebackup = false
 opt.swapfile = false
+opt.spell = true
+opt.spelllang = { "en" }
 
 -- lines
 opt.relativenumber = true

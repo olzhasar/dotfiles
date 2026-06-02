@@ -98,7 +98,6 @@ return {
         },
       })
       -- setup("ty")
-      setup("harper_ls")
       setup("ruff")
       setup("html")
       setup("cssls")
@@ -117,6 +116,10 @@ return {
       setup("texlab")
 
       -- Per-server tweaks
+      setup("harper_ls", {
+	filetypes = { "markdown", "tex", "rst" },
+      })
+
       setup("jsonls", {
         filetypes = { "json", "jsonc" },
       })
