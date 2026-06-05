@@ -25,6 +25,7 @@ map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Buffers
 map("n", "<Leader>bd", ":Bd<CR>") -- close current buffer
+map("n", "<Tab>", "<C-^>")
 
 -- Quickfix
 map("n", "]q", ":cnext<CR>zz", { silent = true })
@@ -43,13 +44,16 @@ map("n", "N", "Nzzzv")
 -- FZF
 map("n", "<C-f>", ":GFiles --cached --others --exclude-standard<CR>")
 map("n", "<C-s>", ":Rg <C-R><C-W><CR>")
-map("n", "<leader>ff", ":Files<CR>")
-map("n", "<Leader>fd", ":Files ~/dev<CR>") -- search entire dev dir
-map("n", "<C-e>", ":GFiles?<CR>")
-map("n", "<Leader>fg", ":RG<CR>")
-map("n", "<Leader>fc", ":Commits<CR>")
-map("n", "<Leader><Space>", ":Buffers<CR>")
+map("n", "<C-e>", ":Buffers<CR>")
 map("n", "<Leader>fb", ":Buffers<CR>")
+map("n", "<Leader>ff", ":Files<CR>")
+map("n", "<Leader>fa", ":Files<CR>")
+map("n", "<Leader>fp", ":Files ~/dev<CR>")
+map("n", "<Leader>fl", ":Files ~/Downloads<CR>")
+map("n", "<Leader>fg", ":RG<CR>")
+map("n", "<Leader>fs", ":GFiles?<CR>")
+map("n", "<Leader><Space>", ":GFiles?<CR>")
+map("n", "<Leader>fh", ":History<CR>")
 
 -- Testing
 map("n", "<leader>tn", '<cmd>lua require("neotest").run.run()<CR>') -- run nearest test
@@ -60,9 +64,11 @@ map("n", "<leader>ts", '<cmd>lua require("neotest").summary.toggle()<CR>') -- sh
 -- Git
 map("n", "<Leader>gs", ":Git<CR>")
 map("n", "<Leader>gv", ":vertical Git<CR>")
+map("n", "<Leader>gb", ":Git branch<CR>")
 map("n", "<Leader>gR", ":Gitsigns reset_buffer<CR>")
 map("n", "<Leader>gw", ":Gitsigns stage_buffer<CR>")
 map("n", "<Leader>gl", ":Git log<CR>")
+map("n", "<Leader>gL", ":Gllog<CR>")
 map("n", "<Leader>gB", ":Git blame<CR>")
 map("n", "<Leader>gh", ":BCommits<CR>")
 
@@ -84,14 +90,9 @@ map("n", "<Leader>M", ":Man ")
 -- Journaling
 map("n", "<Leader>Z", ":ZenMode<CR>")
 
--- Tmux commands
-map("n", "<Leader>rs", [[:exe "!tmux send -t 1.2 './manage.py runserver' Enter"<CR><CR>]], { silent = true })
--- map("n", "<Leader>ptw", [[:exe "!tmux send -t 1.3 'ptw . " . bufname("%") . " ' Enter"<CR><CR>]], { silent = true })
+-- Make commands
 map("n", "<Leader>ma", ":Make<CR>", { silent = true })
+map("n", "<Leader>mr", ":Make run<CR>", { silent = true })
 map("n", "<Leader>mt", ":Make test<CR>")
 map("n", "<Leader>mc", ":Make check<CR>")
 map("n", "<Leader>m<Space>", ":Make ")
-
--- Codeium
-map("n", "<Leader>cc", ":CodeiumAuto<CR>")
-map("n", "<Leader>cm", ":CodeiumManual<CR>")
