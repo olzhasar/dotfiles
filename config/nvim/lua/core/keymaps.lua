@@ -12,7 +12,6 @@ map("n", ",e", [[:e <C-R>=expand("%:h") . "/" <CR>]])
 map("n", ",s", [[:split <C-R>=expand("%:h") . "/" <CR>]])
 map("n", ",v", [[:vsplit <C-R>=expand("%:h") . "/" <CR>]])
 map("n", "<Leader>bg", ":BackgroundSwitch<CR>")
-map("n", "<leader>lr", ":LspRestart<CR>")
 map("n", "Q", "<nop>")
 map("n", "<Leader>F", "<cmd>lua require('conform').format({ lsp_fallback=true })<CR>")
 
@@ -41,26 +40,16 @@ map("n", "<C-u>", "<C-u>zz")
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 
--- Telescope
-map("n", "<C-f>", "<cmd>lua require('telescope.builtin').git_files({show_untracked=true})<cr>")
-map("n", "<C-s>", ":Telescope grep_string<CR>")
-map("n", "<leader>ff", ":Telescope find_files<cr>")
-map("n", "<Leader>fd", "<cmd>lua require('telescope.builtin').find_files({cwd = '~/dev'})<cr>") -- search entire dev dir
-map("n", "<C-e>", ":Telescope buffers<CR>")
-map("n", "<Leader>fg", ":Telescope live_grep<CR>")
-map("n", "<Leader>fc", ":Telescope git_commits<CR>")
-map("n", "<Leader><Space>", ":Telescope git_status<CR>")
-map("n", "<Leader>fr", ":Telescope lsp_references<CR>")
-map("n", "<Leader>fh", ":Telescope help_tags<CR>")
-map(
-  "n",
-  "<Leader>fm",
-  ":<cmd>lua require('telescope.builtin').man_pages({sections={'ALL'}, man_cmd={'apropos', '.*'}})<cr>"
-)
-map("n", "<Leader>f'", ":Telescope marks<CR>")
-map("n", "<Leader>fj", ":Telescope jumplist<CR>")
-map("n", "<Space><Space>", ":Telescope buffers<CR>")
-map("n", "<Leader>cs", ":Telescope colorscheme<CR>")
+-- FZF
+map("n", "<C-f>", ":GFiles --cached --others --exclude-standard<CR>")
+map("n", "<C-s>", ":Rg <C-R><C-W><CR>")
+map("n", "<leader>ff", ":Files<CR>")
+map("n", "<Leader>fd", ":Files ~/dev<CR>") -- search entire dev dir
+map("n", "<C-e>", ":GFiles?<CR>")
+map("n", "<Leader>fg", ":RG<CR>")
+map("n", "<Leader>fc", ":Commits<CR>")
+map("n", "<Leader><Space>", ":Buffers<CR>")
+map("n", "<Leader>fb", ":Buffers<CR>")
 
 -- Testing
 map("n", "<leader>tn", '<cmd>lua require("neotest").run.run()<CR>') -- run nearest test
@@ -75,8 +64,7 @@ map("n", "<Leader>gR", ":Gitsigns reset_buffer<CR>")
 map("n", "<Leader>gw", ":Gitsigns stage_buffer<CR>")
 map("n", "<Leader>gl", ":Git log<CR>")
 map("n", "<Leader>gB", ":Git blame<CR>")
-map("n", "<Leader>gb", ":Telescope git_branches<CR>")
-map("n", "<Leader>gh", ":Telescope git_bcommits<CR>")
+map("n", "<Leader>gh", ":BCommits<CR>")
 
 -- Git diff
 map("n", "<Leader>df", ":Gvdiffsplit<CR>")
@@ -100,7 +88,9 @@ map("n", "<Leader>Z", ":ZenMode<CR>")
 map("n", "<Leader>rs", [[:exe "!tmux send -t 1.2 './manage.py runserver' Enter"<CR><CR>]], { silent = true })
 -- map("n", "<Leader>ptw", [[:exe "!tmux send -t 1.3 'ptw . " . bufname("%") . " ' Enter"<CR><CR>]], { silent = true })
 map("n", "<Leader>ma", ":Make<CR>", { silent = true })
-map("n", "<Leader>mt", ":Make ")
+map("n", "<Leader>mt", ":Make test<CR>")
+map("n", "<Leader>mc", ":Make check<CR>")
+map("n", "<Leader>m<Space>", ":Make ")
 
 -- Codeium
 map("n", "<Leader>cc", ":CodeiumAuto<CR>")
