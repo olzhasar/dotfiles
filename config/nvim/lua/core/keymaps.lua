@@ -55,12 +55,6 @@ map("n", "<Leader>fs", ":GFiles?<CR>")
 map("n", "<Leader><Space>", ":GFiles?<CR>")
 map("n", "<Leader>fh", ":History<CR>")
 
--- Testing
-map("n", "<leader>tn", '<cmd>lua require("neotest").run.run()<CR>') -- run nearest test
-map("n", "<leader>ta", '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>') -- run file
-map("n", "<leader>to", '<cmd>lua require("neotest").output.open()<CR>') -- show test output
-map("n", "<leader>ts", '<cmd>lua require("neotest").summary.toggle()<CR>') -- show test summary
-
 -- Git
 map("n", "<Leader>gs", ":Git<CR>")
 map("n", "<Leader>gv", ":vertical Git<CR>")
