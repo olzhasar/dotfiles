@@ -23,6 +23,7 @@ return {
         "cssls",
         "htmx",
         "harper_ls",
+	"zls",
       },
       -- auto-install configured servers (with lspconfig)
       automatic_installation = true, -- not the same as ensure_installed
@@ -102,6 +103,7 @@ return {
       setup("html")
       setup("cssls")
       setup("dockerls")
+      setup("zls")
       setup("gopls", {
         workspace_required = false,
       })
@@ -172,6 +174,7 @@ return {
       vim.lsp.enable("harper_ls")
       vim.lsp.enable("pyright")
       vim.lsp.enable("ruff")
+      vim.lsp.enable("zls")
     end,
   },
 }
