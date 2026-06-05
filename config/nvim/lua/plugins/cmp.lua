@@ -15,6 +15,12 @@ return {
       local cmp = require("cmp")
       local luasnip = require("luasnip")
       local lspkind = require("lspkind")
+      local source_labels = {
+        buffer = "[B]",
+        path = "[P]",
+        nvim_lsp = "[LSP]",
+        luasnip = "[SNIP]",
+      }
 
       vim.opt.completeopt = "menu,menuone,noselect"
 
@@ -54,18 +60,14 @@ return {
           }, -- text within all buffers
           { name = "path" }, -- file system paths
         }),
-        -- configure lspkind for vs-code like icons
+        -- configure a compact icon-first completion menu
         formatting = {
-          fields = { "kind", "abbr", "menu" },
-          format = lspkind.cmp_format({
-            mode = "symbol",
-            menu = {
-              buffer = "[B]",
-              path = "[P]",
-              nvim_lsp = "[LSP]",
-              luasnip = "[SNIP]",
-            },
-          }),
+          fields = { "icon", "abbr", "menu" },
+          format = function(entry, vim_item)
+            vim_item.icon = lspkind.symbolic(vim_item.kind)
+            vim_item.menu = source_labels[entry.source.name] or ""
+            return vim_item
+          end,
         },
       })
 
