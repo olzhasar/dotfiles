@@ -13,6 +13,12 @@ return {
       vim.g.fzf_vim = {
         grep_multi_line = 0,
         preview_window = { "right,50%", "ctrl-/" },
+        buffers_options = {
+          "--bind",
+          "ctrl-d:trigger(shift-delete)",
+          "--header",
+          "Press CTRL-D to unload buffer",
+        },
       }
       vim.g.fzf_layout = {
         window = { width = 0.9, height = 0.75 },

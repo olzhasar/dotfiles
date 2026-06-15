@@ -26,6 +26,7 @@ map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 -- Buffers
 map("n", "<Leader>bd", ":Bd<CR>") -- close current buffer
 map("n", "<Tab>", "<C-^>")
+map("n", "<C-n>", ":bnext<CR>")
 
 -- Quickfix
 map("n", "]q", ":cnext<CR>zz", { silent = true })
