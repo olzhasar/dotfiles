@@ -28,6 +28,7 @@ map("n", "<Leader>bd", ":Bd<CR>") -- close current buffer
 map("n", "<C-i>", "<C-i>")
 map("n", "<Tab>", "<C-^>")
 map("n", "<C-n>", ":bnext<CR>")
+map("n", "<C-p>", ":bprev<CR>")
 
 -- Quickfix
 map("n", "]q", ":cnext<CR>zz", { silent = true })
@@ -47,15 +48,18 @@ map("n", "N", "Nzzzv")
 map("n", "<C-f>", ":GFiles --cached --others --exclude-standard<CR>")
 map("n", "<C-s>", ":Rg <C-R><C-W><CR>")
 map("n", "<C-e>", ":Buffers<CR>")
+map("n", "<C-t>", ":Tags<CR>")
 map("n", "<Leader>fb", ":Buffers<CR>")
 map("n", "<Leader>ff", ":Files<CR>")
 map("n", "<Leader>fa", ":Files<CR>")
-map("n", "<Leader>fp", ":Files ~/dev<CR>")
+map("n", "<Leader>f~", ":Files ~/dev<CR>")
 map("n", "<Leader>fl", ":Files ~/Downloads<CR>")
 map("n", "<Leader>fg", ":RG<CR>")
 map("n", "<Leader>fs", ":GFiles?<CR>")
 map("n", "<Leader><Space>", ":GFiles?<CR>")
-map("n", "<Leader>fh", ":History<CR>")
+map("n", "<C-=>", ":GFiles?<CR>")
+map("n", "<C-h>", ":History<CR>")
+map("n", "<C-j>", ":Jumps<CR>")
 
 -- Git
 map("n", "<Leader>gs", ":Git<CR>")
