@@ -15,7 +15,7 @@ return {
         preview_window = { "right,50%", "ctrl-/" },
         buffers_options = {
           "--bind",
-          "ctrl-d:trigger(shift-delete)",
+          "ctrl-d:trigger(ctrl-alt-x)",
           "--header",
           "Press CTRL-D to unload buffer",
         },
