@@ -6,7 +6,7 @@ return {
       "mfussenegger/nvim-dap",
     },
     opts = {
-      ensure_installed = { "codelldb" },
+      ensure_installed = { "codelldb", "delve" },
       automatic_installation = true,
       handlers = {
         codelldb = function(config)
@@ -20,6 +20,37 @@ return {
     "mfussenegger/nvim-dap",
     config = function()
       local dap = require("dap")
+
+      dap.adapters.go = {
+        type = "server",
+        port = "${port}",
+        executable = {
+          command = "dlv",
+          args = { "dap", "-l", "127.0.0.1:${port}" },
+        },
+      }
+
+      dap.configurations.go = {
+        {
+          name = "Debug",
+          type = "go",
+          request = "launch",
+          program = "${file}",
+        },
+        {
+          name = "Debug package",
+          type = "go",
+          request = "launch",
+          program = "${fileDirname}",
+        },
+        {
+          name = "Debug test",
+          type = "go",
+          request = "launch",
+          mode = "test",
+          program = "./${relativeFileDirname}",
+        },
+      }
 
       dap.configurations.c = {
         {
