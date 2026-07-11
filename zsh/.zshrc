@@ -28,13 +28,6 @@ if command -v fzf >/dev/null 2>&1; then
   fi
 fi
 
-# bun completions
-[ -s "/Users/olzhas/.bun/_bun" ] && source "/Users/olzhas/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
 if [[ -f "$HOME/.zshrc.local" ]]; then
   source "$HOME/.zshrc.local"
 fi
