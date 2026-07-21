@@ -1,4 +1,27 @@
 return {
+  {
+    "saghen/blink.cmp",
+    version = "1.*",
+    opts = {
+      keymap = {
+        preset = "default",
+        ["<C-h>"] = { "accept", "fallback" },
+      },
+      sources = {
+        default = { "lsp" },
+      },
+      completion = {
+        list = { selection = { preselect = false, auto_insert = true } },
+        documentation = {
+          auto_show = true,
+          auto_show_delay_ms = 50,
+        },
+      },
+      fuzzy = {
+        implementation = "prefer_rust_with_warning",
+      },
+    },
+  },
   { "williamboman/mason.nvim", opts = {} },
   {
     "williamboman/mason-lspconfig.nvim",
@@ -18,15 +41,14 @@ return {
         "ansiblels",
         "terraformls",
         "texlab",
-        -- "ty",
         "bashls",
         "cssls",
         "htmx",
         "harper_ls",
-	"zls",
+        "ols",
+        "zls",
       },
       -- auto-install configured servers (with lspconfig)
-      automatic_installation = true, -- not the same as ensure_installed
       -- do not auto-enable servers with default configs; we enable explicitly below
       automatic_enable = false,
     },
@@ -34,34 +56,24 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      "onsails/lspkind.nvim",
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
+      "saghen/blink.cmp",
     },
     config = function()
-      local cmp_nvim_lsp = require("cmp_nvim_lsp")
+      local on_attach = function(client, bufnr)
+        local opts = { buffer = bufnr, noremap = true, silent = true }
 
-      -- enable keybinds only for when lsp server available
-      local on_attach = function(_, _)
-        local opts = { noremap = true, silent = true }
-
-        vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-        vim.keymap.set("n", "gv", "<cmd>vsplit | lua vim.lsp.buf.definition()<CR>", opts)
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+        vim.keymap.set("n", "gD", vim.lsp.buf.type_definition, opts)
+        vim.keymap.set("n", "gV", "<cmd>vsplit | lua vim.lsp.buf.definition()<CR>", opts)
         vim.keymap.set("n", "gs", "<cmd>split | lua vim.lsp.buf.definition()<CR>", opts)
-        vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-        vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-        vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-        vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-        vim.keymap.set("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-        vim.keymap.set("n", "<leader>o", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", opts)
-        vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
-        vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
-        vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-        vim.keymap.set("i", "<C-h>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+        vim.keymap.set("n", "<Space>", vim.diagnostic.open_float, opts)
+        vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+        vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
       end
-
-      -- used to enable autocompletion (assign to every lsp server config)
-      local capabilities = cmp_nvim_lsp.default_capabilities()
 
       vim.diagnostic.config({
         signs = {
@@ -78,7 +90,7 @@ return {
       -- Helper: merge a base config with per-server overrides
       local base = {
         on_attach = on_attach,
-        capabilities = capabilities,
+        capabilities = require("blink.cmp").get_lsp_capabilities(),
         -- Require a workspace/root for all servers by default (no rootless clients).
         workspace_required = true,
       }
@@ -88,7 +100,7 @@ return {
 
       -- Simple servers
       setup("pyright", {
-        workspace_required = false,
+        workspace_required = true,
         settings = {
           ["pyright"] = {
             ["typeCheckingMode"] = "off",
@@ -102,21 +114,41 @@ return {
       setup("dockerls")
       setup("zls")
       setup("gopls", {
-        workspace_required = false,
+        workspace_required = true,
       })
       setup("ts_ls", {
-        workspace_required = false,
+        workspace_required = true,
       })
-      setup("clangd")
+      setup("clangd", {
+        workspace_required = true,
+      })
       setup("yamlls")
       setup("sqlls")
       setup("ansiblels")
       setup("terraformls")
       setup("texlab")
 
+      local odin_root = vim.fn.systemlist({ "odin", "root" })[1]
+      if odin_root and odin_root ~= "" then
+        setup("ols", {
+          workspace_required = true,
+          init_options = {
+            odin_command = vim.fn.exepath("odin"),
+            collections = {
+              { name = "core", path = vim.fs.joinpath(odin_root, "core") },
+              { name = "shared", path = vim.fs.joinpath(odin_root, "shared") },
+              { name = "vendor", path = vim.fs.joinpath(odin_root, "vendor") },
+            },
+          },
+        })
+      else
+        setup("ols")
+      end
+
       -- Per-server tweaks
       setup("harper_ls", {
-	filetypes = { "markdown", "tex", "rst" },
+        filetypes = { "markdown", "tex", "rst" },
+        workspace_required = true,
       })
 
       setup("jsonls", {
@@ -129,10 +161,12 @@ return {
 
       setup("tailwindcss", {
         filetypes = { "html", "htmldjango", "javascript", "typescript", "vue" },
+        workspace_required = true,
       })
 
       setup("htmx", {
         filetypes = { "html", "htmldjango" },
+        workspace_required = true,
       })
 
       -- configure lua server (with special settings)
@@ -172,6 +206,7 @@ return {
       vim.lsp.enable("pyright")
       vim.lsp.enable("ruff")
       vim.lsp.enable("zls")
+      vim.lsp.enable("ols")
     end,
   },
 }

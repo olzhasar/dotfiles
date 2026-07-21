@@ -2,7 +2,6 @@
 
 return {
   { "mattn/emmet-vim", ft = { "html", "htmldjango", "jinja.html" } },
-  { "lervag/vimtex", ft = "tex" },
   {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },

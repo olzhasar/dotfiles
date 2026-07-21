@@ -13,7 +13,6 @@ map("n", ",s", [[:split <C-R>=expand("%:h") . "/" <CR>]])
 map("n", ",v", [[:vsplit <C-R>=expand("%:h") . "/" <CR>]])
 map("n", "<Leader>bg", ":BackgroundSwitch<CR>")
 map("n", "Q", "<nop>")
-map("n", "<Leader>F", "<cmd>lua require('conform').format({ lsp_fallback=true })<CR>")
 
 -- Copy pasting
 map("n", "<Leader>y", [["+y]])
@@ -31,10 +30,20 @@ map("n", "<C-n>", ":bnext<CR>")
 map("n", "<C-p>", ":bprev<CR>")
 
 -- Quickfix
+local function toggle_quickfix()
+  for _, win in ipairs(vim.fn.getwininfo()) do
+    if win.quickfix == 1 then
+      vim.cmd("cclose")
+      return
+    end
+  end
+
+  vim.cmd("copen")
+end
+
+vim.keymap.set("n", "<C-q>", toggle_quickfix, { silent = true })
 map("n", "]q", ":cnext<CR>zz", { silent = true })
 map("n", "[q", ":cprev<CR>zz", { silent = true })
-map("n", "<Leader>qo", ":copen<CR>", { silent = true })
-map("n", "<Leader>qc", ":cclose<CR>", { silent = true })
 
 -- Navigating
 map("v", "J", ":m '>+1<CR>gv=gv")
@@ -57,7 +66,6 @@ map("n", "<Leader>fl", ":Files ~/Downloads<CR>")
 map("n", "<Leader>fg", ":RG<CR>")
 map("n", "<Leader>fs", ":GFiles?<CR>")
 map("n", "<Leader><Space>", ":GFiles?<CR>")
-map("n", "<C-=>", ":GFiles?<CR>")
 map("n", "<C-h>", ":History<CR>")
 map("n", "<C-j>", ":Jumps<CR>")
 
@@ -85,14 +93,12 @@ map("n", "<Leader>hu", ":Gitsigns undo_stage_hunk<CR>")
 
 -- Documentation
 map("n", "<Leader>k", ":Man <C-r><C-w><CR>")
-map("n", "<Leader>M", ":Man ")
 
 -- Journaling
 map("n", "<Leader>Z", ":ZenMode<CR>")
 
 -- Make commands
-map("n", "<Leader>ma", ":Make<CR>", { silent = true })
-map("n", "<Leader>mr", ":Make run<CR>", { silent = true })
-map("n", "<Leader>mt", ":Make test<CR>")
-map("n", "<Leader>mc", ":Make check<CR>")
-map("n", "<Leader>m<Space>", ":Make ")
+map("n", "M", ":make<CR>", { silent = true })
+map("n", "<Leader>mr", ":make run<CR>", { silent = true })
+map("n", "<Leader>mt", ":make test<CR>", { silent = true })
+map("n", "<Leader>md", ":make debug<CR>", { silent = true })

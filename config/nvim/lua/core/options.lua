@@ -3,7 +3,6 @@ local o = vim.o
 
 -- general
 opt.hidden = true
-opt.encoding = "utf-8"
 opt.autoread = true
 opt.backup = false
 opt.writebackup = false
@@ -39,6 +38,7 @@ opt.scrolloff = 10
 -- appearance
 opt.termguicolors = true
 opt.signcolumn = "yes"
+opt.completeopt = { "menu", "menuone", "noselect", "fuzzy" }
 
 -- filetypes
 vim.g.c_syntax_for_h = 1
@@ -46,14 +46,15 @@ vim.g.c_syntax_for_h = 1
 -- backspace
 opt.backspace = "indent,eol,start"
 
-o.statusline = ""
-o.statusline = o.statusline .. "%y"
-o.statusline = o.statusline .. " %f "
-o.statusline = o.statusline .. " %{get(b:,'gitsigns_status', '')}"
-o.statusline = o.statusline .. " %="
-o.statusline = o.statusline .. "%{get(g:, 'gitsigns_head', '')} "
-o.statusline = o.statusline .. "%p%% | "
-o.statusline = o.statusline .. "%l:%c "
+o.statusline = table.concat({
+  "%y",
+  " %f ",
+  " %{get(b:,'gitsigns_status', '')}",
+  " %=",
+  "%{get(g:, 'gitsigns_head', '')} ",
+  "%p%% | ",
+  "%l:%c ",
+})
 --
 -- netrw
 vim.g.netrw_banner = 0
@@ -66,4 +67,4 @@ vim.g.netrw_list_hide = "^\\./$,.*\\.swp$,.*\\.pyc,.*\\.o$,\\.pytest_cache,\\.my
   .. "node_modules,\\.*.sqlite,celerybeat-schedule$"
 
 --python
-vim.g.python3_host_prog = "$HOME/.local/share/nvim/.venv/bin/python3"
+vim.g.python3_host_prog = vim.fn.expand("~/.local/share/nvim/.venv/bin/python3")

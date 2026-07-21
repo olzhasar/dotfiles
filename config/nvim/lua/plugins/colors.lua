@@ -22,6 +22,5 @@ return {
       vim.cmd.colorscheme(vim.g.dark_colorscheme)
     end,
   },
-  { "catppuccin/nvim", lazy = false },
-  { "kyazdani42/nvim-web-devicons", lazy = true },
+  { "catppuccin/nvim", lazy = true },
 }
