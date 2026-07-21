@@ -1,13 +1,13 @@
 return {
   {
     "jay-babu/mason-nvim-dap.nvim",
+    ft = { "c", "cpp", "go", "rust", "zig" },
     dependencies = {
       "williamboman/mason.nvim",
       "mfussenegger/nvim-dap",
     },
     opts = {
       ensure_installed = { "codelldb", "delve" },
-      automatic_installation = true,
       handlers = {
         codelldb = function(config)
           config.configurations = {}
@@ -18,6 +18,7 @@ return {
   },
   {
     "mfussenegger/nvim-dap",
+    ft = { "c", "cpp", "go", "rust", "zig" },
     config = function()
       local dap = require("dap")
 

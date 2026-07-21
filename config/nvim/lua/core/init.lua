@@ -6,6 +6,6 @@ local modules = {
   "core.lazy",
 }
 
-for _, v in pairs(modules) do
+for _, v in ipairs(modules) do
   require(v)
 end

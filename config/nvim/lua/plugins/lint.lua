@@ -1,6 +1,15 @@
 return {
   {
     "stevearc/conform.nvim",
+    keys = {
+      {
+        "<Leader>F",
+        function()
+          require("conform").format({ lsp_fallback = true })
+        end,
+        desc = "Format buffer",
+      },
+    },
     config = function()
       require("conform").setup({
         formatters_by_ft = {
@@ -22,33 +31,6 @@ return {
             end
           end,
         },
-        -- format_on_save = function(bufnr)
-        --   if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-        --     return
-        --   end
-        --   return { timeout_ms = 500, lsp_format = "fallback" }
-        -- end,
-      })
-
-      vim.api.nvim_create_user_command("ConformToggle", function()
-        if vim.b.disable_autoformat then
-          vim.b.disable_autoformat = false
-        else
-          vim.b.disable_autoformat = true
-        end
-      end, { desc = "Toggle format on save" })
-    end,
-  },
-  {
-    "mfussenegger/nvim-lint",
-    config = function()
-      require("lint").linters_by_ft = {
-        python = { "mypy" },
-      }
-      vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-        callback = function()
-          require("lint").try_lint(nil, { ignore_errors = true })
-        end,
       })
     end,
   },
